@@ -1,0 +1,46 @@
+.input {
+    width: 300px;
+    height: 33px;
+    border-radius: 10px;
+    outline: none;
+    margin-top: 12px;
+}
+
+.submit {
+    width: 170px;
+    height: 35px;
+    border-radius: 25px;
+    outline: none;
+    margin-top: 20px;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    margin-left: 73px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body {
+    background-color: #3f51b5;
+    background-image: url('../login-bg.png');
+    min-height: 100%;
+    width: 100%
+}
+span{
+    color:red;
+    text-align: center
+}
+
+div{
+    width: 800px;
+    height:500px;
+    margin:0 auto;
+    padding-top: 150px;
+    padding-left: 100px
+}

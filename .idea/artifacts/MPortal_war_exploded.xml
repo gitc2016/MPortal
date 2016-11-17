@@ -18,6 +18,8 @@
           <element id="library" level="project" name="Maven: asm:asm:3.3" />
           <element id="library" level="project" name="Maven: asm:asm-commons:3.3" />
           <element id="library" level="project" name="Maven: asm:asm-tree:3.3" />
+          <element id="library" level="project" name="Maven: javax.mail:mail:1.4" />
+          <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">
