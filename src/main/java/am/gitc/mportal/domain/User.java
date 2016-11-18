@@ -21,13 +21,13 @@ public class User {
 
     }
 
-    public User(int id, String name, String surname, String email, String password,String imageURL, Role role, Gender gender, Country country,int registerCode) {
+    public User(int id, String name, String surname, String email, String password,String url, Role role, Gender gender, Country country,int registerCode) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
-        this.imageURL = imageURL;
+        this.imageURL = url;
         this.role = role;
         this.gender = gender;
         this.country = country;
@@ -74,12 +74,12 @@ public class User {
         this.password = password;
     }
 
-    public String getImageURL() {
+    public String getURL() {
         return imageURL;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImageURL(String url) {
+        this.imageURL = url;
     }
 
     public Role getRole() {
