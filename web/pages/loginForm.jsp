@@ -18,6 +18,12 @@
     <link rel="stylesheet" type="text/css" href="..\css\login.css" media="screen"/>
     <style>
 
+        span {
+            color: red;
+            font-weight: bold;
+            padding-left: 150px;
+        }
+
     </style>
 </head>
 <body>
