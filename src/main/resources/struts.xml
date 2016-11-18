@@ -50,7 +50,7 @@
 
         <!--RegisterActionPage-->
         <action name="registerForm" class="am.gitc.mportal.action.RegistrationAction">
-            <interceptor-ref name="registerStack"/>
+            <!--<interceptor-ref name="registerStack"/>-->
             <result name="success">/pages/mailCode.jsp</result>
             <result name="error">/pages/error.jsp</result>
             <result name="input">/pages/registerForm.jsp</result>

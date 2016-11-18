@@ -7,6 +7,7 @@ import am.gitc.mportal.domain.User;
 import am.gitc.mportal.util.Global_Keys;
 import com.opensymphony.xwork2.validator.annotations.*;
 import org.apache.struts2.interceptor.validation.SkipValidation;
+
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
@@ -21,8 +22,8 @@ import java.util.Random;
  */
 public class RegistrationAction extends GlobalAction {
 
-    private  String from = "student.gitc.2016@gmail.com";
-    private  String fromPassword="student2016";
+    private String from = "student.gitc.2016@gmail.com";
+    private String fromPassword = "student2016";
     private String name;
     private String surname;
     private String email;
@@ -61,8 +62,8 @@ public class RegistrationAction extends GlobalAction {
         return email;
     }
 
-    @RequiredStringValidator(message = "Please enter your surname.")
-    @EmailValidator(message = "Please enter valid mail")
+    @RequiredStringValidator(message = "Please enter your e-mail.")
+    @EmailValidator(message = "Please enter valid e-mail")
     public void setEmail(String email) {
         this.email = email;
     }
@@ -71,7 +72,7 @@ public class RegistrationAction extends GlobalAction {
         return password;
     }
 
-    @RequiredStringValidator(message = "Please enter your surname.")
+    @RequiredStringValidator(message = "Please enter your password.")
     @RegexFieldValidator(regex = "[A-Z,a-z,0-9]{8,20}", message = "This password is not valid")
     public void setPassword(String password) {
         this.password = password;
@@ -81,7 +82,7 @@ public class RegistrationAction extends GlobalAction {
         return confirmPassword;
     }
 
-    @RequiredStringValidator(message = "Please enter your surname.")
+    @RequiredStringValidator(message = "Please enter your password.")
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
@@ -116,6 +117,7 @@ public class RegistrationAction extends GlobalAction {
         return mailcode;
     }
 
+//    @RequiredStringValidator(message = "Please enter sended code")
     public void setMailcode(String mailcode) {
         this.mailcode = mailcode;
     }
@@ -150,13 +152,13 @@ public class RegistrationAction extends GlobalAction {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(email));
             message.setSubject("MPortal");
-            message.setText("Please enter this code" + emailCode + "that you will be able to register in MPortal page");
+            message.setText("Please enter this code   " + emailCode + "   that you will be able to register in MPortal page");
             Transport.send(message);
         } catch (Exception e) {
             ret = ERROR;
             e.printStackTrace();
         }
-        if(!ret.equals(ERROR)) {
+        if (!ret.equals(ERROR)) {
             mapSession.put(Global_Keys.REGISTER, user);
         }
         return ret;
@@ -183,12 +185,16 @@ public class RegistrationAction extends GlobalAction {
     public String add() {
         User user = (User) mapSession.get(Global_Keys.REGISTER);
         System.out.println(user.toString());
+
         if (user == null) {
             return ERROR;
+        } else if (mailcode.length()==0){
+            return INPUT;
         }
-        if(Integer.parseInt(mailcode)==(user.getRegisterCode())){
+        else if (Integer.parseInt(mailcode) == (user.getRegisterCode())){
             return SUCCESS;
         }
+
         return INPUT;
     }
 
