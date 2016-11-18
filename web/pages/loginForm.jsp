@@ -12,7 +12,7 @@
     <title>MPortal</title>
     <link rel="stylesheet" type="text/css" href="..\css\login.css" media="screen"/>
     <style>
-        span{
+        span {
             color: red;
             font-weight: bold;
             padding-left: 150px;
