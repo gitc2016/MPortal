@@ -10,7 +10,7 @@ public class User {
     private String surname;
     private String email;
     private String password;
-    private String imageURL;
+    private String imageSRC;
     private Role role;
     private Gender gender;
     private Country country;
@@ -27,7 +27,7 @@ public class User {
         this.surname = surname;
         this.email = email;
         this.password = password;
-        this.imageURL = url;
+        this.imageSRC = url;
         this.role = role;
         this.gender = gender;
         this.country = country;
@@ -75,11 +75,11 @@ public class User {
     }
 
     public String getURL() {
-        return imageURL;
+        return imageSRC;
     }
 
-    public void setImageURL(String url) {
-        this.imageURL = url;
+    public void setImageSRC(String url) {
+        this.imageSRC = url;
     }
 
     public Role getRole() {
@@ -128,7 +128,7 @@ public class User {
         if (surname != null ? !surname.equals(user.surname) : user.surname != null) return false;
         if (email != null ? !email.equals(user.email) : user.email != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        if (imageURL != null ? !imageURL.equals(user.imageURL) : user.imageURL != null) return false;
+        if (imageSRC != null ? !imageSRC.equals(user.imageSRC) : user.imageSRC != null) return false;
         if (role != user.role) return false;
         if (gender != user.gender) return false;
         return country != null ? country.equals(user.country) : user.country == null;
@@ -142,7 +142,7 @@ public class User {
         result = 31 * result + (surname != null ? surname.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (imageURL != null ? imageURL.hashCode() : 0);
+        result = 31 * result + (imageSRC != null ? imageSRC.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (gender != null ? gender.hashCode() : 0);
         result = 31 * result + (country != null ? country.hashCode() : 0);
@@ -158,7 +158,7 @@ public class User {
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", imageURL='" + imageURL + '\'' +
+                ", imageSRC='" + imageSRC + '\'' +
                 ", role=" + role +
                 ", gender=" + gender +
                 ", country=" + country +
