@@ -1,5 +1,5 @@
 CREATE DATABASE `Mportal` /*!40100 DEFAULT CHARACTER SET latin1 */;
-CREATE TABLE `category` (
+CREATE TABLE `category`(
   `category_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `parent_id` int(11) NOT NULL,
