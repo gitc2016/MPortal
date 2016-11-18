@@ -10,6 +10,11 @@
 <html>
 <head>
     <title>MPortal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="..\css\login.css" media="screen"/>
     <style>
 
@@ -23,25 +28,35 @@
 
 </head>
 <body>
-<div style="width: 800px;margin:0 auto;padding-top: 10px;padding-left: 100px">
+<div class="center">
+    <p>
+        <img src="/logo.png" style="padding-left: 580px" class="text-center">
+        MPortal</p>
+    <div class="col-sm-4">
+    </div>
 
-    <s:form action="registerForm.action" method="post">
+    <div class="col-sm-4 ">
+        <s:form action="registerForm.action" method="post">
 
-            <s:textfield key="name" cssClass="input"/><br><br>
-            <s:textfield key="surname" cssClass="input"/><br><br>
-            <s:textfield key="email" cssClass="input"/><br><br>
-            <s:password key="password" cssClass="input"/><br><br>
-            <s:password key="confirmPassword" cssClass="input"/><br><br>
+            <s:textfield key="name" cssClass="input form-control"/><br><br>
+            <s:textfield key="surname" cssClass="input form-control"/><br><br>
+            <s:textfield key="email" cssClass="input form-control"/><br><br>
+            <s:password key="password" cssClass="input form-control"/><br><br>
+            <s:password key="confirmPassword" cssClass="input form-control"/><br><br>
 
-            <s:radio list="{'MALE','FEMALE'}" key="gender" cssClass="radio"/>
-            <s:radio list="{'MENTEE','MENTOR'}" key="role" cssClass="radio"/>
+            <s:radio list="{'MALE','FEMALE'}" key="gender"/>
+            <s:radio list="{'MENTEE','MENTOR'}" key="role"/>
             <s:select list="{'Armenia','Russia','USA'}" key="country"/>
-            <s:submit key="signUp" cssClass="submit"/>
+            <s:submit key="signUp" class="btn-danger submit" style="margin-left: 120px"/>
 
-    </s:form>
+        </s:form>
 
-    <a href="/pages/loginForm.jsp"><s:text name="signUp"/></a>
+        <a href="/pages/loginForm.jsp"><s:text name="signUp"/></a>
+    </div>
 
+    <div class="col-sm-4">
+
+    </div>
 </div>
 </body>
 </html>

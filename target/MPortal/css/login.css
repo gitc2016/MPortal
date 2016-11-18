@@ -1,25 +1,25 @@
 .input {
-    width: 300px;
-    height: 33px;
-    border-radius: 10px;
+    width: 350px;
+    height: 37px;
+    border-radius: 5px;
     outline: none;
     margin-top: 12px;
+    border-color: rgba(157, 150, 177, 0.84)
 }
 
 .submit {
-    width: 170px;
-    height: 35px;
-    border-radius: 25px;
-    outline: none;
-    margin-top: 20px;
     color: #fff;
-    background-color: #337ab7;
-    border-color: #2e6da4;
-    margin-left: 73px;
+    width: 350px;
+    height: 37px;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 12px;
+    margin-left: 84px
 }
 
 a:link {
     text-decoration: none;
+    color: #131569;
 }
 
 a:hover {
@@ -32,15 +32,31 @@ body {
     min-height: 100%;
     width: 100%
 }
-span{
-    color:red;
-    text-align: center
+
+span {
+    color: red;
+    font-weight: bold;
+    padding-left: 150px;
 }
 
-div{
-    width: 800px;
-    height:500px;
-    margin:0 auto;
-    padding-top: 150px;
-    padding-left: 100px
+/*.div {*/
+    /*margin-top: 150px;*/
+
+/*}*/
+
+label {
+    cursor: text;
+    font-size: 12px
 }
+
+.a{
+    padding-left: 250px;
+    font-size: 20px
+}
+
+p{
+    color: #3b4fb7;
+    padding-left: 50px;
+    font-size: 50px
+}
+

@@ -1,5 +1,6 @@
 package am.gitc.mportal.controller;
 
+import am.gitc.mportal.domain.User;
 import am.gitc.mportal.util.Global_Keys;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
@@ -15,7 +16,7 @@ public class Authentication extends AbstractInterceptor {
     public String intercept(ActionInvocation invocation) throws Exception {
 
         Map<String, Object> mapSession = invocation.getInvocationContext().getSession();
-        String login = (String) mapSession.get(Global_Keys.LOGIN);
+        User login = (User) mapSession.get(Global_Keys.LOGIN);
 
         if (login == null) {
             return Action.INPUT;

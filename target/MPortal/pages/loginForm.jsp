@@ -10,37 +10,53 @@
 <html>
 <head>
     <title>MPortal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="..\css\login.css" media="screen"/>
     <style>
-        span{
-            color: red;
-            font-weight: bold;
-            padding-left: 150px;
-        }
+
     </style>
 </head>
 <body>
-<div style="width: 800px;height:500px;margin:0 auto;padding-top: 150px;padding-left: 100px">
 
-    <s:form action="loginForm.action" method="post">
-        <s:textfield key="login" cssClass="input"/><br><br>
-        <s:password key="password" cssClass="input"/><br><br>
-        <s:submit key="signIn" cssClass="submit"/>
-    </s:form>
+<div class="center">
+    <p>
+        <img src="logo.png" style="padding-left: 580px;" class="text-center">
+        MPortal</p>
+    <div class="col-sm-4">
 
-    <s:a href="/pages/registerForm.jsp"><s:text name="signUp"/></s:a>
+    </div>
+    <div class="col-sm-4 ">
+        <s:form action="loginForm.action" method="post">
+            <s:textfield key="login" cssClass="input form-control"/><br><br>
+            <s:password key="password" cssClass="input form-control"/><br><br>
+            <s:submit key="signIn" class="btn-danger submit"/>
 
+        </s:form>
+
+        <s:a action="login" namespace="/">
+            <s:param name="request_locale">en</s:param>
+            <s:text name="en"/>
+        </s:a>
+
+        <s:a action="login" namespace="/">
+            <s:param name="request_locale">arm</s:param>
+            <s:text name="arm"/>
+        </s:a>
+
+        <s:a href="/pages/registerForm.jsp" cssClass="a"><s:text name="signUp"/></s:a>
+
+
+    </div>
+
+    <div class="col-sm-4">
+
+    </div>
 </div>
 
-<s:a action="login" namespace="/">
-    <s:param name="request_locale">en</s:param>
-    <s:text name="en"/>
-</s:a>
-
-<s:a action="login" namespace="/">
-    <s:param name="request_locale">arm</s:param>
-    <s:text name="arm"/>
-</s:a>
 
 </body>
 </html>
