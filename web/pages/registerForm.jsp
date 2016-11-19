@@ -30,8 +30,8 @@
 <body>
 <div class="center">
     <p>
-        <img src="/logo.png" style="padding-left: 580px" class="text-center">
-        MPortal</p>
+        <img src="\logo.png" style="padding-left: 580px" class="text-center">
+        MPortal </p>
     <div class="col-sm-4">
     </div>
 
