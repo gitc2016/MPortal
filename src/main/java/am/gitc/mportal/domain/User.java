@@ -6,31 +6,42 @@ import javax.persistence.*;
  * Created by Gtc-user17 on 11/13/2016.
  */
 @Entity
+@Table(name = "user")
 public class User {
 
     @Id
-    @GeneratedValue
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private int id;
+
     @Column
     private String name;
+
     @Column
     private String surname;
+
     @Column
     private String email;
+
     @Column
     private String password;
-    @Column
+
+    @Transient
     private String imageSRC;
+
     @Enumerated(EnumType.STRING)
     private Role role;
+
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @ManyToMany
+
+    @OneToMany
     private Country country;
-    @Column
+
+    @Transient
     private int registerCode;
-    @Column
+
+    @Transient
     private String dateOfBirth;
 
 
