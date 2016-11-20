@@ -1,13 +1,26 @@
 package am.gitc.mportal.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Created by Gtc-user17 on 11/14/2016.
  */
+@Entity
 public class Message {
-
+    @Id
+    @GeneratedValue
+    @Column
     private int fromID;
+    @Id
+    @GeneratedValue
+    @Column
     private int toID;
+    @Column
     private String text;
+    @Column
     private boolean isRead;
 
     public Message() {
