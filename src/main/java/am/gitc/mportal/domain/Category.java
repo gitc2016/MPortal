@@ -1,12 +1,29 @@
 package am.gitc.mportal.domain;
 
+import org.hibernate.annotations.Table;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.*;
+
 /**
  * Created by Gtc-user17 on 11/13/2016.
  */
+@javax.persistence.Table(name = "category")
+@Entity
 public class Category {
 
+    @Id
+    @GeneratedValue
+    @Column
     private int categoryID;
+    @Column
     private String name;
+    @Id
+    @Column
+    @GeneratedValue
     private int parentID;
 
     public Category() {

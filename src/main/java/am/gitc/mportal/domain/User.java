@@ -1,27 +1,46 @@
 package am.gitc.mportal.domain;
 
+import javax.persistence.*;
+
 /**
  * Created by Gtc-user17 on 11/13/2016.
  */
+@Table(name = "user")
+@Entity
 public class User {
 
+    @Id
+    @GeneratedValue
+    @Column
     private int id;
+    @Column
     private String name;
+    @Column
     private String surname;
+    @Column
     private String email;
+    @Column
     private String password;
+    @Column
     private String imageSRC;
+    @Enumerated(EnumType.STRING)
     private Role role;
+    @Enumerated(EnumType.STRING)
     private Gender gender;
+    @ManyToOne
     private Country country;
+    @Column
     private int registerCode;
+    @Column
+    @Temporal(TemporalType.DATE)
+    private String dateOfBirth;
 
 
     public User() {
 
     }
 
-    public User(int id, String name, String surname, String email, String password,String url, Role role, Gender gender, Country country,int registerCode) {
+    public User(int id, String name, String surname, String email, String password,String url, Role role, Gender gender, Country country,int registerCode,String dateOfBirth) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -32,6 +51,7 @@ public class User {
         this.gender = gender;
         this.country = country;
         this.registerCode=registerCode;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public int getId() {
@@ -115,6 +135,18 @@ public class User {
         this.registerCode = registerCode;
     }
 
+    public String getImageSRC() {
+        return imageSRC;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -129,6 +161,7 @@ public class User {
         if (email != null ? !email.equals(user.email) : user.email != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (imageSRC != null ? !imageSRC.equals(user.imageSRC) : user.imageSRC != null) return false;
+        if (dateOfBirth != null ? !dateOfBirth.equals(user.dateOfBirth) : user.dateOfBirth!= null) return false;
         if (role != user.role) return false;
         if (gender != user.gender) return false;
         return country != null ? country.equals(user.country) : user.country == null;
@@ -146,6 +179,7 @@ public class User {
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (gender != null ? gender.hashCode() : 0);
         result = 31 * result + (country != null ? country.hashCode() : 0);
+        result = 31 * result + (dateOfBirth != null ? dateOfBirth.hashCode() : 0);
         result = 31 * result + registerCode;
         return result;
     }
@@ -159,6 +193,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", imageSRC='" + imageSRC + '\'' +
+                ", imageSRC='" + dateOfBirth + '\'' +
                 ", role=" + role +
                 ", gender=" + gender +
                 ", country=" + country +

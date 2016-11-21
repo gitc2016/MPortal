@@ -1,11 +1,22 @@
 package am.gitc.mportal.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Created by Gtc-user17 on 11/13/2016.
  */
+@javax.persistence.Table(name = "language")
+@Entity
 public class Language {
 
+    @Id
+    @GeneratedValue
+    @Column
     private int id;
+    @Column
     private String name;
 
     public Language() {
