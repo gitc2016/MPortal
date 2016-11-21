@@ -28,7 +28,7 @@ a:hover {
 
 body {
     background-color: #3f51b5;
-    background-image: url('../login-bg.png');
+    background-image: url('../images/login-bg.png');
     min-height: 100%;
     width: 100%
 }
@@ -38,11 +38,9 @@ span {
     font-weight: bold;
     padding-left: 150px;
 }
-
-/*.div {*/
-    /*margin-top: 150px;*/
-
-/*}*/
+#registerForm br {
+    display: none !important;
+}
 
 label {
     cursor: text;
