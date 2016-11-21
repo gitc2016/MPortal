@@ -15,17 +15,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <asp:TextBox ID="endDate" ClientIDMode="Static" runat="server" />
+
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css" media="screen"/>
-    <style>
 
-        span {
-            color: red;
-            font-weight: bold;
-            padding-left: 150px;
-        }
-        #registerForm  br { display: none !important; }
-
-    </style>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+    </script>
 
 </head>
 <body>
@@ -48,11 +50,11 @@
             <s:radio list="{'MALE','FEMALE'}" key="gender"/>
             <s:radio list="{'MENTEE','MENTOR'}" key="role"/>
             <s:select list="{'Armenia','Russia','USA'}" key="country"/>
+            <s:textfield id="datepicker" key="date"/>
             <s:submit key="signUp" class="btn-danger submit" style="margin-left: 120px"/>
 
         </s:form>
-
-        <a href="/MPortal/pages/loginForm.jsp"><s:text name="signIn"/></a>
+        <a href="/pages/loginForm.jsp"><s:text name="signIn"/></a>
     </div>
 
     <div class="col-sm-4">
