@@ -20,4 +20,6 @@ public interface UserDao {
 
     Country getCountryById(int id);
 
+    User getUserByEmail(String email);
+
 }

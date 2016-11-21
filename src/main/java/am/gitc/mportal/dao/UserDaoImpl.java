@@ -52,4 +52,17 @@ public class UserDaoImpl implements UserDao {
         return (Country) criteria.add(result).uniqueResult();
     }
 
+    @Override
+    public User getUserByEmail(String email) {
+        Criteria criteria = session.createCriteria(User.class);
+        return (User) criteria.add(Restrictions.eq("email", email)).uniqueResult();
+    }
+
+
+    public User getUserByEmsilAndPassword(String email,String password) {
+
+        Criteria criteria = session.createCriteria(User.class);
+        return (User)criteria.add(Restrictions.and(Restrictions.eq("email",email),Restrictions.eq("password",password))).uniqueResult();
+
+    }
 }
