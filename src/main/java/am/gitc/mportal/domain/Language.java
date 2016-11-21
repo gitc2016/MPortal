@@ -8,6 +8,7 @@ import javax.persistence.Id;
 /**
  * Created by Gtc-user17 on 11/13/2016.
  */
+@javax.persistence.Table(name = "language")
 @Entity
 public class Language {
 

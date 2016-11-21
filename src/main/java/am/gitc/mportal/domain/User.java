@@ -5,6 +5,7 @@ import javax.persistence.*;
 /**
  * Created by Gtc-user17 on 11/13/2016.
  */
+@Table(name = "user")
 @Entity
 public class User {
 
@@ -26,11 +27,12 @@ public class User {
     private Role role;
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @ManyToMany
+    @ManyToOne
     private Country country;
     @Column
     private int registerCode;
     @Column
+    @Temporal(TemporalType.DATE)
     private String dateOfBirth;
 
 
