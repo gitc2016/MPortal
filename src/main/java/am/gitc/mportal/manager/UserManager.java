@@ -9,18 +9,31 @@ import am.gitc.mportal.domain.User;
  */
 public class UserManager {
 
-    UserDaoImpl userDao;
+    UserDaoImpl userDaoImpl;
 
     public UserManager() {
-        userDao = new UserDaoImpl();
+        userDaoImpl = new UserDaoImpl();
     }
 
     public void add(User user) {
-        userDao.create(user);
+        userDaoImpl.create(user);
     }
 
-    public Country getCoutryById(int id){
-        return userDao.getCountryById(id);
+    public Country getCoutryById(int id) {
+        return userDaoImpl.getCountryById(id);
     }
 
+    public boolean isEmailAndPassword(String email, String password) {
+        if (userDaoImpl.getUserByEmsilAndPassword(email, password) != null) return true;
+        return false;
+    }
+
+    public boolean isEmailExist(String email) {
+        if (userDaoImpl.getUserByEmail(email) != null) return true;
+        return false;
+    }
+
+    public User getUserByEmailPassword(String email, String password) {
+        return userDaoImpl.getUserByEmsilAndPassword(email, password);
+    }
 }
