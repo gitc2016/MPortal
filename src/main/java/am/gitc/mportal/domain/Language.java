@@ -15,6 +15,7 @@ public class Language {
     @GeneratedValue
     @Column
     private int id;
+
     @Column
     private String name;
 

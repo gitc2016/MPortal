@@ -1,6 +1,7 @@
 package am.gitc.mportal.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by Gtc-user17 on 11/13/2016.
@@ -11,7 +12,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column
     private int id;
 
     @Column
@@ -35,32 +36,35 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @OneToMany
+    @ManyToOne
     private Country country;
 
     @Transient
     private int registerCode;
 
-    @Transient
-    private String dateOfBirth;
+    @Column
+    private Date dateOfBirth;
+
+    @Column
+    private boolean is_online;
 
 
     public User() {
 
     }
 
-    public User(int id, String name, String surname, String email, String password,String url, Role role, Gender gender, Country country,int registerCode,String dateOfBirth) {
-        this.id = id;
+    public User(String name, String surname, String email, String password, String imageSRC, Role role, Gender gender, Country country, int registerCode, Date dateOfBirth, boolean is_online) {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
-        this.imageSRC = url;
+        this.imageSRC = imageSRC;
         this.role = role;
         this.gender = gender;
         this.country = country;
-        this.registerCode=registerCode;
+        this.registerCode = registerCode;
         this.dateOfBirth = dateOfBirth;
+        this.is_online = is_online;
     }
 
     public int getId() {
@@ -148,12 +152,20 @@ public class User {
         return imageSRC;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public boolean is_online() {
+        return is_online;
+    }
+
+    public void setIs_online(boolean is_online) {
+        this.is_online = is_online;
     }
 
     @Override
@@ -165,15 +177,16 @@ public class User {
 
         if (id != user.id) return false;
         if (registerCode != user.registerCode) return false;
+        if (is_online != user.is_online) return false;
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
         if (surname != null ? !surname.equals(user.surname) : user.surname != null) return false;
         if (email != null ? !email.equals(user.email) : user.email != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (imageSRC != null ? !imageSRC.equals(user.imageSRC) : user.imageSRC != null) return false;
-        if (dateOfBirth != null ? !dateOfBirth.equals(user.dateOfBirth) : user.dateOfBirth!= null) return false;
         if (role != user.role) return false;
         if (gender != user.gender) return false;
-        return country != null ? country.equals(user.country) : user.country == null;
+        if (country != null ? !country.equals(user.country) : user.country != null) return false;
+        return dateOfBirth != null ? dateOfBirth.equals(user.dateOfBirth) : user.dateOfBirth == null;
 
     }
 
@@ -188,8 +201,9 @@ public class User {
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (gender != null ? gender.hashCode() : 0);
         result = 31 * result + (country != null ? country.hashCode() : 0);
-        result = 31 * result + (dateOfBirth != null ? dateOfBirth.hashCode() : 0);
         result = 31 * result + registerCode;
+        result = 31 * result + (dateOfBirth != null ? dateOfBirth.hashCode() : 0);
+        result = 31 * result + (is_online ? 1 : 0);
         return result;
     }
 
@@ -202,11 +216,12 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", imageSRC='" + imageSRC + '\'' +
-                ", imageSRC='" + dateOfBirth + '\'' +
                 ", role=" + role +
                 ", gender=" + gender +
                 ", country=" + country +
                 ", registerCode=" + registerCode +
+                ", dateOfBirth=" + dateOfBirth +
+                ", is_online=" + is_online +
                 '}';
     }
 }

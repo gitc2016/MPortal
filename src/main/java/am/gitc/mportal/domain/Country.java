@@ -11,8 +11,9 @@ public class Country {
 
     @Id
     @GeneratedValue
-    @Column(name = "country_id")
+    @Column
     private int id;
+
     @Column
     private String name;
 
