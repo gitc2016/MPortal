@@ -4,6 +4,7 @@ import am.gitc.mportal.domain.Country;
 import am.gitc.mportal.domain.Gender;
 import am.gitc.mportal.domain.Role;
 import am.gitc.mportal.domain.User;
+import am.gitc.mportal.manager.UserManager;
 import am.gitc.mportal.util.Global_Keys;
 import com.opensymphony.xwork2.validator.annotations.*;
 import org.apache.struts2.interceptor.validation.SkipValidation;
@@ -14,6 +15,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Date;
 import java.util.Properties;
 import java.util.Random;
 
@@ -36,7 +38,13 @@ public class RegistrationAction extends GlobalAction {
     private Random random = new Random();
     private int emailCode = random.nextInt(10000);
     private String mailcode;
+    private Date date;
+    UserManager userManager = new UserManager();
 
+
+    public RegistrationAction() {
+
+    }
 
     public String getName() {
         return name;
@@ -117,9 +125,17 @@ public class RegistrationAction extends GlobalAction {
         return mailcode;
     }
 
-//    @RequiredStringValidator(message = "Please enter sended code")
     public void setMailcode(String mailcode) {
         this.mailcode = mailcode;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    @DateRangeFieldValidator(max = "01/01/1999", message = "You can`t birthdate this day")
+    public void setDate(Date date) {
+        this.date = date;
     }
 
 
@@ -166,32 +182,39 @@ public class RegistrationAction extends GlobalAction {
 
     @Override
     public String execute() throws Exception {
+        System.out.println(date);
+        Country country = userManager.getCoutryById(1);
         User user = new User();
-        Country countries = new Country();
-        countries.setName(country);
         user.setName(name);
         user.setSurname(surname);
         user.setEmail(email);
         user.setRole(Role.valueOf(role));
-        user.setCountry(countries);
+        user.setCountry(country);
         user.setGender(Gender.valueOf(gender));
         user.setPassword(password);
         user.setRegisterCode(emailCode);
+        user.setImageSRC("gr");
+        user.setDateOfBirth(date);
+        user.setIs_online(true);
         sendEmail(user);
+        if ("error".equals(sendEmail(user))) {
+            return ERROR;
+        }
+        mapSession.put(Global_Keys.REGISTER, user);
         return SUCCESS;
     }
 
     @SkipValidation
     public String add() {
         User user = (User) mapSession.get(Global_Keys.REGISTER);
-        System.out.println(user.toString());
 
         if (user == null) {
             return ERROR;
-        } else if (mailcode.length()==0){
+        } else if (mailcode.length() == 0) {
             return INPUT;
-        }
-        else if (Integer.parseInt(mailcode) == (user.getRegisterCode())){
+        } else if (Integer.parseInt(mailcode.trim()) == (user.getRegisterCode())) {
+            userManager.add(user);
+            mapSession.remove(Global_Keys.REGISTER);
             return SUCCESS;
         }
 
@@ -204,7 +227,9 @@ public class RegistrationAction extends GlobalAction {
         if (!password.equals(confirmPassword)) {
             addFieldError("confirmPassword", "Confirm password is not valid");
         }
+        if (userManager.isEmailExist(email)) {
+            addFieldError("email", "This email is already exist");
+        }
     }
-
 
 }
