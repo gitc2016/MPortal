@@ -15,8 +15,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="..\css\login.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}\css\login.css" media="screen"/>
     <style>
+
+        span {
+            color: red;
+            font-weight: bold;
+            padding-left: 150px;
+        }
 
     </style>
 </head>
@@ -24,7 +30,7 @@
 
 <div class="center">
     <p>
-        <img src="logo.png" style="padding-left: 580px;" class="text-center">
+        <img src="${pageContext.request.contextPath}/images/logo.png" style="padding-left: 580px;" class="text-center">
         MPortal</p>
     <div class="col-sm-4">
 

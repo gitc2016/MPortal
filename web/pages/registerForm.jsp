@@ -17,12 +17,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/LoginRegister.css"/>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <asp:TextBox ID="endDate" ClientIDMode="Static" runat="server" />
-
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css" media="screen"/>
-
     <script>
         $( function() {
             $( "#datepicker" ).datepicker();
@@ -31,6 +31,7 @@
 
 </head>
 <body>
+<s:set value="%{#application.country}" var="country"/>
 <div class="center">
     <p>
         <img src="${pageContext.request.contextPath}/images/logo.png" style="padding-left: 580px" class="text-center">
@@ -49,7 +50,11 @@
 
             <s:radio list="{'MALE','FEMALE'}" key="gender"/>
             <s:radio list="{'MENTEE','MENTOR'}" key="role"/>
-            <s:select list="{'Armenia','Russia','USA'}" key="country"/>
+            <s:select key="country"
+                      list="country"
+                      listKey="id"
+                      listValue="name"
+                      name="ids"/>
             <s:textfield id="datepicker" key="date"/>
             <s:submit key="signUp" class="btn-danger submit" style="margin-left: 120px"/>
 

@@ -15,22 +15,26 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="..\css\login.css" media="screen"/>
-    <style>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/LoginRegister.css"/>
 
-        span {
-            color: red;
-            font-weight: bold;
-            padding-left: 150px;
-        }
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+    </script>
 
 </head>
 <body>
+<s:set value="%{#application.country}" var="country"/>
 <div class="center">
     <p>
-        <img src="/logo.png" style="padding-left: 580px" class="text-center">
+        <img src="${pageContext.request.contextPath}/images/logo.png" style="padding-left: 580px" class="text-center">
         MPortal</p>
     <div class="col-sm-4">
     </div>
@@ -38,20 +42,24 @@
     <div class="col-sm-4 ">
         <s:form action="registerForm.action" method="post">
 
-            <s:textfield key="name" cssClass="input form-control"/><br><br>
-            <s:textfield key="surname" cssClass="input form-control"/><br><br>
-            <s:textfield key="email" cssClass="input form-control"/><br><br>
-            <s:password key="password" cssClass="input form-control"/><br><br>
-            <s:password key="confirmPassword" cssClass="input form-control"/><br><br>
+            <s:textfield key="name" cssClass="input"/><br><br>
+            <s:textfield key="surname" cssClass="input"/><br><br>
+            <s:textfield key="email" cssClass="input"/><br><br>
+            <s:password key="password" cssClass="input"/><br><br>
+            <s:password key="confirmPassword" cssClass="input"/><br><br>
 
             <s:radio list="{'MALE','FEMALE'}" key="gender"/>
             <s:radio list="{'MENTEE','MENTOR'}" key="role"/>
-            <s:select list="{'Armenia','Russia','USA'}" key="country"/>
+            <s:select key="country"
+                      list="country"
+                      listKey="id"
+                      listValue="name"
+                      name="ids"/>
+            <s:textfield id="datepicker" key="date"/>
             <s:submit key="signUp" class="btn-danger submit" style="margin-left: 120px"/>
 
         </s:form>
-
-        <a href="/pages/loginForm.jsp"><s:text name="signUp"/></a>
+        <a href="/pages/loginForm.jsp"><s:text name="signIn"/></a>
     </div>
 
     <div class="col-sm-4">

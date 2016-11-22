@@ -4,6 +4,7 @@ import am.gitc.mportal.domain.Country;
 import am.gitc.mportal.domain.Gender;
 import am.gitc.mportal.domain.Role;
 import am.gitc.mportal.domain.User;
+import am.gitc.mportal.manager.CountryManager;
 import am.gitc.mportal.manager.UserManager;
 import am.gitc.mportal.util.Global_Keys;
 import com.opensymphony.xwork2.validator.annotations.*;
@@ -39,11 +40,13 @@ public class RegistrationAction extends GlobalAction {
     private int emailCode = random.nextInt(10000);
     private String mailcode;
     private Date date;
-    UserManager userManager = new UserManager();
+    UserManager userManager;
+    CountryManager countryManager;
 
 
     public RegistrationAction() {
-
+        userManager = new UserManager();
+        countryManager = new CountryManager();
     }
 
     public String getName() {
@@ -183,7 +186,7 @@ public class RegistrationAction extends GlobalAction {
     @Override
     public String execute() throws Exception {
         System.out.println(date);
-        Country country = userManager.getCoutryById(1);
+        Country country = countryManager.getCountryById(1);
         User user = new User();
         user.setName(name);
         user.setSurname(surname);

@@ -8,18 +8,24 @@ import java.util.List;
 /**
  * Created by gtc-user34 on 11/20/2016.
  */
-public interface UserDao {
+public interface UserDao extends GlobalDao<User> {
 
+    @Override
     void create(User user);
 
-    User getUserById(int id);
+    @Override
+    User getById(int id);
 
+    @Override
     void update(User user);
 
-    List<User> getAllUser();
-
-    Country getCountryById(int id);
+    @Override
+    List<User> getAll();
 
     User getUserByEmail(String email);
+
+    User getUserByEmailPassword(String email, String password);
+
+
 
 }

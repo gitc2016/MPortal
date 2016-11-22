@@ -43,14 +43,14 @@
         <!--LoginActionPage-->
         <action name="loginForm" class="am.gitc.mportal.action.LoginAction">
             <!--<interceptor-ref name="loginStack"/>-->
-            <result name="success">index.jsp</result>
+            <result name="success">/pages/mentorDashboard.jsp</result>
             <result name="input">/pages/loginForm.jsp</result>
             <result name="login">/pages/loginForm.jsp</result>
         </action>
 
         <!--RegisterActionPage-->
         <action name="registerForm" class="am.gitc.mportal.action.RegistrationAction">
-            <interceptor-ref name="registerStack"/>
+            <!--<interceptor-ref name="registerStack"/>-->
             <result name="success">/pages/mailCode.jsp</result>
             <result name="error">/pages/error.jsp</result>
             <result name="input">/pages/registerForm.jsp</result>
@@ -70,6 +70,11 @@
             <result name="success">/pages/loginForm.jsp</result>
         </action>
 
+
+        <action name="global" class="am.gitc.mportal.action.GlobalAction">
+            <result name="success">/pages/loginForm.jsp</result>
+        </action>
+
     </package>
 
     <!--Multiple Language Page -->
@@ -79,7 +84,9 @@
             <result>/pages/loginForm.jsp</result>
         </action>
 
+
     </package>
+
 
 
 </struts>

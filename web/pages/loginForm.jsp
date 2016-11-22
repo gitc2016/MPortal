@@ -53,7 +53,7 @@
             <s:text name="arm"/>
         </s:a>
 
-        <s:a href="/MPortal/pages/registerForm.jsp" cssClass="a"><s:text name="signUp"/></s:a>
+        <s:a href="/pages/registerForm.jsp" cssClass="a"><s:text name="signUp"/></s:a>
 
 
     </div>

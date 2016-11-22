@@ -33,7 +33,7 @@ body {
     width: 100%
 }
 
-span {
+.tdErrorMessage > span {
     color: red;
     font-weight: bold;
     padding-left: 150px;

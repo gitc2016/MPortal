@@ -19,12 +19,10 @@ public class UserManager {
         userDaoImpl.create(user);
     }
 
-    public Country getCoutryById(int id) {
-        return userDaoImpl.getCountryById(id);
-    }
+
 
     public boolean isEmailAndPassword(String email, String password) {
-        if (userDaoImpl.getUserByEmsilAndPassword(email, password) != null) return true;
+        if (userDaoImpl.getUserByEmailPassword(email, password) != null) return true;
         return false;
     }
 
@@ -34,6 +32,7 @@ public class UserManager {
     }
 
     public User getUserByEmailPassword(String email, String password) {
-        return userDaoImpl.getUserByEmsilAndPassword(email, password);
+        return userDaoImpl.getUserByEmailPassword(email, password);
     }
+
 }

@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao {
 
 
     public UserDaoImpl() {
-        session= HibernateUtil.createSessionFactory().openSession();
+        session = HibernateUtil.createSessionFactory().openSession();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getUserById(int id) {
+    public User getById(int id) {
         return null;
     }
 
@@ -41,16 +41,10 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<User> getAllUser() {
+    public List<User> getAll() {
         return null;
     }
 
-    @Override
-    public Country getCountryById(int id) {
-        Criteria criteria = session.createCriteria(Country.class);
-        Criterion result = Restrictions.eq("id", id);
-        return (Country) criteria.add(result).uniqueResult();
-    }
 
     @Override
     public User getUserByEmail(String email) {
@@ -58,11 +52,9 @@ public class UserDaoImpl implements UserDao {
         return (User) criteria.add(Restrictions.eq("email", email)).uniqueResult();
     }
 
-
-    public User getUserByEmsilAndPassword(String email,String password) {
-
+    @Override
+    public User getUserByEmailPassword(String email, String password) {
         Criteria criteria = session.createCriteria(User.class);
-        return (User)criteria.add(Restrictions.and(Restrictions.eq("email",email),Restrictions.eq("password",password))).uniqueResult();
-
+        return (User) criteria.add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password))).uniqueResult();
     }
 }
