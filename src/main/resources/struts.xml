@@ -56,7 +56,9 @@
             <result name="input">/pages/registerForm.jsp</result>
             <result name="login">/pages/registerForm.jsp</result>
         </action>
-
+        <action name="mentor">
+            <result>/mentor/mentorDashboard.jsp</result>
+        </action>
 
         <action name="mailRegister" class="am.gitc.mportal.action.RegistrationAction" method="add">
             <interceptor-ref name="registerStack"/>
@@ -77,6 +79,17 @@
 
         <action name="log">
             <result>/pages/loginForm.jsp</result>
+        </action>
+
+    </package>
+    <package name="userAction" extends="struts-default">
+        <action name="update" class="am.gitc.mportal.action.UserActions" method="updateUser">
+            <result type="success">/pages/menteeDashboard</result>
+            <result type="error">/pages/error.jsp</result>
+        </action>
+        <action name="delete" class="am.gitc.mportal.action.UserActions" method="deleteUser">
+            <result type="success">/pages/loginForm.jsp</result>
+            <result type="error">/pages/error.jsp</result>
         </action>
 
     </package>
