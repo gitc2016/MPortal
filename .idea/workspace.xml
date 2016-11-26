@@ -2,84 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64911837-366f-46b3-830e-bcced47fb569" name="Default" comment="FEAT: due to merge&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/am/gitc/mportal/action/LocaleAction.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/am/gitc/mportal/action/RegistrationAction_old.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/am/gitc/mportal/action/LoginAction-validation.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/am/gitc/mportal/action/RegistrationAction-validation.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/am/gitc/mportal/domain/User-validation.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.annotation.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.ejb.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.jms.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.resource.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.servlet.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.servlet.jsp.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/javax.servlet.jsp.jstl.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/global_arm.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/action/GlobalAction.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/action/LoginAction.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/controller/Authentication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/controller/RegisterIntercaptor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/domain/Category.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/domain/Country.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/domain/Gender.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/domain/Language.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/domain/Message.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/domain/Request.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/domain/Role.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/domain/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/util/Global_Keys.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/global.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/global_arm.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/lib/activation-1.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/lib/asm-3.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/lib/asm-commons-3.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/lib/asm-tree-3.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/lib/commons-fileupload-1.3.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/lib/commons-io-2.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/lib/commons-lang3-3.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/lib/freemarker-2.3.23.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/lib/log4j-api-2.5.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/lib/mail-1.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/lib/ognl-3.1.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/lib/struts2-core-2.5.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/MPortal/pages/error.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/action/GlobalAction.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/action/LoginAction.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/controller/Authentication.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/controller/RegisterIntercaptor.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/domain/Category.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/domain/Country.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/domain/Gender.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/domain/Language.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/domain/Message.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/domain/Request.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/domain/Role.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/domain/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/util/Global_Keys.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/global_arm.properties" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/resources/global.properties" afterPath="$PROJECT_DIR$/src/main/resources/package.properties" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/target/classes/global.properties" afterPath="$PROJECT_DIR$/src/main/resources/package_am.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/action/RegistrationAction$1.class" afterPath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/action/RegistrationAction$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/action/RegistrationAction.class" afterPath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/am/gitc/mportal/action/RegistrationAction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/action/RegistrationAction$1.class" afterPath="$PROJECT_DIR$/target/classes/am/gitc/mportal/action/RegistrationAction$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/am/gitc/mportal/action/RegistrationAction.class" afterPath="$PROJECT_DIR$/target/classes/am/gitc/mportal/action/RegistrationAction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/MPortal_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/MPortal_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MPortal.iml" afterPath="$PROJECT_DIR$/MPortal.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/am/gitc/mportal/action/RegistrationAction.java" afterPath="$PROJECT_DIR$/src/main/java/am/gitc/mportal/action/RegistrationAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/am/gitc/mportal/domain/User.java" afterPath="$PROJECT_DIR$/src/main/java/am/gitc/mportal/domain/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/struts.xml" afterPath="$PROJECT_DIR$/src/main/resources/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/struts.xml" afterPath="$PROJECT_DIR$/target/MPortal/WEB-INF/classes/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MPortal/pages/loginForm.jsp" afterPath="$PROJECT_DIR$/target/MPortal/pages/loginForm.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/MPortal/pages/registerForm.jsp" afterPath="$PROJECT_DIR$/target/MPortal/pages/registerForm.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/struts.xml" afterPath="$PROJECT_DIR$/target/classes/struts.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/loginForm.jsp" afterPath="$PROJECT_DIR$/web/pages/loginForm.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pages/registerForm.jsp" afterPath="$PROJECT_DIR$/web/pages/registerForm.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MPortalDB.sql" afterPath="$PROJECT_DIR$/MPortalDB.sql" />
     </list>
     <ignored path="MPortal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -208,8 +131,8 @@
       <file leaf-file-name="MPortalDB.sql" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MPortalDB.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="72" column="33" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
+            <state relative-caret-position="136">
+              <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -287,7 +210,6 @@
         <option value="$PROJECT_DIR$/src/main/java/am/gitc/mportal/dao/UserDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/am/gitc/mportal/manager/UserManager.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/MPortalDB.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/struts.xml" />
         <option value="$PROJECT_DIR$/src/main/java/am/gitc/mportal/action/RegistrationAction_old.java" />
         <option value="$PROJECT_DIR$/web/pages/loginForm.jsp" />
@@ -297,6 +219,7 @@
         <option value="$PROJECT_DIR$/src/main/java/am/gitc/mportal/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/am/gitc/mportal/action/RegistrationAction.java" />
         <option value="$PROJECT_DIR$/src/main/resources/am/gitc/mportal/domain/User-validation.xml" />
+        <option value="$PROJECT_DIR$/MPortalDB.sql" />
       </list>
     </option>
   </component>
@@ -358,6 +281,90 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="MPortal" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MPortal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MPortal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MPortal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MPortal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MPortal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MPortal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mportal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MPortal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MPortal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mportal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -861,16 +868,16 @@
       <workItem from="1480147617291" duration="89000" />
       <workItem from="1480148922862" duration="39000" />
       <workItem from="1480152834379" duration="266000" />
-      <workItem from="1480155435242" duration="9239000" />
+      <workItem from="1480155435242" duration="9722000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41421000" />
+    <option name="totallyTimeSpent" value="41904000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -881,12 +888,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36245954" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36731392" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3398058" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28074434" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2184466" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1324,14 +1331,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/am/gitc/mportal/action/LoginAction-validation.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/am/gitc/mportal/domain/User-validation.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1340,10 +1339,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/am/gitc/mportal/action/LoginAction-validation.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MPortalDB.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="72" column="33" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
+        <state relative-caret-position="136">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
           <folding />
         </state>
       </provider>
