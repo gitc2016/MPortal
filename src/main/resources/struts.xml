@@ -16,14 +16,14 @@
         </action>
 
         <!--LoginActionPage-->
-        <action name="login" class="am.gitc.mportal.action.LoginAction">
+        <action name="loginForm" class="am.gitc.mportal.action.LoginAction">
             <result name="success">/pages/mentorDashboard.jsp</result>
             <result name="input">/pages/loginForm.jsp</result>
             <result name="login">/pages/loginForm.jsp</result>
         </action>
 
         <!--RegisterActionPage-->
-        <action name="register" class="am.gitc.mportal.action.RegistrationAction">
+        <action name="registerForm" class="am.gitc.mportal.action.RegistrationAction">
             <result name="success">/pages/loginForm.jsp</result>
             <result name="input">/pages/registerForm.jsp</result>
             <result name="success">/pages/mailCode.jsp</result>

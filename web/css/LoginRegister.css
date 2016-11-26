@@ -49,7 +49,7 @@ body {
     font-weight: bold;
     padding-left: 150px;
 }
-#registerForm br {
+br {
     display: none !important;
 }
 
