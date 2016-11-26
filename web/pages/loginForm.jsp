@@ -43,16 +43,21 @@
 
         </s:form>
 
-        <s:a action="login" namespace="/">
+        <s:url var="localeEN" action="locale" namespace="/">
             <s:param name="request_locale">en</s:param>
+
+        </s:url>
+
+        <s:url var="localeAM" action="locale" namespace="/">
+            <s:param name="request_locale">am</s:param>
+            <s:text name="am"/>
+        </s:url>
+        <s:a href="%{localeEN}">
             <s:text name="en"/>
         </s:a>
-
-        <s:a action="login" namespace="/">
-            <s:param name="request_locale">arm</s:param>
-            <s:text name="arm"/>
+        <s:a href="%{localeAM}">
+            <s:text name="am"/>
         </s:a>
-
         <s:a href="/pages/registerForm.jsp" cssClass="a"><s:text name="signUp"/></s:a>
 
 
