@@ -7,7 +7,7 @@
     border-color: rgba(157, 150, 177, 0.84)
 }
 
-.submit {
+.submitLog {
     color: #fff;
     width: 350px;
     height: 37px;
@@ -15,6 +15,17 @@
     outline: none;
     margin-top: 12px;
     margin-left: 84px
+}
+
+
+.submitReg {
+    color: #fff;
+    width: 350px;
+    height: 37px;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 12px;
+    margin-left: 125px
 }
 
 a:link {
@@ -54,7 +65,9 @@ label {
 
 p{
     color: #3b4fb7;
-    padding-left: 50px;
+    padding-left: 600px;
     font-size: 50px
 }
-
+.im{
+    padding-left: 580px
+}

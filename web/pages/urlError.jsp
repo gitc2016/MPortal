@@ -28,16 +28,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div class="col-sm-7 col-sm-offset-5">
-        <form action="mailRegister.action" method="post">
-        <div class="col-sm-5 " style="margin-top:250px;margin-left: -91px">
-              <s:textfield key="mailcode" cssClass="input" />
-        </div>
-        <div class="col-sm-2" style="padding-left: 0 !important;margin: 274px 0px 0 -74px;">
-            <s:submit key="signIn"  class="btn btn-danger"/>
-        </div>
-        </form>
-    </div>
+    <h5>Sorry but this url is not valid</h5>
 </div>
 
 

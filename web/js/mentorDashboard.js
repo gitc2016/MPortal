@@ -24,6 +24,11 @@ $(document).ready(function(){
     }
   });
 
+  // calendar
+  $(function () {
+    $("#datepicker").datepicker();
+  });
+
 
   $(".friend").each(function(){
     $(this).click(function(){

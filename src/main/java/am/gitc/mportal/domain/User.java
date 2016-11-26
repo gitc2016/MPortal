@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by Gtc-user17 on 11/13/2016.
  */
 @Entity
-@Table(name = "user")
+@Table(name = "User")
 public class User {
 
     @Id
@@ -39,21 +39,23 @@ public class User {
     @ManyToOne
     private Country country;
 
-    @Transient
-    private int registerCode;
-
     @Column
     private Date dateOfBirth;
 
     @Column
     private boolean is_online;
 
+    @Column
+    private boolean is_register;
+
 
     public User() {
 
     }
 
-    public User(String name, String surname, String email, String password, String imageSRC, Role role, Gender gender, Country country, int registerCode, Date dateOfBirth, boolean is_online) {
+
+    public User(String name, String surname, String email, String password, String imageSRC, Role role,
+                Gender gender, Country country, Date dateOfBirth, boolean is_online, boolean is_register) {
         this.name = name;
         this.surname = surname;
         this.email = email;
@@ -62,9 +64,17 @@ public class User {
         this.role = role;
         this.gender = gender;
         this.country = country;
-        this.registerCode = registerCode;
         this.dateOfBirth = dateOfBirth;
         this.is_online = is_online;
+        this.is_register = is_register;
+    }
+
+    public boolean is_register() {
+        return is_register;
+    }
+
+    public void setIs_register(boolean is_register) {
+        this.is_register = is_register;
     }
 
     public int getId() {
@@ -140,14 +150,6 @@ public class User {
         this.country = country;
     }
 
-    public int getRegisterCode() {
-        return registerCode;
-    }
-
-    public void setRegisterCode(int registerCode) {
-        this.registerCode = registerCode;
-    }
-
     public String getImageSRC() {
         return imageSRC;
     }
@@ -176,7 +178,6 @@ public class User {
         User user = (User) o;
 
         if (id != user.id) return false;
-        if (registerCode != user.registerCode) return false;
         if (is_online != user.is_online) return false;
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
         if (surname != null ? !surname.equals(user.surname) : user.surname != null) return false;
@@ -201,7 +202,6 @@ public class User {
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (gender != null ? gender.hashCode() : 0);
         result = 31 * result + (country != null ? country.hashCode() : 0);
-        result = 31 * result + registerCode;
         result = 31 * result + (dateOfBirth != null ? dateOfBirth.hashCode() : 0);
         result = 31 * result + (is_online ? 1 : 0);
         return result;
@@ -219,9 +219,9 @@ public class User {
                 ", role=" + role +
                 ", gender=" + gender +
                 ", country=" + country +
-                ", registerCode=" + registerCode +
                 ", dateOfBirth=" + dateOfBirth +
                 ", is_online=" + is_online +
+                ", is_register=" + is_register +
                 '}';
     }
 }

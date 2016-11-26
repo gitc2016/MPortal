@@ -51,7 +51,7 @@
         <!--RegisterActionPage-->
         <action name="registerForm" class="am.gitc.mportal.action.RegistrationAction">
             <!--<interceptor-ref name="registerStack"/>-->
-            <result name="success">/pages/mailCode.jsp</result>
+            <result name="success">/pages/loginForm.jsp</result>
             <result name="error">/pages/error.jsp</result>
             <result name="input">/pages/registerForm.jsp</result>
             <result name="login">/pages/registerForm.jsp</result>
@@ -59,10 +59,8 @@
 
 
         <action name="mailRegister" class="am.gitc.mportal.action.RegistrationAction" method="add">
-            <interceptor-ref name="registerStack"/>
-            <result name="input">/pages/mailCode.jsp</result>
+            <result name="login">/pages/urlError.jsp</result>
             <result name="success">/pages/loginForm.jsp</result>
-            <result name="login">/pages/registerForm.jsp</result>
         </action>
 
 
@@ -83,7 +81,6 @@
         <action name="log">
             <result>/pages/loginForm.jsp</result>
         </action>
-
 
     </package>
 

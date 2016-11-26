@@ -57,7 +57,7 @@ public class LoginAction extends GlobalAction {
 
     @Override
     public void validate() {
-        if (!userManager.isEmailAndPassword(login, password)) {
+        if (!userManager.isEmailAndPassword(login, MD5.getMd5(password))) {
             addFieldError("login", "Your login or password is invalid");
         }
     }

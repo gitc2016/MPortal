@@ -1,6 +1,6 @@
 /*
-SQLyog Ultimate v12.14 (64 bit)
-MySQL - 5.5.49-0ubuntu0.14.04.1 : Database - MPortalDB
+SQLyog Ultimate v11.11 (64 bit)
+MySQL - 5.5.5-10.1.16-MariaDB : Database - mportaldb
 *********************************************************************
 */
 
@@ -12,9 +12,9 @@ MySQL - 5.5.49-0ubuntu0.14.04.1 : Database - MPortalDB
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`MPortalDB` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`mportaldb` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
-USE `MPortalDB`;
+USE `mportaldb`;
 
 /*Table structure for table `category` */
 
@@ -24,6 +24,7 @@ CREATE TABLE `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `parent_id` int(11) NOT NULL,
+  `parentID` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -37,14 +38,11 @@ CREATE TABLE `country` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `country` */
 
-insert  into `country`(`id`,`name`) values 
-(1,'Armenia'),
-(2,'Russia'),
-(3,'USA');
+insert  into `country`(`id`,`name`) values (1,'Armenia'),(2,'Russia'),(3,'USA'),(4,'Ukrain');
 
 /*Table structure for table `language` */
 
@@ -58,57 +56,20 @@ CREATE TABLE `language` (
 
 /*Data for the table `language` */
 
-/*Table structure for table `mentor_category` */
+/*Table structure for table `message` */
 
-DROP TABLE IF EXISTS `mentor_category`;
+DROP TABLE IF EXISTS `message`;
 
-CREATE TABLE `mentor_category` (
-  `user_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `image_url` varchar(255) NOT NULL,
-  `id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  KEY `category_id` (`category_id`),
-  CONSTRAINT `mentor_category_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `mentor_category_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `mentor_category` */
-
-/*Table structure for table `mentor_status` */
-
-DROP TABLE IF EXISTS `mentor_status`;
-
-CREATE TABLE `mentor_status` (
+CREATE TABLE `message` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `status` enum('AVALIABLE','NOTAVALIABLE') NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `mentor_status_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  `fromID` int(11) DEFAULT NULL,
+  `isRead` tinyint(1) DEFAULT NULL,
+  `text` varchar(255) DEFAULT NULL,
+  `toID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `mentor_status` */
-
-/*Table structure for table `request` */
-
-DROP TABLE IF EXISTS `request`;
-
-CREATE TABLE `request` (
-  `from_id` int(11) NOT NULL,
-  `to_id` int(11) NOT NULL,
-  `accepted` tinyint(1) NOT NULL,
-  `id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `from_id` (`from_id`),
-  KEY `to_id` (`to_id`),
-  CONSTRAINT `request_ibfk_1` FOREIGN KEY (`from_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `request_ibfk_2` FOREIGN KEY (`to_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `request` */
+/*Data for the table `message` */
 
 /*Table structure for table `user` */
 
@@ -119,21 +80,21 @@ CREATE TABLE `user` (
   `name` varchar(20) NOT NULL,
   `surname` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `password` varchar(30) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `gender` enum('MALE','FEMALE') NOT NULL,
   `role` enum('MENTOR','MENTEE') NOT NULL,
   `country_id` int(11) NOT NULL,
   `is_online` tinyint(1) NOT NULL DEFAULT '0',
   `dateOfBirth` date NOT NULL,
+  `is_register` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `country_id` (`country_id`),
   CONSTRAINT `user_ibfk_3` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`name`,`surname`,`email`,`password`,`gender`,`role`,`country_id`,`is_online`,`dateOfBirth`) values 
-(2,'Stella','Tahmazyan','stella02051994@gmail.com','stella02051994','FEMALE','MENTOR',1,1,'1958-11-14');
+insert  into `user`(`id`,`name`,`surname`,`email`,`password`,`gender`,`role`,`country_id`,`is_online`,`dateOfBirth`,`is_register`) values (13,'Stella','Tahmazyan','stella02051994@gmail.com','f60a960c6dd748e91fed5f7af335c3b3','FEMALE','MENTEE',1,1,'1990-11-11',0);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

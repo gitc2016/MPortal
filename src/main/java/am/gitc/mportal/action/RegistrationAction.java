@@ -6,7 +6,6 @@ import am.gitc.mportal.domain.Role;
 import am.gitc.mportal.domain.User;
 import am.gitc.mportal.manager.CountryManager;
 import am.gitc.mportal.manager.UserManager;
-import am.gitc.mportal.util.Global_Keys;
 import com.opensymphony.xwork2.validator.annotations.*;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 
@@ -18,7 +17,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Date;
 import java.util.Properties;
-import java.util.Random;
 
 /**
  * Created by Stella on 13.11.2016.
@@ -35,14 +33,11 @@ public class RegistrationAction extends GlobalAction {
     private String role;
     private String country;
     private String gender;
-    private long countryId;
-    private Random random = new Random();
-    private int emailCode = random.nextInt(10000);
-    private String mailcode;
     private Date date;
+    private String hashcode;
+    private String id;
     UserManager userManager;
     CountryManager countryManager;
-
 
     public RegistrationAction() {
         userManager = new UserManager();
@@ -102,7 +97,6 @@ public class RegistrationAction extends GlobalAction {
         return role;
     }
 
-    @RequiredStringValidator(message = "Please enter your role")
     public void setRole(String role) {
         this.role = role;
     }
@@ -119,24 +113,31 @@ public class RegistrationAction extends GlobalAction {
         return gender;
     }
 
-    @RequiredStringValidator(message = "Please enter your role")
     public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public String getMailcode() {
-        return mailcode;
+    public String getId() {
+        return id;
     }
 
-    public void setMailcode(String mailcode) {
-        this.mailcode = mailcode;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getHashcode() {
+        return hashcode;
+    }
+
+    public void setHashcode(String hashcode) {
+        this.hashcode = hashcode;
     }
 
     public Date getDate() {
         return date;
     }
 
-    @DateRangeFieldValidator(max = "01/01/1999", message = "You can`t birthdate this day")
+    @DateRangeFieldValidator(max = "01/01/1999", message = "Please enter valid birthday")
     public void setDate(Date date) {
         this.date = date;
     }
@@ -171,63 +172,51 @@ public class RegistrationAction extends GlobalAction {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(email));
             message.setSubject("MPortal");
-            message.setText("Please enter this code   " + emailCode + "   that you will be able to register in MPortal page");
+            message.setText("Please enter this code http://localhost:8085/pages/mailRegister.action?hashcode=" + MD5.getMd5(password) + "   that you will be able to register in MPortal page");
             Transport.send(message);
         } catch (Exception e) {
             ret = ERROR;
             e.printStackTrace();
-        }
-        if (!ret.equals(ERROR)) {
-            mapSession.put(Global_Keys.REGISTER, user);
         }
         return ret;
     }
 
     @Override
     public String execute() throws Exception {
-        System.out.println(date);
         Country country = countryManager.getCountryById(1);
-        User user = new User();
-        user.setName(name);
-        user.setSurname(surname);
-        user.setEmail(email);
-        user.setRole(Role.valueOf(role));
-        user.setCountry(country);
-        user.setGender(Gender.valueOf(gender));
-        user.setPassword(password);
-        user.setRegisterCode(emailCode);
-        user.setImageSRC("gr");
-        user.setDateOfBirth(date);
-        user.setIs_online(true);
+        User user = new User(name, surname, email, MD5.getMd5(password), "gr", Role.valueOf(role), Gender.valueOf(gender), country, date, true, false);
+        userManager.add(user);
         sendEmail(user);
         if ("error".equals(sendEmail(user))) {
             return ERROR;
         }
-        mapSession.put(Global_Keys.REGISTER, user);
         return SUCCESS;
     }
 
     @SkipValidation
     public String add() {
-        User user = (User) mapSession.get(Global_Keys.REGISTER);
-
-        if (user == null) {
-            return ERROR;
-        } else if (mailcode.length() == 0) {
-            return INPUT;
-        } else if (Integer.parseInt(mailcode.trim()) == (user.getRegisterCode())) {
-            userManager.add(user);
-            mapSession.remove(Global_Keys.REGISTER);
+        User user = userManager.getUserByHashCode(hashcode);
+//        String getHashcode=user.getPassword();
+//        if (hashcode.equals(getHashcode)){
+//            user.setIs_register(true);
+//            userManager.updateIs_register(user);
+//            return SUCCESS;
+//        }
+//            return LOGIN;
+        if (user != null) {
+            user.setIs_register(true);
+            userManager.updateIs_register(user);
             return SUCCESS;
         }
+        return LOGIN;
 
-        return INPUT;
+
     }
 
 
     @Override
     public void validate() {
-        if (!password.equals(confirmPassword)) {
+        if (!MD5.getMd5(password).equals(MD5.getMd5(confirmPassword))) {
             addFieldError("confirmPassword", "Confirm password is not valid");
         }
         if (userManager.isEmailExist(email)) {

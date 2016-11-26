@@ -34,10 +34,16 @@ public class UserDaoImpl implements UserDao {
         return null;
     }
 
-
     @Override
     public void update(User user) {
 
+    }
+
+
+    public void update_Is_register(User user) {
+        session.beginTransaction();
+        session.update(user);
+        session.getTransaction().commit();
     }
 
     @Override
@@ -55,6 +61,14 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getUserByEmailPassword(String email, String password) {
         Criteria criteria = session.createCriteria(User.class);
-        return (User) criteria.add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password))).uniqueResult();
+        return (User) criteria.add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password),Restrictions.eq("is_register",true))).uniqueResult();
     }
+
+
+    public User getUserByEmailCode(String hashcode) {
+        Criteria criteria = session.createCriteria(User.class);
+        return (User) criteria.add(Restrictions.eq("password", hashcode)).uniqueResult();
+    }
+
+
 }

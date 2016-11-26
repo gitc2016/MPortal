@@ -13,11 +13,9 @@ public class Category {
     @GeneratedValue
     private int id;
 
-
     @Column
     private String name;
 
-    @Id
     @Column
     private int parentID;
 

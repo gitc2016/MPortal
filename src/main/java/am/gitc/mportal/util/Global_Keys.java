@@ -7,4 +7,6 @@ public interface Global_Keys {
     String LOGIN = "login";
     String REGISTER = "register";
     String COUNTRY = "country";
+    String ROLE="role";
+    String GENDER="gender";
 }
