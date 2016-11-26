@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <field name="name">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Name is required</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <message>Please enter valid name</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">20</param>
+            <message>Please enter valid name</message>
+        </field-validator>
+    </field>
+    <field name="surname">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Surname is required</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <message>Please enter valid surname</message>
+        </field-validator>
+        <field-validator type="stringlength">
+            <param name="maxLength">20</param>
+            <message>Please enter valid surname</message>
+        </field-validator>
+    </field>
+    <field name="email">
+        <field-validator type="requiredstring">
+            <message>Email is required</message>
+        </field-validator>
+        <field-validator type="email">
+            <message>Invalid email</message>
+        </field-validator>
+    </field>
+    <field name="password">
+        <field-validator type="requiredstring">
+            <message>Password is required</message>
+        </field-validator>
+        <!--<field-validator type="regex">-->
+        <!--<param name="regex"><![CDATA[([a-zA-Z0-9]})]]></param>-->
+        <!--<message>Invalid password </message>-->
+        <!--</field-validator>-->
+    </field>
+    <field name="confirmPassword">
+        <field-validator type="requiredstring">
+            <message>Confirm password is required</message>
+        </field-validator>
+        <!--<field-validator type="regex">-->
+        <!--<param name="regex"><![CDATA[([a-zA-Z0-9])]]></param>-->
+        <!--<message>Invalid confirm password </message>-->
+        <!--</field-validator>-->
+    </field>
+    <validator type="expression">
+        <param name="expression"><![CDATA[password == confirmPassword]]></param>
+        <message>Password and confirm password must match</message>
+    </validator>
+    <field name="dateOfBirth">
+        <field-validator type="required">
+            <message>DOB is required</message>
+        </field-validator>
+        <field-validator type="date">
+            <message>Invalid date</message>
+        </field-validator>
+    </field>
+</validators>

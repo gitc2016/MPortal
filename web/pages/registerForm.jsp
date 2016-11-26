@@ -33,23 +33,23 @@
     <p>
         <img src="${pageContext.request.contextPath}/images/logo.png" class="text-center">
         MPortal</p>
-
-    <div class="col-sm-4 col-sm-offset-4">
-        <s:form action="registerForm.action?id=gfjgjgjg" method="post">
-
-            <s:textfield key="name" cssClass="input"/>
-            <s:textfield key="surname" cssClass="input"/>
-            <s:textfield key="email" cssClass="input"/>
-            <s:password key="password" cssClass="input"/>
-            <s:password key="confirmPassword" cssClass="input"/>
-            <s:radio list="gender" key="gender"/>
-            <s:radio list="role" key="role"/>
+    <div class="col-sm-4 ">
+        <s:form action="register" method="post">
+            <s:textfield name="user.name" key="name" cssClass="input"/><br><br>
+            <s:textfield name="user.surname" key="surname" cssClass="input"/><br><br>
+            <s:textfield name="user.email" key="email" cssClass="input"/><br><br>
+            <s:password name="user.password" key="password" cssClass="input"/><br><br>
+            <s:password name="user.confirmPassword" key="confirmPassword" cssClass="input"/><br><br>
+            <s:radio list="{'MALE','FEMALE'}"  key="gender"/>
+            <s:radio list="{'MENTEE','MENTOR'}" key="role"/>
+-
             <s:select key="country"
                       list="country"
                       listKey="id"
                       listValue="name"
                       name="ids"/>
-            <s:textfield id="datepicker" key="date"/>
+
+            <s:textfield name="user.dateOfBirth" id="datepicker" key="date"/>
             <s:submit key="signUp" class="btn-danger submitReg"/>
 
         </s:form>

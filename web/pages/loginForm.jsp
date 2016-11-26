@@ -30,17 +30,25 @@
             <s:password key="password" cssClass="input form-control"/>
             <s:submit key="signIn" class="btn-danger submitLog"/>
         </s:form>
-<%--TODO locale fix--%>
-        <s:a action="login" namespace="/">
-            <s:param name="request_locale">en</s:param>
-            <s:text name="en"/>
-        </s:a>
 
-        <s:a action="login" namespace="/">
+<%--&lt;%&ndash;TODO locale fix&ndash;%&gt;--%>
+        <%--<s:a action="login" namespace="/">--%>
+
+        <s:url var="localeEN" action="locale" namespace="/">
+            <s:param name="request_locale">en</s:param>
+
+        </s:url>
+
+        <s:url var="localeAM" action="locale" namespace="/">
             <s:param name="request_locale">arm</s:param>
             <s:text name="arm"/>
+        </s:url>
+        <s:a href="%{localeEN}">
+            <s:text name="en"/>
         </s:a>
-
+        <s:a href="%{localeAM}">
+            <s:text name="arm"/>
+        </s:a>
         <s:a href="/pages/registerForm.jsp" cssClass="a"><s:text name="signUp"/></s:a>
 
     </div>
