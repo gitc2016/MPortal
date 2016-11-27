@@ -2,6 +2,7 @@ package am.gitc.mportal.action;
 
 import am.gitc.mportal.dao.UserDao;
 import am.gitc.mportal.domain.User;
+import am.gitc.mportal.manager.UserManager;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -23,7 +24,7 @@ public class UserActions extends ActionSupport implements SessionAware {
             user.setName(name);
             user.setSurname(surname);
             user.setPassword(password);
-            UserDao manager = new UserDao();
+            UserManager manager = new UserManager();
             manager.updateUser(user);
             return SUCCESS;
 //...
@@ -36,7 +37,7 @@ public class UserActions extends ActionSupport implements SessionAware {
     public String deleteUser() {
         User user = (User) session.get("loggedUser");
         if (user != null) {
-            UserDao manager = new UserDao();
+            UserManager manager = new UserManager();
             manager.deleteUser(user);
             return SUCCESS;
         }else {
