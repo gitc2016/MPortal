@@ -1,5 +1,4 @@
 package am.gitc.mportal.dao;
-
 import am.gitc.mportal.domain.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -7,38 +6,29 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
+import java.util.List;
+
 /**
- * Created by Lilit on 11/25/2016.
+ * Created by gtc-user34 on 11/20/2016.
  */
-public class UserDao {
-    Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
+public interface UserDao extends GlobalDao<User> {
 
-    ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(
-            configuration.getProperties()).buildServiceRegistry();
+    @Override
+    void create(User user);
 
-    SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-    Session session = sessionFactory.openSession();
+    @Override
+    User getById(int id);
 
-    public void updateUser(User user) {
-        session.beginTransaction();
-        session.save(user);
-        session.getTransaction().commit();
-    }
+    @Override
+    void update(User user);
 
-    public void deleteUser(User user) {
-        session.beginTransaction();
-        session.delete(user);
-        session.getTransaction().commit();
+    @Override
+    List<User> getAll();
 
-    }
+    User getUserByEmail(String email);
 
-    public void addUser(User user) {
-        session.beginTransaction();
-        session.save(user);
-        session.getTransaction().commit();
-        session.close();
+    User getUserByEmailPassword(String email, String password);
 
-    }
 
 
 }

@@ -1,14 +1,11 @@
 package am.gitc.mportal.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by Gtc-user17 on 11/13/2016.
  */
-@javax.persistence.Table(name = "language")
+@Table(name = "language")
 @Entity
 public class Language {
 
@@ -16,6 +13,7 @@ public class Language {
     @GeneratedValue
     @Column
     private int id;
+
     @Column
     private String name;
 

@@ -1,29 +1,23 @@
 package am.gitc.mportal.domain;
 
-import org.hibernate.annotations.Table;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.*;
 
 /**
  * Created by Gtc-user17 on 11/13/2016.
  */
-@javax.persistence.Table(name = "category")
+
 @Entity
+@Table(name = "category")
 public class Category {
 
     @Id
     @GeneratedValue
-    @Column
-    private int categoryID;
+    private int id;
+
     @Column
     private String name;
-    @Id
+
     @Column
-    @GeneratedValue
     private int parentID;
 
     public Category() {
@@ -31,11 +25,30 @@ public class Category {
     }
 
 
-    public Category(int categoryID, String name, int parentID) {
-        this.categoryID = categoryID;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public int getParentID() {
+        return parentID;
+    }
+
+    public void setParentID(int parentID) {
         this.parentID = parentID;
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -44,19 +57,24 @@ public class Category {
 
         Category category = (Category) o;
 
+        if (id != category.id) return false;
+        if (parentID != category.parentID) return false;
         return name != null ? name.equals(category.name) : category.name == null;
 
     }
 
     @Override
     public int hashCode() {
-        return name != null ? name.hashCode() : 0;
+        int result = id;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + parentID;
+        return result;
     }
 
     @Override
     public String toString() {
         return "Category{" +
-                "categoryID=" + categoryID +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", parentID=" + parentID +
                 '}';

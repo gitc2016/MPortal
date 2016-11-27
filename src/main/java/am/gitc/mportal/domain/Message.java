@@ -10,16 +10,20 @@ import javax.persistence.Id;
  */
 @Entity
 public class Message {
+
     @Id
     @GeneratedValue
+    private int id;
+
     @Column
     private int fromID;
-    @Id
-    @GeneratedValue
+
     @Column
     private int toID;
+
     @Column
     private String text;
+
     @Column
     private boolean isRead;
 
@@ -27,11 +31,12 @@ public class Message {
 
     }
 
-    public Message(int fromID, int toID, String text, boolean isRead) {
-        this.fromID = fromID;
-        this.toID = toID;
-        this.text = text;
-        this.isRead = isRead;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getFromID() {
@@ -66,6 +71,7 @@ public class Message {
         isRead = read;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,6 +79,9 @@ public class Message {
 
         Message message = (Message) o;
 
+        if (id != message.id) return false;
+        if (fromID != message.fromID) return false;
+        if (toID != message.toID) return false;
         if (isRead != message.isRead) return false;
         return text != null ? text.equals(message.text) : message.text == null;
 
@@ -80,7 +89,10 @@ public class Message {
 
     @Override
     public int hashCode() {
-        int result = text != null ? text.hashCode() : 0;
+        int result = id;
+        result = 31 * result + fromID;
+        result = 31 * result + toID;
+        result = 31 * result + (text != null ? text.hashCode() : 0);
         result = 31 * result + (isRead ? 1 : 0);
         return result;
     }
@@ -88,7 +100,8 @@ public class Message {
     @Override
     public String toString() {
         return "Message{" +
-                "fromID=" + fromID +
+                "id=" + id +
+                ", fromID=" + fromID +
                 ", toID=" + toID +
                 ", text='" + text + '\'' +
                 ", isRead=" + isRead +

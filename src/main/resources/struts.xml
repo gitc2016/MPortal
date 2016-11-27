@@ -4,33 +4,8 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <constant name="struts.custom.i18n.resources" value="global"/>
-
+    <constant name="struts.custom.i18n.resources" value="package"/>
     <package name="default" extends="struts-default">
-
-        <interceptors>
-
-            <!--LoginIntercepter-->
-            <interceptor class="am.gitc.mportal.controller.Authentication" name="loginInterceptor">
-            </interceptor>
-
-            <!--RegisterIntercepter-->
-            <interceptor name="registerInterceptor" class="am.gitc.mportal.controller.RegisterIntercaptor">
-            </interceptor>
-
-            <!--loginStack-->
-            <interceptor-stack name="loginStack">
-                <interceptor-ref name="loginInterceptor"/>
-                <interceptor-ref name="defaultStack"/>
-            </interceptor-stack>
-
-            <!--RegisterStack-->
-            <interceptor-stack name="registerStack">
-                <interceptor-ref name="registerInterceptor"/>
-                <interceptor-ref name="defaultStack"/>
-            </interceptor-stack>
-
-        </interceptors>
 
         <action name="login">
             <result>/pages/loginForm.jsp</result>
@@ -42,18 +17,17 @@
 
         <!--LoginActionPage-->
         <action name="loginForm" class="am.gitc.mportal.action.LoginAction">
-            <!--<interceptor-ref name="loginStack"/>-->
-            <result name="success">index.jsp</result>
+            <result name="success">/pages/mentorDashboard.jsp</result>
             <result name="input">/pages/loginForm.jsp</result>
             <result name="login">/pages/loginForm.jsp</result>
         </action>
 
         <!--RegisterActionPage-->
         <action name="registerForm" class="am.gitc.mportal.action.RegistrationAction">
-            <!--<interceptor-ref name="registerStack"/>-->
+            <result name="success">/pages/loginForm.jsp</result>
+            <result name="input">/pages/registerForm.jsp</result>
             <result name="success">/pages/mailCode.jsp</result>
             <result name="error">/pages/error.jsp</result>
-            <result name="input">/pages/registerForm.jsp</result>
             <result name="login">/pages/registerForm.jsp</result>
         </action>
         <action name="mentor">
@@ -61,10 +35,8 @@
         </action>
 
         <action name="mailRegister" class="am.gitc.mportal.action.RegistrationAction" method="add">
-            <interceptor-ref name="registerStack"/>
-            <result name="input">/pages/mailCode.jsp</result>
+            <result name="login">/pages/urlError.jsp</result><result name="input">/pages/mailCode.jsp</result>
             <result name="success">/pages/loginForm.jsp</result>
-            <result name="login">/pages/registerForm.jsp</result>
         </action>
 
 
@@ -72,16 +44,17 @@
             <result name="success">/pages/loginForm.jsp</result>
         </action>
 
-    </package>
 
-    <!--Multiple Language Page -->
-    <package name="language" extends="struts-default">
+        <action name="global" class="am.gitc.mportal.action.GlobalAction">
+            <result name="success">/pages/loginForm.jsp</result>
+        </action>
 
-        <action name="log">
-            <result>/pages/loginForm.jsp</result>
+        <action name="locale" class="am.gitc.mportal.action.LocaleAction">
+            <result name="success">/pages/loginForm.jsp</result>
         </action>
 
     </package>
+
     <package name="userAction" extends="struts-default">
         <action name="update" class="am.gitc.mportal.action.UserActions" method="updateUser">
             <result type="success">/pages/menteeDashboard</result>
@@ -93,6 +66,5 @@
         </action>
 
     </package>
-
 
 </struts>

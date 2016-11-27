@@ -1,57 +1,81 @@
 package am.gitc.mportal.domain;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by Gtc-user17 on 11/13/2016.
  */
-@Table(name = "user")
 @Entity
+@Table(name = "User")
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private int id;
+
     @Column
     private String name;
+
     @Column
     private String surname;
+
     @Column
     private String email;
+
     @Column
     private String password;
-    @Column
+
+    @Transient
     private String imageSRC;
+
     @Enumerated(EnumType.STRING)
     private Role role;
+
     @Enumerated(EnumType.STRING)
     private Gender gender;
     @ManyToOne
     private Country country;
+
     @Column
-    private int registerCode;
-    @Column
+
     @Temporal(TemporalType.DATE)
-    private String dateOfBirth;
+    private Date dateOfBirth;
+
+    private boolean is_online;
+
+    @Column
+    private boolean is_register;
+
 
 
     public User() {
 
     }
 
-    public User(int id, String name, String surname, String email, String password,String url, Role role, Gender gender, Country country,int registerCode,String dateOfBirth) {
-        this.id = id;
+
+    public User(String name, String surname, String email, String password, String imageSRC, Role role,
+                Gender gender, Country country, Date dateOfBirth, boolean is_online, boolean is_register) {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
-        this.imageSRC = url;
+        this.imageSRC = imageSRC;
         this.role = role;
         this.gender = gender;
         this.country = country;
-        this.registerCode=registerCode;
         this.dateOfBirth = dateOfBirth;
+        this.is_online = is_online;
+        this.is_register = is_register;
+    }
+
+    public boolean is_register() {
+        return is_register;
+    }
+
+    public void setIs_register(boolean is_register) {
+        this.is_register = is_register;
     }
 
     public int getId() {
@@ -85,7 +109,6 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-
     public String getPassword() {
         return password;
     }
@@ -127,24 +150,24 @@ public class User {
         this.country = country;
     }
 
-    public int getRegisterCode() {
-        return registerCode;
-    }
-
-    public void setRegisterCode(int registerCode) {
-        this.registerCode = registerCode;
-    }
-
     public String getImageSRC() {
         return imageSRC;
     }
 
-    public String getDateOfBirth() {
+    public Date getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public boolean is_online() {
+        return is_online;
+    }
+
+    public void setIs_online(boolean is_online) {
+        this.is_online = is_online;
     }
 
     @Override
@@ -155,16 +178,17 @@ public class User {
         User user = (User) o;
 
         if (id != user.id) return false;
-        if (registerCode != user.registerCode) return false;
+        if (is_online != user.is_online) return false;
+        if (is_register != user.is_register) return false;
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
         if (surname != null ? !surname.equals(user.surname) : user.surname != null) return false;
         if (email != null ? !email.equals(user.email) : user.email != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (imageSRC != null ? !imageSRC.equals(user.imageSRC) : user.imageSRC != null) return false;
-        if (dateOfBirth != null ? !dateOfBirth.equals(user.dateOfBirth) : user.dateOfBirth!= null) return false;
         if (role != user.role) return false;
         if (gender != user.gender) return false;
-        return country != null ? country.equals(user.country) : user.country == null;
+        if (country != null ? !country.equals(user.country) : user.country != null) return false;
+        return dateOfBirth != null ? dateOfBirth.equals(user.dateOfBirth) : user.dateOfBirth == null;
 
     }
 
@@ -180,7 +204,8 @@ public class User {
         result = 31 * result + (gender != null ? gender.hashCode() : 0);
         result = 31 * result + (country != null ? country.hashCode() : 0);
         result = 31 * result + (dateOfBirth != null ? dateOfBirth.hashCode() : 0);
-        result = 31 * result + registerCode;
+        result = 31 * result + (is_online ? 1 : 0);
+        result = 31 * result + (is_register ? 1 : 0);
         return result;
     }
 
@@ -193,11 +218,12 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", imageSRC='" + imageSRC + '\'' +
-                ", imageSRC='" + dateOfBirth + '\'' +
                 ", role=" + role +
                 ", gender=" + gender +
                 ", country=" + country +
-                ", registerCode=" + registerCode +
+                ", dateOfBirth=" + dateOfBirth +
+                ", is_online=" + is_online +
+                ", is_register=" + is_register +
                 '}';
     }
 }

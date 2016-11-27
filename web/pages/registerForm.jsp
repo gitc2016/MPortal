@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="S" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: admin
@@ -15,48 +16,45 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css" media="screen"/>
-    <style>
-
-        span {
-            color: red;
-            font-weight: bold;
-            padding-left: 150px;
-        }
-        #registerForm  br { display: none !important; }
-
-    </style>
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/LoginRegister.css"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/js/mentorDashboard.js"></script>
 </head>
 <body>
+<s:set value="%{#application.country}" var="country"/>
+<s:set value="%{#application.role}" var="role"/>
+<s:set value="%{#application.gender}" var="gender"/>
+
 <div class="center">
     <p>
-        <img src="${pageContext.request.contextPath}/images/logo.png" style="padding-left: 580px" class="text-center">
+        <img src="${pageContext.request.contextPath}/images/logo.png" class="text-center">
         MPortal</p>
-    <div class="col-sm-4">
-    </div>
 
-    <div class="col-sm-4 ">
+    <div class="col-sm-4 col-sm-offset-4">
         <s:form action="registerForm.action" method="post">
-
-            <s:textfield key="name" cssClass="input"/><br><br>
-            <s:textfield key="surname" cssClass="input"/><br><br>
-            <s:textfield key="email" cssClass="input"/><br><br>
-            <s:password key="password" cssClass="input"/><br><br>
-            <s:password key="confirmPassword" cssClass="input"/><br><br>
-
-            <s:radio list="{'MALE','FEMALE'}" key="gender"/>
-            <s:radio list="{'MENTEE','MENTOR'}" key="role"/>
-            <s:select list="{'Armenia','Russia','USA'}" key="country"/>
-            <s:submit key="signUp" class="btn-danger submit" style="margin-left: 120px"/>
-
+            <s:bean name="am.gitc.mportal.action.RegistrationAction" var="user"/>
+            <s:push value="user">
+                <s:textfield key="name" name="user.name" cssClass="input"/>
+                <s:textfield key="surname"   name="user.surname" cssClass="input"/>
+                <s:textfield key="email" name="user.email" cssClass="input"/>
+                <s:password key="password"  name="user.password" cssClass="input"/>
+                <s:password key="confirmPassword" cssClass="input"/>
+                <s:radio list="gender" key="gender" name="user.gender"/>
+                <s:radio list="role" key="role" name="user.role"/>
+                <s:select key="country"
+                          list="country"
+                          listKey="id"
+                          listValue="name"
+                          name="ids"/>
+                <s:textfield id="datepicker" key="dateOfBirth" name="user.dateOfBirth"/>
+                <s:submit key="signUp" class="btn-danger submitReg"/>
+            </s:push>
         </s:form>
-
-        <a href="/MPortal/pages/loginForm.jsp"><s:text name="signIn"/></a>
-    </div>
-
-    <div class="col-sm-4">
-
+        <a href="/pages/loginForm.jsp"><s:text name="signIn"/></a>
     </div>
 </div>
 </body>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    <!--Name validation-->
+    <field name="user.name">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please enter your name</message>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <message>Please enter your name</message>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="maxLength">20</param>
+            <message>Please enter valid name</message>
+        </field-validator>
+    </field>
+    <!--end name validation-->
+
+
+    <!--Surname validation-->
+    <field name="user.surname">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please enter your surname</message>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <message>Please enter your surname</message>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="maxLength">20</param>
+            <message>Please enter valid surname</message>
+        </field-validator>
+
+    </field>
+    <!--end surname validation-->
+
+
+    <!--Email validation-->
+    <field name="user.email">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please enter your email</message>
+        </field-validator>
+
+        <field-validator type="email">
+            <message>Please enter valid email</message>
+        </field-validator>
+    </field>
+    <!--end email validation-->
+
+
+    <!--Password validator-->
+    <field name="user.password">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please enter your password</message>
+        </field-validator>
+
+        <field-validator type="regex">
+            <param name="regex">[A-Z,a-z,0-9]{8,20}</param>
+            <message>Please enter valid password</message>
+        </field-validator>
+        <!--end password validation-->
+    </field>
+
+
+    <!--ConfirmPassword validator-->
+    <field name="confirmPassword">
+        <field-validator type="fieldexpression">
+            <param name="expression">confirmPassword eq kuku</param>
+            <message>Confirm password is not valid</message>
+        </field-validator>
+        <!--end confirmPasssword validation-->
+    </field>
+
+    <field name="user.gender">
+        <field-validator type="required">
+            <message>Please enter your gender</message>
+        </field-validator>
+    </field>
+
+    <field name="user.role">
+        <field-validator type="required">
+            <message>Please enter your role</message>
+        </field-validator>
+    </field>
+
+    <!--date validation-->
+    <field name="user.dateOfBirth">
+        <field-validator type="required">
+            <message>Please enter your birthdate</message>
+        </field-validator>
+        <field-validator type="date">
+            <param name="max">01/01/1999</param>
+            <message>Please enter valid birtdate</message>
+        </field-validator>
+    </field>
+    <!--end date validation-->
+</validators>
