@@ -46,4 +46,10 @@ public class UserManager {
         userDaoImpl.update_Is_register(user);
     }
 
+    public void updateUser(User user) {
+
+    }
+    public void deleteUser(User user) {
+
+    }
 }
