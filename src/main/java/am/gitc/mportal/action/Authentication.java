@@ -1,4 +1,4 @@
-package am.gitc.mportal.controller;
+package am.gitc.mportal.action;
 
 import am.gitc.mportal.domain.User;
 import am.gitc.mportal.util.Global_Keys;

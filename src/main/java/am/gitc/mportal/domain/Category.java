@@ -1,10 +1,14 @@
 package am.gitc.mportal.domain;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Created by Gtc-user17 on 11/13/2016.
  */
+
 @Entity
 @Table(name = "category")
 public class Category {
@@ -13,11 +17,9 @@ public class Category {
     @GeneratedValue
     private int id;
 
-    @Column
     private String name;
 
-    @Column
-    private int parentID;
+    private int parentId;
 
     public Category() {
 
@@ -40,12 +42,12 @@ public class Category {
         this.name = name;
     }
 
-    public int getParentID() {
-        return parentID;
+    public int getParentId() {
+        return parentId;
     }
 
-    public void setParentID(int parentID) {
-        this.parentID = parentID;
+    public void setParentId(int parentId) {
+        this.parentId = parentId;
     }
 
 
@@ -57,7 +59,7 @@ public class Category {
         Category category = (Category) o;
 
         if (id != category.id) return false;
-        if (parentID != category.parentID) return false;
+        if (parentId != category.parentId) return false;
         return name != null ? name.equals(category.name) : category.name == null;
 
     }
@@ -66,7 +68,7 @@ public class Category {
     public int hashCode() {
         int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + parentID;
+        result = 31 * result + parentId;
         return result;
     }
 
@@ -75,7 +77,7 @@ public class Category {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", parentID=" + parentID +
+                ", parentId=" + parentId +
                 '}';
     }
 }
