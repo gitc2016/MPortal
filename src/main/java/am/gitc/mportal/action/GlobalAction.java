@@ -20,8 +20,8 @@ public class GlobalAction extends ActionSupport implements SessionAware, Applica
     Map<String, Object> mapSession;
     Map<String, Object> mapApp;
     CountryDaoImpl countryDaoImpl;
-    private Role[] roles=Role.values();
-    private Gender [] genders =Gender.values();
+    private Role[] roles = Role.values();
+    private Gender[] genders = Gender.values();
 
     @Override
     public void setSession(Map<String, Object> map) {
@@ -39,8 +39,8 @@ public class GlobalAction extends ActionSupport implements SessionAware, Applica
         countryDaoImpl = new CountryDaoImpl();
         List<Country> countries = countryDaoImpl.getAll();
         mapApp.put(Global_Keys.COUNTRY, countries);
-        mapApp.put(Global_Keys.ROLE,roles);
-        mapApp.put(Global_Keys.GENDER,genders);
+        mapApp.put(Global_Keys.ROLE, roles);
+        mapApp.put(Global_Keys.GENDER, genders);
         return SUCCESS;
     }
 }
