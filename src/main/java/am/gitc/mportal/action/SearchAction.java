@@ -1,24 +1,28 @@
 package am.gitc.mportal.action;
 
+import am.gitc.mportal.dao.impl.UserDaoImpl;
 import am.gitc.mportal.domain.User;
-import am.gitc.mportal.manager.UserManager;
 
 import java.util.List;
 
 public class SearchAction extends GlobalAction {
 
-    private UserManager userManager;
+    private UserDaoImpl userDao;
     private String searchKeyword;
     private  List<User> userList;
 
     public SearchAction() {
-        userManager = new UserManager();
+        try {
+            userDao = new UserDaoImpl();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public String execute() throws Exception {
 
-         userList = userManager.getSearchUserByName(searchKeyword);
+         userList = userDao.getSearchUserListByName(searchKeyword);
         return SUCCESS;
     }
 

@@ -1,6 +1,6 @@
-package am.gitc.mportal.dao;
+package am.gitc.mportal.dao.impl;
 
-import am.gitc.mportal.domain.Country;
+import am.gitc.mportal.dao.UserDao;
 import am.gitc.mportal.domain.User;
 import am.gitc.mportal.util.HibernateUtil;
 import org.hibernate.Criteria;
@@ -10,64 +10,68 @@ import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
-/**
- * Created by gtc-user34 on 11/20/2016.
- */
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl implements UserDao {//TODO for all throws exception
 
     private Session session;
 
 
-    public UserDaoImpl() {
+    public UserDaoImpl() throws Exception {
         session = HibernateUtil.createSessionFactory().openSession();
     }
 
     @Override
-    public void create(User user) {
+    public void create(User user) throws Exception{//TODO thorows exception
         session.beginTransaction();
         session.save(user);
         session.getTransaction().commit();
     }
 
     @Override
-    public User getById(int id) {
+    public User getById(int id) throws Exception {
         return null;
     }
 
     @Override
-    public void update(User user) {
+    public void update(User user) throws Exception{
 
     }
 
 
-    public void update_Is_register(User user) {
+    public void updateIsRegister(User user) throws Exception{//TODO change name update status
         session.beginTransaction();
         session.update(user);
         session.getTransaction().commit();
     }
 
     @Override
-    public List<User> getAll() {
+    public List<User> getAll()throws Exception {
         return null;
     }
 
 
     @Override
-    public User getUserByEmail(String email) {
+    public User getUserByEmail(String email) throws Exception{
         Criteria criteria = session.createCriteria(User.class);
         return (User) criteria.add(Restrictions.eq("email", email)).uniqueResult();
     }
 
     @Override
-    public User getUserByEmailPassword(String email, String password) {
+    public User getUserByEmailPassword(String email, String password)throws Exception {
         Criteria criteria = session.createCriteria(User.class);
         return (User) criteria.add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password),Restrictions.eq("is_register",true))).uniqueResult();
     }
 
-
-    public User getUserByEmailCode(String hashcode) {
+    @Override
+    public List<User> getSearchUserListByName(String name) {
         Criteria criteria = session.createCriteria(User.class);
-        return (User) criteria.add(Restrictions.eq("password", hashcode)).uniqueResult();
+        Criterion result = Restrictions.like("name",name + "%");
+        return (List<User>) criteria.add(result).list();
+    }
+
+
+    public User getUserByHashCode(String hashCode)throws Exception {//TODO think about better way to generate link for useractiovation
+        Criteria criteria = session.createCriteria(User.class);
+        return (User) criteria.add(Restrictions.eq("hashCode", hashCode)).uniqueResult();
     }
 
 
