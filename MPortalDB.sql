@@ -52,7 +52,6 @@ CREATE TABLE `language` (
 ) ENGINE=INNODB DEFAULT CHARSET=latin1;
 
 
-DROP TABLE IF EXISTS `message`;
 
 /*Table structure for table `mentor_category` */
 
@@ -91,7 +90,7 @@ CREATE TABLE `mentor_status` (
 /*Table structure for table `request` */
 
 DROP TABLE IF EXISTS `request`;
-
+/*change filde name from_id sender_id to_id recever_id*/
 CREATE TABLE `request` (
   `from_id` INT(11) NOT NULL,
   `to_id` INT(11) NOT NULL,
@@ -107,7 +106,7 @@ CREATE TABLE `request` (
 /*Table structure for table `user` */
 
 DROP TABLE IF EXISTS `user`;
-
+/*add username filde  dateOfBirth change birth_date, is register changed is_activeted, is onlline changed is_available*/
 CREATE TABLE `user` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(20) NOT NULL,
