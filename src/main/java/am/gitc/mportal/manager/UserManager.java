@@ -5,7 +5,6 @@ import am.gitc.mportal.domain.Country;
 import am.gitc.mportal.domain.User;
 
 import javax.jws.soap.SOAPBinding;
-import java.util.List;
 
 /**
  * Created by Stella on 19.11.2016.
@@ -25,6 +24,7 @@ public class UserManager {
 
 
     public boolean isEmailAndPassword(String email, String password) {
+        System.out.println(userDaoImpl.getUserByEmailPassword(email,password));
         if (userDaoImpl.getUserByEmailPassword(email, password) != null) return true;
         return false;
     }
@@ -44,10 +44,6 @@ public class UserManager {
 
     public void updateIs_register(User user){
         userDaoImpl.update_Is_register(user);
-    }
-
-    public List<User> getSearchUserByName(String name){
-        return userDaoImpl.getSearchUserListByName(name);
     }
 
 }

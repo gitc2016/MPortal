@@ -30,7 +30,5 @@
 <div class="container-fluid">
     <h5>Sorry but this url is not valid</h5>
 </div>
-
-
 </body>
 </html>

@@ -1,16 +1,14 @@
 package am.gitc.mportal.action;
 
+import am.gitc.mportal.dao.impl.CountryDaoImpl;
 import am.gitc.mportal.domain.Country;
 import am.gitc.mportal.domain.Gender;
 import am.gitc.mportal.domain.Role;
-import am.gitc.mportal.domain.User;
-import am.gitc.mportal.manager.CountryManager;
-import am.gitc.mportal.manager.UserManager;
 import am.gitc.mportal.util.Global_Keys;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
-import org.apache.struts2.util.ServletContextAware;
+
 import java.util.List;
 import java.util.Map;
 
@@ -21,9 +19,9 @@ public class GlobalAction extends ActionSupport implements SessionAware, Applica
 
     Map<String, Object> mapSession;
     Map<String, Object> mapApp;
-    CountryManager countryManager;
-    private Role[] roles=Role.values();
-    private Gender [] genders =Gender.values();
+    CountryDaoImpl countryDaoImpl;
+    private Role[] roles = Role.values();
+    private Gender[] genders = Gender.values();
 
     @Override
     public void setSession(Map<String, Object> map) {
@@ -38,12 +36,11 @@ public class GlobalAction extends ActionSupport implements SessionAware, Applica
 
     @Override
     public String execute() throws Exception {
-        countryManager = new CountryManager();
-        List<Country> countries = countryManager.getAllCountry();
+        countryDaoImpl = new CountryDaoImpl();
+        List<Country> countries = countryDaoImpl.getAll();
         mapApp.put(Global_Keys.COUNTRY, countries);
-        mapApp.put(Global_Keys.ROLE,roles);
-        mapApp.put(Global_Keys.GENDER,genders);
-        System.out.println(mapApp.get(Global_Keys.COUNTRY));
+        mapApp.put(Global_Keys.ROLE, roles);
+        mapApp.put(Global_Keys.GENDER, genders);
         return SUCCESS;
     }
 }

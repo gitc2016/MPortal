@@ -25,34 +25,28 @@
     <script src="/js/mentorDashboard.js"></script>
 </head>
 <body>
-<s:set value="%{#application.country}" var="country"/>
-<s:set value="%{#application.role}" var="role"/>
-<s:set value="%{#application.gender}" var="gender"/>
-
 <div class="center">
+    <s:set var="country" value="%{#application.country}"/>
     <p>
         <img src="${pageContext.request.contextPath}/images/logo.png" class="text-center">
         MPortal</p>
 
     <div class="col-sm-4 col-sm-offset-4">
         <s:form action="registerForm.action" method="post">
-            <s:bean name="am.gitc.mportal.action.RegistrationAction" var="user"/>
-            <s:push value="user">
-                <s:textfield key="name" name="user.name" cssClass="input"/>
-                <s:textfield key="surname"   name="user.surname" cssClass="input"/>
-                <s:textfield key="email" name="user.email" cssClass="input"/>
-                <s:password key="password"  name="user.password" cssClass="input"/>
-                <s:password key="confirmPassword" cssClass="input"/>
-                <s:radio list="gender" key="gender" name="user.gender"/>
-                <s:radio list="role" key="role" name="user.role"/>
-                <s:select key="country"
-                          list="country"
-                          listKey="id"
-                          listValue="name"
-                          name="ids"/>
-                <s:textfield id="datepicker" key="dateOfBirth" name="user.dateOfBirth"/>
-                <s:submit key="signUp" class="btn-danger submitReg"/>
-            </s:push>
+            <s:textfield key="name" name="user.name" cssClass="input"/>
+            <s:textfield key="surname" name="user.surname" cssClass="input"/>
+            <s:textfield key="email" name="user.email" cssClass="input"/>
+            <s:password key="password" name="user.password" cssClass="input"/>
+            <s:password key="confirmPassword" name="user.confirmPassword" cssClass="input"/>
+            <s:radio list="%{#application.gender}" key="gender" name="user.gender"/>
+            <s:radio list="%{#application.role}" key="role" name="user.role"/>
+            <s:select key="country"
+                      list="country"
+                      listKey="id"
+                      listValue="name"
+                      name="countryId"/>
+            <s:textfield id="datepicker" key="dateOfBirth" name="user.dateOfBirth"/>
+            <s:submit key="signUp" class="btn-danger submitReg"/>
         </s:form>
         <a href="/pages/loginForm.jsp"><s:text name="signIn"/></a>
     </div>

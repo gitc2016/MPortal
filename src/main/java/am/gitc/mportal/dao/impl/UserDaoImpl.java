@@ -61,7 +61,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getUserByEmailPassword(String email, String password) {
         Criteria criteria = session.createCriteria(User.class);
-        return (User) criteria.add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password))).uniqueResult();
+        return (User) criteria.add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password),Restrictions.eq("is_register",true))).uniqueResult();
     }
 
 
@@ -70,10 +70,5 @@ public class UserDaoImpl implements UserDao {
         return (User) criteria.add(Restrictions.eq("password", hashcode)).uniqueResult();
     }
 
-    public List<User> getSearchUserListByName(String name){
-        Criteria criteria = session.createCriteria(User.class);
-        Criterion result = Restrictions.like("name",name + "%");
-        return (List<User>) criteria.add(result).list();
-    }
 
 }

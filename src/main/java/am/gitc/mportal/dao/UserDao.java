@@ -1,6 +1,4 @@
 package am.gitc.mportal.dao;
-
-import am.gitc.mportal.domain.Country;
 import am.gitc.mportal.domain.User;
 
 import java.util.List;
@@ -11,20 +9,20 @@ import java.util.List;
 public interface UserDao extends GlobalDao<User> {
 
     @Override
-    void create(User user);
+    void create(User user) throws Exception;
 
     @Override
-    User getById(int id);
+    User getById(int id) throws Exception;
 
     @Override
-    void update(User user);
+    void update(User user) throws Exception;
 
     @Override
-    List<User> getAll();
+    List<User> getAll() throws Exception;
 
-    User getUserByEmail(String email);
+    User getUserByEmail(String email) throws Exception;
 
-    User getUserByEmailPassword(String email, String password);
+    User getUserByEmailPassword(String email, String password) throws Exception;
 
     List<User> getSearchUserListByName(String name);
 

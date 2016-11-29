@@ -1,25 +1,22 @@
 package am.gitc.mportal.domain;
 
-import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
  * Created by Gtc-user17 on 11/13/2016.
  */
+@javax.persistence.Table(name = "request")
 public class Request {
 
     @Id
     @GeneratedValue
-    @Column
+    private int id;
+
     private int fromID;
-    @Id
-    @GeneratedValue
-    @Column
+
     private int toID;
-    @Id
-    @GeneratedValue
-    @Column
+
     private int acceptedID;
 
     public Request() {

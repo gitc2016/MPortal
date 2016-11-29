@@ -73,9 +73,14 @@
 
 
     <!--ConfirmPassword validator-->
-    <field name="confirmPassword">
+    <field name="user.confirmPassword">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please enter your confirmPassword</message>
+        </field-validator>
+
         <field-validator type="fieldexpression">
-            <param name="expression">confirmPassword eq kuku</param>
+            <param name="expression">user.confirmPassword eq user.password</param>
             <message>Confirm password is not valid</message>
         </field-validator>
         <!--end confirmPasssword validation-->

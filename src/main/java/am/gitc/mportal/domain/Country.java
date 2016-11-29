@@ -1,10 +1,12 @@
 package am.gitc.mportal.domain;
 
+
 import javax.persistence.*;
 
 /**
  * Created by Gtc-user17 on 11/13/2016.
  */
+
 @Entity
 @Table(name = "country")
 public class Country {
@@ -14,7 +16,6 @@ public class Country {
     @Column
     private int id;
 
-    @Column
     private String name;
 
 

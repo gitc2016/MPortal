@@ -1,12 +1,12 @@
 package am.gitc.mportal.action;
 
+import am.gitc.mportal.action.GlobalAction;
+import am.gitc.mportal.action.utils.MD5;
+import am.gitc.mportal.dao.impl.UserDaoImpl;
 import am.gitc.mportal.domain.User;
-import am.gitc.mportal.manager.UserManager;
 import am.gitc.mportal.util.Global_Keys;
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
-import com.opensymphony.xwork2.validator.annotations.StringLengthFieldValidator;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import java.util.Map;
@@ -18,32 +18,15 @@ public class LoginAction extends GlobalAction {
 
     private String login;
     private String password;
-    UserManager userManager;
+    private UserDaoImpl userDaoImpl;
 
-    public LoginAction() {
-        userManager = new UserManager();
+    public LoginAction() throws Exception {
+        userDaoImpl = new UserDaoImpl();
+
     }
 
-    public String getLogin() {
-        return login;
-    }
-
-    @RequiredStringValidator(message = "Please enter login")
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    @RequiredStringValidator(message = "Please enter password")
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String execute() {
-        User user = userManager.getUserByEmailPassword(login, password);
+    public String execute() throws Exception {
+        User user = userDaoImpl.getUserByEmailPassword(login, password);
         mapSession.put(Global_Keys.LOGIN, user);
         return "success";
     }
@@ -55,10 +38,30 @@ public class LoginAction extends GlobalAction {
         return SUCCESS;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public void validate() {
-        if (!userManager.isEmailAndPassword(login, MD5.getMd5(password))) {
-            addFieldError("login", "Your login or password is invalid");
+        try {
+            if (userDaoImpl.getUserByEmailPassword(login, MD5.encryptPassword(password)) == null) {
+                addFieldError("login", "Your login or password is invalid");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
