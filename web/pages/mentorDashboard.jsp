@@ -63,7 +63,7 @@
                         <div class="status available"></div>
                     </div>
 
-                    <div id="search">
+                    <div id="searchKeyword">
                         <input type="text" id="searchfield" value="Search contacts..." />
                     </div>
                 </div>
