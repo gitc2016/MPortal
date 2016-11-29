@@ -30,28 +30,5 @@
 <div class="container-fluid">
     <h5>Sorry but this url is not valid</h5>
 </div>
-</body
-        #Login Page
-        login=Username
-        password=Passsword
-        signIn=Sign In
-        signUp=Sign Up
-        en=English
-        arm=Armenian
-
-        #Register Page
-        name=Name
-        surname=Surname
-        email=Email
-        confirmPassword=Confirm Password
-        armenia=Armenia
-        georgia=Georgia
-        usa=USA
-        russia=Russia
-        country=Country
-        gender=Gender
-        role=Role
-        dateOfBirth=DateOfBirth
-
-
+</body>
 </html>

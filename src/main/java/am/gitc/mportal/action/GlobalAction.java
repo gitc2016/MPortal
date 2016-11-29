@@ -8,7 +8,7 @@ import am.gitc.mportal.util.Global_Keys;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
-import org.apache.struts2.util.ServletContextAware;
+
 import java.util.List;
 import java.util.Map;
 
