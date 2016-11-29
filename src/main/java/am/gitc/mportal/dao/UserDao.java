@@ -26,6 +26,7 @@ public interface UserDao extends GlobalDao<User> {
 
     User getUserByEmailPassword(String email, String password);
 
+    List<User> getSearchUserListByName(String name);
 
 
 }
