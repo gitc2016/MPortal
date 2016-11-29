@@ -5,7 +5,7 @@
 
 <struts>
     <constant name="struts.custom.i18n.resources" value="package"/>
-    <package name="default" extends="struts-default">
+    <package name="default" namespace="/" extends="struts-default">
 
         <action name="login">
             <result>/pages/loginForm.jsp</result>
@@ -49,6 +49,11 @@
 
         <action name="locale" class="am.gitc.mportal.action.LocaleAction">
             <result name="success">/pages/loginForm.jsp</result>
+        </action>
+
+        <action name="search" class="am.gitc.mportal.action.SearchAction">
+            <result name="success">/pages/search.jsp</result>
+            <result name="input">/pages/search.jsp</result>
         </action>
 
     </package>
