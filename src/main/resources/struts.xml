@@ -4,8 +4,11 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <constant name="struts.custom.i18n.resources" value="package"/>
-    <package name="default" extends="struts-default">
+
+    <!--<constant name="struts.custom.i18n.resources" value="package"/>-->
+    <!--<package name="default" namespace="/" extends="struts-default">-->
+    <constant name="struts.custom.i18n.resources" value="global"/>
+    <package name="default" namespace="/" extends="struts-default">
 
         <action name="login">
             <result>/pages/loginForm.jsp</result>
@@ -26,14 +29,12 @@
         <action name="registerForm" class="am.gitc.mportal.action.RegistrationAction">
             <result name="success">/pages/loginForm.jsp</result>
             <result name="input">/pages/registerForm.jsp</result>
-            <result name="success">/pages/mailCode.jsp</result>
             <result name="error">/pages/error.jsp</result>
-            <result name="login">/pages/registerForm.jsp</result>
         </action>
 
 
-        <action name="mailRegister" class="am.gitc.mportal.action.RegistrationAction" method="add">
-            <result name="login">/pages/urlError.jsp</result><result name="input">/pages/mailCode.jsp</result>
+        <action name="activate" class="am.gitc.mportal.action.RegistrationAction" method="activateProfile">
+            <result name="login">/pages/urlError.jsp</result>
             <result name="success">/pages/loginForm.jsp</result>
         </action>
 
@@ -47,8 +48,12 @@
             <result name="success">/pages/loginForm.jsp</result>
         </action>
 
-        <action name="locale" class="am.gitc.mportal.action.LocaleAction">
-            <result name="success">/pages/loginForm.jsp</result>
+        <!--<action name="locale" class="am.gitc.mportal.action.LocaleAction">-->
+            <!--<result name="success">/pages/loginForm.jsp</result>-->
+        <!--</action>-->
+
+        <action name="locale">
+            <result>/pages/loginForm.jsp</result>
         </action>
 
     </package>
