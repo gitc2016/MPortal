@@ -99,7 +99,7 @@
     </field>
 
     <!--date validation-->
-    <field name="user.dateOfBirth">
+    <field name="user.birthDate">
         <field-validator type="required">
             <message>Please enter your birthdate</message>
         </field-validator>

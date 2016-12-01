@@ -58,7 +58,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getUserByEmailPassword(String email, String password)throws Exception {
         Criteria criteria = session.createCriteria(User.class);
-        return (User) criteria.add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password),Restrictions.eq("isRegister",true))).uniqueResult();
+        return (User) criteria.add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password),Restrictions.eq("isActive",true))).uniqueResult();
     }
 
     @Override

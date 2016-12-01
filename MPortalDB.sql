@@ -66,7 +66,7 @@ insert  into `country`(`id`,`name`) values
 
 (3,'USA'),
 
-(4,'Ukrain');
+(4,'Ukraine');
 
 /*Table structure for table `language` */
 
@@ -78,8 +78,7 @@ CREATE TABLE `language` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-DROP TABLE IF EXISTS `message`;
+/*Data for the table `language` */
 
 /*Table structure for table `mentor_category` */
 
@@ -124,6 +123,9 @@ CREATE TABLE `request` (
   `to_id` int(11) NOT NULL,
   `accepted` tinyint(1) NOT NULL,
   `id` int(11) NOT NULL,
+  `acceptedID` int(11) NOT NULL,
+  `fromID` int(11) NOT NULL,
+  `toID` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `from_id` (`from_id`),
   KEY `to_id` (`to_id`),
@@ -147,18 +149,20 @@ CREATE TABLE `user` (
   `role` enum('MENTOR','MENTEE') NOT NULL,
   `country_id` int(11) NOT NULL,
   `isActive` tinyint(1) NOT NULL DEFAULT '0',
-  `dateOfBirth` date NOT NULL,
-  `isRegister` tinyint(1) NOT NULL DEFAULT '0',
+  `birthDate` date NOT NULL,
   `imageSRC` varchar(255) DEFAULT NULL,
   `hashcode` varchar(255) NOT NULL,
+  `isAvailable` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `country_id` (`country_id`),
   CONSTRAINT `user_ibfk_3` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`name`,`surname`,`email`,`password`,`gender`,`role`,`country_id`,`isActive`,`dateOfBirth`,`isRegister`,`imageSRC`,`hashcode`) values 
+insert  into `user`(`id`,`name`,`surname`,`email`,`password`,`gender`,`role`,`country_id`,`isActive`,`birthDate`,`imageSRC`,`hashcode`,`isAvailable`) values 
+
+(34,'Stella','tahmazyan','stella02051994@gmail.com','f60a960c6dd748e91fed5f7af335c3b3','FEMALE','MENTEE',1,1,'1990-05-16',NULL,'e4b9334829c650d0e4c5d74903a1a68b',0);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

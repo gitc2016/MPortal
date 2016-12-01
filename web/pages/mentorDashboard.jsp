@@ -36,7 +36,7 @@
                     <li><a href="#">Messages <i class="glyphicon glyphicon-envelope"></i> <span
                             class="badge badge-info">1</span></a></li>
                     <li><a href="#">Upload Photo <i class="glyphicon glyphicon-upload"></i>  <i class="glyphicon glyphicon-picture"></i>
-                    <li class="active"><a href="#">Update <i class="glyphicon glyphicon-refresh"></i></a></li>
+                    <li class="available"><a href="#">Update <i class="glyphicon glyphicon-refresh"></i></a></li>
                     <li class="divider"></li>
                     <li><a href="#">Settings <i class="glyphicon glyphicon-cog"></i> </a></li>
                     <li><a href="pages/loginForm.jsp">Logout <i class="glyphicon glyphicon-log-out"></i></a></li>
