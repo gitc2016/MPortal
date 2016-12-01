@@ -57,7 +57,7 @@ public class LoginAction extends GlobalAction {
     @Override
     public void validate() {
         try {
-            if (userDaoImpl.getUserByEmailPassword(login, MD5.encryptPassword(password)) == null) {
+            if (login.length()!=0 && password.length()!=0 && userDaoImpl.getUserByEmailPassword(login, MD5.encryptPassword(password)) == null) {
                 addFieldError("login", "Your login or password is invalid");
             }
         } catch (Exception e) {
