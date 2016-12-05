@@ -5,10 +5,27 @@
 
 <struts>
 
+
     <!--<constant name="struts.custom.i18n.resources" value="package"/>-->
     <!--<package name="default" namespace="/" extends="struts-default">-->
     <constant name="struts.custom.i18n.resources" value="global"/>
     <package name="default" namespace="/" extends="struts-default">
+        <interceptors>
+
+            <!--LoginIntercepter-->
+            <interceptor class="am.gitc.mportal.action.Authentication" name="loginInterceptor">
+            </interceptor>
+
+            <!--loginStack-->
+            <interceptor-stack name="loginStack">
+                <interceptor-ref name="loginInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+            
+
+        </interceptors>
+
+
 
         <action name="login">
             <result>/pages/loginForm.jsp</result>
@@ -48,9 +65,11 @@
             <result name="success">/pages/loginForm.jsp</result>
         </action>
 
-        <!--<action name="locale" class="am.gitc.mportal.action.LocaleAction">-->
-            <!--<result name="success">/pages/loginForm.jsp</result>-->
-        <!--</action>-->
+        <action name="mentor">
+            <interceptor-ref name="loginStack"/>
+            <result name="input">/pages/loginForm.jsp</result>
+            <result name="success">/pages/mentorDashboard.jsp</result>
+        </action>
 
         <action name="locale">
             <result>/pages/loginForm.jsp</result>

@@ -50,29 +50,6 @@ public class User {
 
     }
 
-    public User(String name, String surname, String email, String password, String imageSRC, Role role, Gender gender, Country country, Date birthDate, boolean isAvailable, boolean isActive, String hashCode) {
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.password = password;
-        this.imageSRC = imageSRC;
-        this.role = role;
-        this.gender = gender;
-        this.country = country;
-        this.birthDate = birthDate;
-        this.isAvailable = isAvailable;
-        this.isActive = isActive;
-        this.hashCode = hashCode;
-    }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setIsRegister(boolean isRegister) {
-        this.isActive = isRegister;
-    }
-
     public int getId() {
         return id;
     }
@@ -113,12 +90,20 @@ public class User {
         this.password = password;
     }
 
-    public String getURL() {
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public String getImageSRC() {
         return imageSRC;
     }
 
-    public void setImageSRC(String url) {
-        this.imageSRC = url;
+    public void setImageSRC(String imageSRC) {
+        this.imageSRC = imageSRC;
     }
 
     public Role getRole() {
@@ -137,17 +122,12 @@ public class User {
         this.gender = gender;
     }
 
-
     public Country getCountry() {
         return country;
     }
 
     public void setCountry(Country country) {
         this.country = country;
-    }
-
-    public String getImageSRC() {
-        return imageSRC;
     }
 
     public Date getBirthDate() {
@@ -158,22 +138,21 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public boolean is_online() {
+    public boolean isAvailable() {
         return isAvailable;
     }
 
     public void setAvailable(boolean available) {
-        this.isAvailable = available;
+        isAvailable = available;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
+    public boolean isActive() {
+        return isActive;
     }
 
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
+    public void setActive(boolean active) {
+        isActive = active;
     }
-
 
     public String getHashCode() {
         return hashCode;
