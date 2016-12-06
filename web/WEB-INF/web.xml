@@ -14,12 +14,15 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <welcome-file-list>
+    <!--<welcome-file-list>-->
 
-        <welcome-file>/pages/menteeDashboard.jsp</welcome-file>
+        <!--&lt;!&ndash;<welcome-file>/pages/mentorDashboard.jsp</welcome-file>&ndash;&gt;-->
+        <!--&lt;!&ndash;<welcome-file>/pages/userPage.jsp</welcome-file>&ndash;&gt;-->
 
-        <!--<welcome-file>/pages/choosePage.jsp</welcome-file>-->
-    </welcome-file-list>
+
+
+        <!--&lt;!&ndash;<welcome-file>/pages/choosePage.jsp</welcome-file>&ndash;&gt;-->
+    <!--</welcome-file-list>-->
 
     <!--<listener>-->
         <!--<listener-class>am.gitc.mportal.listener.Listener</listener-class>-->

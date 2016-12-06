@@ -80,4 +80,9 @@ $(document).ready(function(){
 
     });
   });
+
+  $("body").on('click', "#categ", function () {
+    $("#categorstyle").slideToggle('slow');
+
+  })
 });
