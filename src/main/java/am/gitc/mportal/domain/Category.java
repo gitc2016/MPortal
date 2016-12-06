@@ -1,9 +1,6 @@
 package am.gitc.mportal.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Gtc-user17 on 11/13/2016.
@@ -18,7 +15,7 @@ public class Category {
     private int id;
 
     private String name;
-
+@Column(name = "parent_id")
     private int parentId;
 
     public Category() {
