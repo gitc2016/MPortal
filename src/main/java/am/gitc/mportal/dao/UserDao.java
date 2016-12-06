@@ -1,4 +1,6 @@
 package am.gitc.mportal.dao;
+
+import am.gitc.mportal.domain.MentorCategory;
 import am.gitc.mportal.domain.User;
 
 import java.util.List;
@@ -26,5 +28,5 @@ public interface UserDao extends GlobalDao<User> {
 
     List<User> getSearchUserListByName(String name);
 
-
+    User getUserAdvanceSearch(int id, String name);
 }
