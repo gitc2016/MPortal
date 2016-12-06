@@ -17,9 +17,9 @@
         <dispatcher>INCLUDE</dispatcher>
     </filter-mapping>
 
-    <!--<welcome-file-list>-->
-        <!--<welcome-file>/pages/search.jsp</welcome-file>-->
-    <!--</welcome-file-list>-->
+    <welcome-file-list>
+        <welcome-file>/pages/menteeDashboard.jsp</welcome-file>
+    </welcome-file-list>
 
     <!--<listener>-->
         <!--<listener-class>am.gitc.mportal.listener.Listener</listener-class>-->
