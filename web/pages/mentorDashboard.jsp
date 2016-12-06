@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mentorDashboard.css">
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/mentorDashboard.js"></script>
+
 </head>
 <body>
 
@@ -57,9 +58,17 @@
 
     <div class="col-lg-1">
         <div class="col-lg-5">
-            <a href="${pageContext.request.contextPath}/pages/loginForm.jsp"><img
-                    src="${pageContext.request.contextPath}/images/setting.png"
-                    style="width: 30px;height: 20px;margin-top: 10px"/></a>
+            <div class="dropdown">
+                <a href="${pageContext.request.contextPath}/pages/loginForm.jsp" class="dropdown-toggle"
+                   data-toggle="dropdown"><img
+                        src="${pageContext.request.contextPath}/images/setting.png"
+                        style="width: 30px;height: 20px;margin-top: 10px"/></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Update <i class="glyphicon glyphicon-refresh"></i> </a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                </ul>
+            </div>
         </div>
 
         <div class="col-lg-5 col-lg-offset-1">
@@ -185,12 +194,6 @@
         </div>
 
     </div>
-
-    <div class="settings">
-        <li class="active"><a href="#">Update <i class="glyphicon glyphicon-refresh"></i></a></li>
-
-    </div>
-
 </div>
 </body>
 </html>
