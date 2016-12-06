@@ -28,6 +28,7 @@ public class LoginAction extends GlobalAction {
     public String execute() throws Exception {
         User user = userDaoImpl.getUserByEmailPassword(login, MD5.encryptPassword(password));
         mapSession.put(Global_Keys.LOGIN, user.getId());
+        System.out.println(mapSession.get(Global_Keys.LOGIN));
         return "success";
     }
 

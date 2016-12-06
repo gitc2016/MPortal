@@ -28,9 +28,6 @@ public class User {
     private String imageSRC;
 
     @Enumerated(EnumType.STRING)
-    private Role role;
-
-    @Enumerated(EnumType.STRING)
     private Gender gender;
 
     @ManyToOne
@@ -106,14 +103,6 @@ public class User {
         this.imageSRC = imageSRC;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
     public Gender getGender() {
         return gender;
     }
@@ -172,7 +161,6 @@ public class User {
                 ", password='" + password + '\'' +
                 ", confirmPassword='" + confirmPassword + '\'' +
                 ", imageSRC='" + imageSRC + '\'' +
-                ", role=" + role +
                 ", gender=" + gender +
                 ", country=" + country +
                 ", birthDate=" + birthDate +
@@ -199,7 +187,6 @@ public class User {
         if (confirmPassword != null ? !confirmPassword.equals(user.confirmPassword) : user.confirmPassword != null)
             return false;
         if (imageSRC != null ? !imageSRC.equals(user.imageSRC) : user.imageSRC != null) return false;
-        if (role != user.role) return false;
         if (gender != user.gender) return false;
         if (country != null ? !country.equals(user.country) : user.country != null) return false;
         if (birthDate != null ? !birthDate.equals(user.birthDate) : user.birthDate != null) return false;
@@ -216,7 +203,6 @@ public class User {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (confirmPassword != null ? confirmPassword.hashCode() : 0);
         result = 31 * result + (imageSRC != null ? imageSRC.hashCode() : 0);
-        result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (gender != null ? gender.hashCode() : 0);
         result = 31 * result + (country != null ? country.hashCode() : 0);
         result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);

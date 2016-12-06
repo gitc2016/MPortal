@@ -36,7 +36,6 @@
             <s:password key="password" name="user.password" cssClass="input"/>
             <s:password key="confirmPassword" name="user.confirmPassword" cssClass="input"/>
             <s:radio list="%{#application.gender}" key="gender" name="user.gender"/>
-            <s:radio list="%{#application.role}" key="role" name="user.role"/>
             <s:select key="country"
                       list="country"
                       listKey="id"
