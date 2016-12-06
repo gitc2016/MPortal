@@ -1,5 +1,6 @@
 package am.gitc.mportal.domain;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -12,12 +13,12 @@ public class Request {
     @Id
     @GeneratedValue
     private int id;
-
+    @Column(name = "from_id")
     private int fromID;
-
+    @Column(name = "to_id")
     private int toID;
 
-    private int acceptedID;
+    private int accepted;
 
     public Request() {
 
@@ -26,7 +27,7 @@ public class Request {
     public Request(int fromID, int toID, int acceptedID) {
         this.fromID = fromID;
         this.toID = toID;
-        this.acceptedID = acceptedID;
+        this.accepted = acceptedID;
     }
 
     public int getFromID() {
@@ -45,12 +46,12 @@ public class Request {
         this.toID = toID;
     }
 
-    public int getAcceptedID() {
-        return acceptedID;
+    public int getAccepted() {
+        return accepted;
     }
 
-    public void setAcceptedID(int acceptedID) {
-        this.acceptedID = acceptedID;
+    public void setAccepted(int accepted) {
+        this.accepted = accepted;
     }
 
     @Override
@@ -58,7 +59,7 @@ public class Request {
         return "Request{" +
                 "fromID=" + fromID +
                 ", toID=" + toID +
-                ", acceptedID=" + acceptedID +
+                ", accepted=" + accepted +
                 '}';
     }
 }
