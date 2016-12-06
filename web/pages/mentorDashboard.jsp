@@ -37,7 +37,7 @@
                 <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt=""
                      style="width: 25px; height: 25px; margin-top: 10px">
                 <span class="badge"
-                      style="background-color: red;position: absolute;margin-top: -29; margin-left: 14;">1</span>
+                      style="background-color: red;position: absolute;margin-top: -29px; margin-left: 14px;">1</span>
             </a>
 
         </div>
@@ -48,7 +48,7 @@
             <a href="#">
                 <img src="${pageContext.request.contextPath}/images/message.png" alt=""
                      style="width: 18px; height: 20px;margin-top: 11px">
-                <span class="badge" style="background-color: red; margin-top: -25; margin-left: 12">1</span></a>
+                <span class="badge" style="background-color: red; margin-top: -25px; margin-left: 12px">1</span></a>
 
         </div>
 
@@ -83,6 +83,8 @@
                                 class="glyphicon glyphicon-home"></i></a></li>
                         <li><a href="#">Upload Photo <i class="glyphicon glyphicon-upload"></i> <i
                                 class="glyphicon glyphicon-picture"></i>
+                        </a>
+                        </li>
 
                     </ul>
                 </div>
@@ -94,7 +96,7 @@
             <h4 class="choosetext" id="categ"><a href="#">Choose your category</a></h4>
             <div class="col-md-6" id="categorstyle" style="display:  none">
 
-                <div class="nav-side-menu list" id="cateories" >
+                <div class="nav-side-menu list" id="cateories">
 
                     <div class="brand">Categories</div>
                     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
@@ -183,6 +185,12 @@
         </div>
 
     </div>
+
+    <div class="settings">
+        <li class="active"><a href="#">Update <i class="glyphicon glyphicon-refresh"></i></a></li>
+
+    </div>
+
 </div>
 </body>
 </html>
