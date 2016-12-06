@@ -28,49 +28,23 @@ public class User {
     private String imageSRC;
 
     @Enumerated(EnumType.STRING)
-    private Role role;
-
-    @Enumerated(EnumType.STRING)
     private Gender gender;
 
     @ManyToOne
     private Country country;
 
     @Temporal(TemporalType.DATE)
-    private Date dateOfBirth;
+    private Date birthDate;
+
+    private boolean isAvailable;
 
     private boolean isActive;
-
-    private boolean isRegister;
 
     private String hashCode;
 
 
     public User() {
 
-    }
-
-    public User(String name, String surname, String email, String password, String imageSRC, Role role, Gender gender, Country country, Date dateOfBirth, boolean isActive, boolean isRegister, String hashCode) {
-        this.name = name;
-        this.surname = surname;
-        this.email = email;
-        this.password = password;
-        this.imageSRC = imageSRC;
-        this.role = role;
-        this.gender = gender;
-        this.country = country;
-        this.dateOfBirth = dateOfBirth;
-        this.isActive = isActive;
-        this.isRegister = isRegister;
-        this.hashCode = hashCode;
-    }
-
-    public boolean isRegister() {
-        return isRegister;
-    }
-
-    public void setIsRegister(boolean isRegister) {
-        this.isRegister = isRegister;
     }
 
     public int getId() {
@@ -113,20 +87,20 @@ public class User {
         this.password = password;
     }
 
-    public String getURL() {
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public String getImageSRC() {
         return imageSRC;
     }
 
-    public void setImageSRC(String url) {
-        this.imageSRC = url;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
+    public void setImageSRC(String imageSRC) {
+        this.imageSRC = imageSRC;
     }
 
     public Gender getGender() {
@@ -137,7 +111,6 @@ public class User {
         this.gender = gender;
     }
 
-
     public Country getCountry() {
         return country;
     }
@@ -146,34 +119,29 @@ public class User {
         this.country = country;
     }
 
-    public String getImageSRC() {
-        return imageSRC;
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public Date getDateOfBirth() {
-        return dateOfBirth;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public boolean isAvailable() {
+        return isAvailable;
     }
 
-    public boolean is_online() {
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
+    public boolean isActive() {
         return isActive;
     }
 
     public void setActive(boolean active) {
-        this.isActive = active;
+        isActive = active;
     }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-
 
     public String getHashCode() {
         return hashCode;
@@ -193,12 +161,11 @@ public class User {
                 ", password='" + password + '\'' +
                 ", confirmPassword='" + confirmPassword + '\'' +
                 ", imageSRC='" + imageSRC + '\'' +
-                ", role=" + role +
                 ", gender=" + gender +
                 ", country=" + country +
-                ", dateOfBirth=" + dateOfBirth +
+                ", birthDate=" + birthDate +
+                ", isAvailable=" + isAvailable +
                 ", isActive=" + isActive +
-                ", isRegister=" + isRegister +
                 ", hashCode='" + hashCode + '\'' +
                 '}';
     }
@@ -211,8 +178,8 @@ public class User {
         User user = (User) o;
 
         if (id != user.id) return false;
+        if (isAvailable != user.isAvailable) return false;
         if (isActive != user.isActive) return false;
-        if (isRegister != user.isRegister) return false;
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
         if (surname != null ? !surname.equals(user.surname) : user.surname != null) return false;
         if (email != null ? !email.equals(user.email) : user.email != null) return false;
@@ -220,10 +187,9 @@ public class User {
         if (confirmPassword != null ? !confirmPassword.equals(user.confirmPassword) : user.confirmPassword != null)
             return false;
         if (imageSRC != null ? !imageSRC.equals(user.imageSRC) : user.imageSRC != null) return false;
-        if (role != user.role) return false;
         if (gender != user.gender) return false;
         if (country != null ? !country.equals(user.country) : user.country != null) return false;
-        if (dateOfBirth != null ? !dateOfBirth.equals(user.dateOfBirth) : user.dateOfBirth != null) return false;
+        if (birthDate != null ? !birthDate.equals(user.birthDate) : user.birthDate != null) return false;
         return hashCode != null ? hashCode.equals(user.hashCode) : user.hashCode == null;
 
     }
@@ -237,12 +203,11 @@ public class User {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (confirmPassword != null ? confirmPassword.hashCode() : 0);
         result = 31 * result + (imageSRC != null ? imageSRC.hashCode() : 0);
-        result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (gender != null ? gender.hashCode() : 0);
         result = 31 * result + (country != null ? country.hashCode() : 0);
-        result = 31 * result + (dateOfBirth != null ? dateOfBirth.hashCode() : 0);
+        result = 31 * result + (birthDate != null ? birthDate.hashCode() : 0);
+        result = 31 * result + (isAvailable ? 1 : 0);
         result = 31 * result + (isActive ? 1 : 0);
-        result = 31 * result + (isRegister ? 1 : 0);
         result = 31 * result + (hashCode != null ? hashCode.hashCode() : 0);
         return result;
     }

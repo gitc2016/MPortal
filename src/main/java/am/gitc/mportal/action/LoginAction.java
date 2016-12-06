@@ -26,9 +26,10 @@ public class LoginAction extends GlobalAction {
     }
 
     public String execute() throws Exception {
-        User user = userDaoImpl.getUserByEmailPassword(login, password);
-        mapSession.put(Global_Keys.LOGIN, user);
 
+        User user = userDaoImpl.getUserByEmailPassword(login, MD5.encryptPassword(password));
+        mapSession.put(Global_Keys.LOGIN, user.getId());
+        System.out.println(mapSession.get(Global_Keys.LOGIN));
         return "success";
     }
 
@@ -58,10 +59,15 @@ public class LoginAction extends GlobalAction {
     @Override
     public void validate() {
         try {
-            if(userDaoImpl.getUserByEmail(login)==null){
-//            if (userDaoImpl.getUserByEmailPassword(login, MD5.encryptPassword(password)) == null) {
+
+            User user = userDaoImpl.getUserByEmailPassword(login, MD5.encryptPassword(password));
+            if (login.length() != 0 && password.length() != 0 && user == null) {
+
                 addFieldError("login", "Your login or password is invalid");
+            } else if (user != null && !user.isActive()) {
+                addFieldError("login", "Please activate your profile ");
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

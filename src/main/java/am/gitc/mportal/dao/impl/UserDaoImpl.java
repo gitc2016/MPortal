@@ -13,7 +13,7 @@ import org.hibernate.criterion.Restrictions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDaoImpl implements UserDao {//TODO for all throws exception
+public class UserDaoImpl implements UserDao {
 
     private Session session;
 
@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao {//TODO for all throws exception
     }
 
     @Override
-    public void create(User user) throws Exception{//TODO thorows exception
+    public void create(User user) throws Exception{
         session.beginTransaction();
         session.save(user);
         session.getTransaction().commit();
@@ -40,7 +40,7 @@ public class UserDaoImpl implements UserDao {//TODO for all throws exception
     }
 
 
-    public void updateIsRegister(User user) throws Exception{//TODO change name update status
+    public void updateIsRegister(User user) throws Exception{
         session.beginTransaction();
         session.update(user);
         session.getTransaction().commit();
@@ -61,7 +61,9 @@ public class UserDaoImpl implements UserDao {//TODO for all throws exception
     @Override
     public User getUserByEmailPassword(String email, String password)throws Exception {
         Criteria criteria = session.createCriteria(User.class);
-        return (User) criteria.add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password),Restrictions.eq("isRegister",true))).uniqueResult();
+
+        return (User) criteria.add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password))).uniqueResult();
+
     }
 
     @Override

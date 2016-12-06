@@ -33,6 +33,7 @@
             <span class="badge" style="background-color: red; margin-top: -15px; margin-left: -8px">1</span></a></li>
     </ul>
 </div>
+
 <div class="container-fluid" style="background-color: #d3d3d3">
     <div class="row">
         <div class="col-md-3">
@@ -50,6 +51,7 @@
                                 class="glyphicon glyphicon-log-out"></i></a></li>
                     </ul>
                 </div>
+
             </div>
         </div>
 

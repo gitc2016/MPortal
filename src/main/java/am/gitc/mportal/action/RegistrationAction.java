@@ -74,7 +74,7 @@ public class RegistrationAction extends ActionSupport implements ModelDriven<Use
     public String activateProfile() throws Exception {
         User user = userDaoImpl.getUserByHashCode(hashcode);
         if (user != null) {
-            user.setIsRegister(true);
+            user.setActive(true);
             userDaoImpl.updateIsRegister(user);
             return SUCCESS;
         }

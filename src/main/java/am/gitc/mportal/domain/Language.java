@@ -8,8 +8,8 @@ import javax.persistence.Table;
 /**
  * Created by Gtc-user17 on 11/13/2016.
  */
-@Table(name = "language")
 @Entity
+@Table(name = "language")
 public class Language {
 
     @Id
