@@ -8,7 +8,6 @@ $(document).ready(function(){
   $("#searchfield").focusout(function(){
     if($(this).val() == ""){
       $(this).val("Search contacts...");
-
     }
   });
 
