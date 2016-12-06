@@ -9,4 +9,5 @@ public interface Global_Keys {
     String COUNTRY = "country";
     String ROLE="role";
     String GENDER="gender";
+    String CATEGORY = "category";
 }
