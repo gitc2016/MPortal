@@ -13,7 +13,6 @@ public class Country {
 
     @Id
     @GeneratedValue
-    @Column
     private int id;
 
     private String name;
