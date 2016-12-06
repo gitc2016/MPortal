@@ -420,3 +420,27 @@ div.message.right .corner{
 .searchDiv{
     margin-right: 300px;
 }
+.li1{
+    list-style: none;
+    margin-left: 1150px;
+    margin-top: -30px;
+}
+.req{
+    color: red;
+    margin-top: -15px;
+    margin-left: -15px
+}
+.mess{
+    list-style: none;
+    margin-left: 1205px;
+    margin-top: -22px;
+}
+.messag{
+    color: red;
+    margin-top: -15px;
+    margin-left: -8px
+}
+.imag{
+    width: 25px;
+    height: 25px
+}

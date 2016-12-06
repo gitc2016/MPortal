@@ -12,13 +12,13 @@
     <filter-mapping>
         <filter-name>struts2</filter-name>
         <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
-        <dispatcher>INCLUDE</dispatcher>
     </filter-mapping>
 
     <welcome-file-list>
+
         <welcome-file>/pages/menteeDashboard.jsp</welcome-file>
+
+        <!--<welcome-file>/pages/choosePage.jsp</welcome-file>-->
     </welcome-file-list>
 
     <!--<listener>-->

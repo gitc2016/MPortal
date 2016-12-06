@@ -47,13 +47,13 @@
         </action>
 
         <action name="search" class="am.gitc.mportal.action.SearchAction">
-            <result name="success">/pages/mentorDashboard.jsp</result>
-            <result name="input">/pages/mentorDashboard.jsp</result>
+            <result name="success">/pages/menteeDashboard.jsp</result>
+            <result name="input">/pages/menteeDashboard.jsp</result>
         </action>
 
         <action name="searchKeyword" class="am.gitc.mportal.action.SearchAction" method="advancedSearch">
-         <result name="success">/pages/mentorDashboard.jsp</result>
-         <result name="input">/pages/mentorDashboard.jsp</result>
+         <result name="success">/pages/menteeDashboard.jsp</result>
+         <result name="input">/pages/menteeDashboard.jsp</result>
         </action>
 
         <!--RegisterActionPage-->
@@ -82,7 +82,7 @@
         <action name="mentor">
             <interceptor-ref name="loginStack"/>
             <result name="input">/pages/loginForm.jsp</result>
-            <result name="success">/pages/mentorDashboard.jsp</result>
+            <result name="success">/pages/menteeDashboard.jsp</result>
         </action>
 
         <action name="locale">

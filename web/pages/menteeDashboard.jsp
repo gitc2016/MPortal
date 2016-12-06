@@ -22,15 +22,14 @@
     <script src="${pageContext.request.contextPath}/js/mentorDashboard.js"></script>
 </head>
 <body>
-<s:set var="map" value="%{#application.category}"/>
 <div class="header">
     <a href="${pageContext.request.contextPath}/pages/mentorDashboard.jsp"><img src="${pageContext.request.contextPath}/images/icon_-15.png" class="defaultImage" alt=""></a>
     <ul>
-        <li style="list-style: none;margin-left: 1150px; margin-top: -30px;"><a href="#">
-            <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt="" style="width: 25px; height: 25px">
-            <span class="badge" style="background-color: red; margin-top: -15px; margin-left: -15px">1</span></a></li>
-        <li style="list-style: none; margin-left: 1205px; margin-top: -22px;"><a href="#"> <i class="glyphicon glyphicon-envelope"></i>
-            <span class="badge" style="background-color: red; margin-top: -15px; margin-left: -8px">1</span></a></li>
+        <li class="li1"><a href="#">
+            <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt="" class="imag">
+            <span class="req badge">1</span></a></li>
+        <li class="mess"><a href="#"> <i class="glyphicon glyphicon-envelope"></i>
+            <span class="messag badge">1</span></a></li>
     </ul>
 </div>
 
@@ -56,35 +55,6 @@
         </div>
 
         <div class="col-md-9">
-            <div class="col-md-6" id="categorstyle">
-                <h4 class="choosetext" id="categ"><a href="#">Choose your category</a></h4>
-                <div class="nav-side-menu list" id="categories">
-
-                    <div class="brand">Categories</div>
-                    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-
-                    <div class="menu-list">
-
-                        <ul class="menu-content" class="menu-content collapse out">
-
-                            <s:iterator var="mapsKey" value="#map">
-                                <li data-toggle="collapse" data-target="#<s:property value="key"/>"
-                                    class="collapsed active">
-                                    <a href="#"><s:property value="key"/> <span class="arrow"></span></a>
-                                </li>
-                                <ul class="sub-menu collapse" id="<s:property value="key"/>">
-                                    <s:iterator value="#mapsKey.value" var="mapsValue">
-                                        <li><a href="#"><s:property value="name"/> </a></li>
-                                    </s:iterator>
-                                </ul>
-                            </s:iterator>
-
-                        </ul>
-                    </div>
-
-                </div>
-
-            </div>
 
         </div>
 
