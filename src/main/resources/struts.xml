@@ -37,7 +37,7 @@
 
         <!--LoginActionPage-->
         <action name="loginForm" class="am.gitc.mportal.action.LoginAction">
-            <result name="success">/searchAction</result>
+            <result name="success">/pages/choosePage.jsp</result>
             <result name="input">/pages/loginForm.jsp</result>
             <result name="login">/pages/loginForm.jsp</result>
         </action>
