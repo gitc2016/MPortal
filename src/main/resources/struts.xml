@@ -13,9 +13,8 @@
         <interceptors>
 
             <!--LoginIntercepter-->
-            <interceptor class="am.gitc.mportal.action.Authentication" name="loginInterceptor">
+            <interceptor name="loginInterceptor"  class="am.gitc.mportal.action.Authentication">
             </interceptor>
-
             <!--loginStack-->
             <interceptor-stack name="loginStack">
                 <interceptor-ref name="loginInterceptor"/>
@@ -42,10 +41,6 @@
             <result name="login">/pages/loginForm.jsp</result>
         </action>
 
-        <action name="searchAction" class="am.gitc.mportal.action.SearchAction" method="categoryAndSubCategory">
-            <result name="success">/pages/menteeDashboard.jsp</result>
-        </action>
-
         <action name="searchForm" class="am.gitc.mportal.action.SearchAction">
             <result name="success">/pages/menteeDashboard.jsp</result>
             <result name="input">/pages/menteeDashboard.jsp</result>
@@ -70,19 +65,27 @@
         </action>
 
 
-        <action name="logOut" class="am.gitc.mportal.action.LoginAction" method="logout">
+        <action name="logOut" class="am.gitc.mportal.action.LogOutAction">
             <result name="success">/pages/loginForm.jsp</result>
         </action>
+
+        <action name="deleteAccount" class="am.gitc.mportal.action.DeleteAcountAction">
+            <result name="success">/pages/registerForm.jsp</result>
+        </action>
+
+
 
 
         <action name="global" class="am.gitc.mportal.action.GlobalAction">
             <result name="success">/pages/loginForm.jsp</result>
         </action>
 
+
+
         <action name="mentor">
             <interceptor-ref name="loginStack"/>
             <result name="input">/pages/loginForm.jsp</result>
-            <result name="success">/pages/menteeDashboard.jsp</result>
+            <result name="success">/pages/mentorDashboard.jsp</result>
         </action>
 
         <action name="locale">

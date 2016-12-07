@@ -34,7 +34,7 @@ public class SearchAction extends GlobalAction implements ApplicationAware {
     Map<String, Object> mapApp;
     Map<String, List<Category>> map;
 
-    public SearchAction() {
+    public SearchAction() throws Exception{
         try {
             userDao = new UserDaoImpl();
             countryDaoImpl = new CountryDaoImpl();
@@ -53,20 +53,21 @@ public class SearchAction extends GlobalAction implements ApplicationAware {
         }
         return SUCCESS;
     }
-
-    @SkipValidation
-    public String categoryAndSubCategory() {
-        map = new HashMap<String, List<Category>>();
-        List<Category> categoryList = categoryDao.getCategoryByParentId();
-        for (Category list : categoryList) {
-            String name = list.getName();
-            int id = list.getId();
-            List<Category> subCategoryList = categoryDao.getSubCategory(id);
-            map.put(name, subCategoryList);
-        }
-        mapApp.put(Global_Keys.CATEGORY, map);
-        return SUCCESS;
-    }
+//
+//    @SkipValidation
+//    public String categoryAndSubCategory() {
+//        map = new HashMap<String, List<Category>>();
+//        List<Category> categoryList = categoryDao.getCategoryByParentId();
+//        for (Category list : categoryList) {
+//            String name = list.getName();
+//            int id = list.getId();
+//            List<Category> subCategoryList = categoryDao.getSubCategory(id);
+//            map.put(name, subCategoryList);
+//        }
+//        mapApp.put(Global_Keys.CATEGORY, map);
+//        System.out.println(mapApp.get(Global_Keys.CATEGORY)+"category");
+//        return SUCCESS;
+//    }
 
     @SkipValidation
     public String advancedSearch() {

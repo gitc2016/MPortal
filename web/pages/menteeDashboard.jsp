@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mentorDashboard.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
 

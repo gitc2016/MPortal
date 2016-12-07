@@ -39,6 +39,11 @@ public class CountryDaoImpl implements CountryDao {
         return session.createCriteria(Country.class).list();
     }
 
+    @Override
+    public void delete(Country entity) throws Exception {
+
+    }
+
 
     @Override
     public Country getById(int id) throws Exception{
@@ -46,6 +51,7 @@ public class CountryDaoImpl implements CountryDao {
         Criterion result = Restrictions.eq("id", id);
         return (Country) criteria.add(result).uniqueResult();
     }
+
 
 
 }

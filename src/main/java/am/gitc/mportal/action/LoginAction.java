@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,6 +20,7 @@ public class LoginAction extends GlobalAction {
     private String login;
     private String password;
     private UserDaoImpl userDaoImpl;
+    private List<User> advanceSerachList;
 
     public LoginAction() throws Exception {
         userDaoImpl = new UserDaoImpl();
@@ -26,19 +28,13 @@ public class LoginAction extends GlobalAction {
     }
 
     public String execute() throws Exception {
-
         User user = userDaoImpl.getUserByEmailPassword(login, MD5.encryptPassword(password));
         mapSession.put(Global_Keys.LOGIN, user.getId());
         System.out.println(mapSession.get(Global_Keys.LOGIN));
         return "success";
     }
 
-    @SkipValidation
-    public String logout() {
-        Map session = ActionContext.getContext().getSession();
-        session.remove(Global_Keys.LOGIN);
-        return SUCCESS;
-    }
+
 
     public String getLogin() {
         return login;

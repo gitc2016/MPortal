@@ -14,12 +14,16 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mentorDashboard.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/mentorDashboard.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 </head>
 <body>
@@ -64,15 +68,19 @@
                         src="${pageContext.request.contextPath}/images/setting.png"
                         style="width: 30px;height: 20px;margin-top: 10px"/></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Update <i class="glyphicon glyphicon-refresh"></i> </a></li>
-                    <li><a href="#">CSS</a></li>
-                    <li><a href="#">JavaScript</a></li>
+                    <li><a href="#">Edit <i class="glyphicon glyphicon-refresh"></i> </a></li>
+                    <li><a href="#" id="delete">Delete Account <i class="glyphicon glyphicon-trash"></i></a></li>
+
                 </ul>
+            </div>
+
+            <div id="dialog-confirm" title="Warning!" style="display: none">
+                <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span> Are you sure to delete your account?</p>
             </div>
         </div>
 
         <div class="col-lg-5 col-lg-offset-1">
-            <a href="${pageContext.request.contextPath}/pages/loginForm.jsp"><img
+            <a href="logOut.action"><img
                     src="${pageContext.request.contextPath}/images/log_out.png"
                     style="width: 30px;height: 20px; margin-top: 10px"/></a>
 
@@ -102,8 +110,8 @@
             </div>
         </div>
 
-        <div class="col-md-9">
-            <h4 class="choosetext" id="categ"><a href="#">Choose your category</a></h4>
+        <div class="col-md-5" style="background: rgba(152, 150, 150, 0.06); height: 100%">
+            <h4 class="choosetext text-center" id="categ"><a href="#">Choose your category</a></h4>
             <div class="col-md-6" id="categorstyle" style="display:  none">
 
                 <div class="nav-side-menu list" id="cateories">
@@ -135,66 +143,73 @@
 
         </div>
 
-        <div id="chatbox">
-            <div id="friendslist">
-                <div id="friends">
-                    <div class="friend">
+        <div class="col-md-4">
+            <div id="chatbox">
+                <div id="friendslist">
+                    <div id="friends">
+                        <div class="friend">
 
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg"/>
-                        <p>
-                            <strong>Jack Badev</strong>
-                        </p>
-                        <%--<div class="status available"></div>--%>
-                    </div>
-
-                    <div id="search">
-                        <input type="text" id="searchfield" value="Search contacts..."/>
-                    </div>
-                </div>
-
-            </div>
-
-            <div id="chatview" class="p1">
-                <div id="profile">
-
-                    <div id="close">
-                        <div class="cy"></div>
-                        <div class="cx"></div>
-                    </div>
-
-                    <p>Miro Badev</p>
-                </div>
-                <div id="chat-messages">
-
-                    <div class="message">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg"/>
-                        <div class="bubble">
-                            Really cool stuff!
-                            <div class="corner"></div>
-                            <span>3 min</span>
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg"/>
+                            <p>
+                                <strong>Jack Badev</strong>
+                            </p>
+                            <%--<div class="status available"></div>--%>
                         </div>
-                    </div>
 
-                    <div class="message right">
-                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg"/>
-                        <div class="bubble">
-                            Can you share a link for the tutorial?
-                            <div class="corner"></div>
-                            <span>1 min</span>
+                        <div id="search">
+                            <input type="text" id="searchfield" value="Search contacts..."/>
                         </div>
                     </div>
 
                 </div>
 
-                <div id="sendmessage">
-                    <input type="text" value="Send message..."/>
-                    <button id="send"></button>
-                </div>
+                <div id="chatview" class="p1">
+                    <div id="profile">
 
+                        <div id="close">
+                            <div class="cy"></div>
+                            <div class="cx"></div>
+                        </div>
+
+                        <p>Miro Badev</p>
+                    </div>
+                    <div id="chat-messages">
+
+                        <div class="message">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg"/>
+                            <div class="bubble">
+                                Really cool stuff!
+                                <div class="corner"></div>
+                                <span>3 min</span>
+                            </div>
+                        </div>
+
+                        <div class="message right">
+                            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg"/>
+                            <div class="bubble">
+                                Can you share a link for the tutorial?
+                                <div class="corner"></div>
+                                <span>1 min</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="sendmessage">
+                        <input type="text" value="Send message..."/>
+                        <button id="send"></button>
+                    </div>
+
+                </div>
             </div>
+
+
         </div>
 
+
     </div>
+
+
 </div>
 </body>
 </html>
