@@ -14,10 +14,10 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mentorDashboard.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/mentorDashboard.js"></script>
 </head>
@@ -28,7 +28,7 @@
         <a href="${pageContext.request.contextPath}/pages/mentorDashboard.jsp"><img
                 src="${pageContext.request.contextPath}/images/icon_-15.png" class="defaultImage" alt=""></a>
     </div>
-<%--search div--%>
+    <%--search div--%>
     <div class="searchDiv col-lg-4 col-lg-offset-3">
         <s:form action="searchForm" method="POST">
             <s:textfield value="searchKeyword" name="searchKeyword"/>
@@ -52,55 +52,65 @@
         <span id="advancedSearch"><a href="#">advancedSearch</a></span>
 
         <div id="advancedSearchDiv" style="display: none">
-                <ul>
-                    <s:iterator var="mapsKey" value="#map">
-                        <li data-toggle="collapse" data-target="#<s:property value="key"/>"
-                            class="li collapsed active">
-                            <a href="#"><s:property value="key"/></a>
-                        </li>
-                        <ul class="sub-menu collapse" id="<s:property value="key"/>">
-                            <s:iterator value="#mapsKey.value" var="mapsValue">
-                                <li class="li"><a
-                                        href="searchKeyword.action?categoryId=<s:property value="#mapsValue.id"/>&userName=<s:property value="searchKeyword"/>"><s:property
-                                        value="name"/> </a></li>
-                            </s:iterator>
-                        </ul>
-                    </s:iterator>
+            <ul>
+                <s:iterator var="mapsKey" value="#map">
+                    <li data-toggle="collapse" data-target="#<s:property value="key"/>"
+                        class="li collapsed active">
+                        <a href="#"><s:property value="key"/></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="<s:property value="key"/>">
+                        <s:iterator value="#mapsKey.value" var="mapsValue">
+                            <li class="li"><a
+                                    href="searchKeyword.action?categoryId=<s:property value="#mapsValue.id"/>&userName=<s:property value="searchKeyword"/>"><s:property
+                                    value="name"/> </a></li>
+                        </s:iterator>
+                    </ul>
+                </s:iterator>
+            </ul>
+            <s:submit value="submit"/>
+        </div>
+    </div>
+
+    <div class="col-lg-1">
+
+        <div class="col-lg-5">
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt=""
+                         style="width: 25px; height: 25px; margin-top: 10px">
+                    <span class="badge"
+                          style="background-color: red;position: absolute;margin-top: -29px; margin-left: 14px;">1</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">request user name</a></li>
                 </ul>
-                <s:submit value="submit"/>
+            </div>
         </div>
-    </div>
-
-    <div class="col-lg-1">
-
-        <div class="col-lg-5">
-            <a href="#">
-                <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt=""
-                     style="width: 25px; height: 25px; margin-top: 10px">
-                <span class="badge"
-                      style="background-color: red;position: absolute;margin-top: -29px; margin-left: 14px;">1</span>
-            </a>
-
-        </div>
-
-
         <div class="col-lg-5 col-lg-offset-1">
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="${pageContext.request.contextPath}/images/message.png" alt=""
+                         style="width: 18px; height: 20px;margin-top: 11px">
+                    <span class="badge" style="background-color: red; margin-top: -25px; margin-left: 12px">1</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">User name</a></li>
+                </ul>
 
-            <a href="#">
-                <img src="${pageContext.request.contextPath}/images/message.png" alt=""
-                     style="width: 18px; height: 20px;margin-top: 11px">
-                <span class="badge" style="background-color: red; margin-top: -25px; margin-left: 12px">1</span></a>
-
+            </div>
         </div>
-
 
     </div>
 
     <div class="col-lg-1">
         <div class="col-lg-5">
-            <a href="${pageContext.request.contextPath}/pages/loginForm.jsp"><img
-                    src="${pageContext.request.contextPath}/images/setting.png"
-                    style="width: 30px;height: 20px;margin-top: 10px"/></a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle"
+                   data-toggle="dropdown"><img
+                        src="${pageContext.request.contextPath}/images/setting.png"
+                        style="width: 30px;height: 20px;margin-top: 10px"/></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Update <i class="glyphicon glyphicon-refresh"></i> </a></li>
+                </ul>
+            </div>
         </div>
 
         <div class="col-lg-5 col-lg-offset-1">
