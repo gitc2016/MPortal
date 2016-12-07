@@ -1,3 +1,5 @@
 target/
 .idea/
 *.iml
+search.jsp
+hibernate.cfg.xml

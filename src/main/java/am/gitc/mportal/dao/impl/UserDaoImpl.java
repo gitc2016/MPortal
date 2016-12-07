@@ -1,16 +1,13 @@
 package am.gitc.mportal.dao.impl;
 
 import am.gitc.mportal.dao.UserDao;
-import am.gitc.mportal.domain.Role;
 import am.gitc.mportal.domain.User;
 import am.gitc.mportal.util.HibernateUtil;
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
@@ -80,6 +77,6 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUserAdvanceSearch(int id,String name) {
-        return (User) session.createCriteria(User.class).add(Restrictions.and(Restrictions.eq("id",id),Restrictions.like("name",name+"%"),Restrictions.eq("role",Role.MENTOR))).uniqueResult();
+        return (User) session.createCriteria(User.class).add(Restrictions.and(Restrictions.eq("id",id),Restrictions.like("name",name+"%"))).uniqueResult();
     }
 }

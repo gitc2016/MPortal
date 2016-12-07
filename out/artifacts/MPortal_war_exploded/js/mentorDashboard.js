@@ -80,4 +80,12 @@ $(document).ready(function(){
 
     });
   });
+
+  $("body").on('click', "#categ", function () {
+    $("#categorstyle").slideToggle('slow');
+
+  })
+  $("body").on('click',"#advancedSearch",function(){
+    $("#advancedSearchDiv").slideToggle('slow');
+  });
 });

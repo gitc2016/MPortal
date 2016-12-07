@@ -85,4 +85,7 @@ $(document).ready(function(){
     $("#categorstyle").slideToggle('slow');
 
   })
+  $("body").on('click',"#advancedSearch",function(){
+    $("#advancedSearchDiv").slideToggle('slow');
+  });
 });

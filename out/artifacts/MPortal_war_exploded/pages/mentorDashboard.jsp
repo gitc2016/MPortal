@@ -22,19 +22,57 @@
     <script src="${pageContext.request.contextPath}/js/mentorDashboard.js"></script>
 </head>
 <body>
+
 <s:set var="map" value="%{#application.category}"/>
 <div class="header">
-    <a href="${pageContext.request.contextPath}/pages/mentorDashboard.jsp"><img src="${pageContext.request.contextPath}/images/icon_-15.png" class="defaultImage" alt=""></a>
-    <ul>
-        <li style="list-style: none;margin-left: 1150px; margin-top: -30px;"><a href="#">
-            <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt="" style="width: 25px; height: 25px">
-            <span class="badge" style="background-color: red; margin-top: -15px; margin-left: -15px">1</span></a></li>
-        <li style="list-style: none; margin-left: 1205px; margin-top: -22px;"><a href="#"> <i class="glyphicon glyphicon-envelope"></i>
-            <span class="badge" style="background-color: red; margin-top: -15px; margin-left: -8px">1</span></a></li>
-    </ul>
+    <div class="col-lg-1">
+        <a href="${pageContext.request.contextPath}/pages/mentorDashboard.jsp"><img
+                src="${pageContext.request.contextPath}/images/icon_-15.png" class="defaultImage" alt=""></a>
+    </div>
+
+    <div class="col-lg-1 col-lg-offset-7">
+
+        <div class="col-lg-5">
+            <a href="#">
+                <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt=""
+                     style="width: 25px; height: 25px; margin-top: 10px">
+                <span class="badge"
+                      style="background-color: red;position: absolute;margin-top: -29px; margin-left: 14px;">1</span>
+            </a>
+
+        </div>
+
+
+        <div class="col-lg-5 col-lg-offset-1">
+
+            <a href="#">
+                <img src="${pageContext.request.contextPath}/images/message.png" alt=""
+                     style="width: 18px; height: 20px;margin-top: 11px">
+                <span class="badge" style="background-color: red; margin-top: -25px; margin-left: 12px">1</span></a>
+
+        </div>
+
+
+    </div>
+
+    <div class="col-lg-1">
+        <div class="col-lg-5">
+            <a href="${pageContext.request.contextPath}/pages/loginForm.jsp"><img
+                    src="${pageContext.request.contextPath}/images/setting.png"
+                    style="width: 30px;height: 20px;margin-top: 10px"/></a>
+        </div>
+
+        <div class="col-lg-5 col-lg-offset-1">
+            <a href="${pageContext.request.contextPath}/pages/loginForm.jsp"><img
+                    src="${pageContext.request.contextPath}/images/log_out.png"
+                    style="width: 30px;height: 20px; margin-top: 10px"/></a>
+
+        </div>
+    </div>
 </div>
 
-<div class="container-fluid" style="background-color: #d3d3d3">
+
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
             <div class="sidebar-nav menubar">
@@ -45,10 +83,7 @@
                                 class="glyphicon glyphicon-home"></i></a></li>
                         <li><a href="#">Upload Photo <i class="glyphicon glyphicon-upload"></i> <i
                                 class="glyphicon glyphicon-picture"></i>
-                        <li class="active"><a href="#">Update <i class="glyphicon glyphicon-refresh"></i></a></li>
-                        <li><a href="#">Settings <i class="glyphicon glyphicon-cog"></i> </a></li>
-                        <li><a href="${pageContext.request.contextPath}/pages/loginForm.jsp">Logout <i
-                                class="glyphicon glyphicon-log-out"></i></a></li>
+                        </a></li>
                     </ul>
                 </div>
 
@@ -56,9 +91,10 @@
         </div>
 
         <div class="col-md-9">
-            <div class="col-md-6" id="categorstyle">
-                <h4 class="choosetext" id="categ"><a href="#">Choose your category</a></h4>
-                <div class="nav-side-menu list" id="categories">
+            <h4 class="choosetext" id="categ"><a href="#">Choose your category</a></h4>
+            <div class="col-md-6" id="categorstyle" style="display:  none">
+
+                <div class="nav-side-menu list" id="cateories">
 
                     <div class="brand">Categories</div>
                     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
@@ -66,7 +102,6 @@
                     <div class="menu-list">
 
                         <ul class="menu-content" class="menu-content collapse out">
-
                             <s:iterator var="mapsKey" value="#map">
                                 <li data-toggle="collapse" data-target="#<s:property value="key"/>"
                                     class="collapsed active">
@@ -148,7 +183,6 @@
         </div>
 
     </div>
-</div>
 </div>
 </body>
 </html>
