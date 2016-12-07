@@ -12,6 +12,7 @@ public class MentorCategory {
     @Id
     @GeneratedValue
     private int id;
+    @JoinColumn(name = "user")
     @Column(name = "user_id")
     private int userId;
     @Column(name = "category_id")
