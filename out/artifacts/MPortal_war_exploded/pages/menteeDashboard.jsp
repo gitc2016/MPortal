@@ -44,6 +44,7 @@
             <s:elseif test="%{advanceSerachList==null}">
                 <s:iterator value="userList">
                     <a href="#"><s:property value="name"/></a>
+                    <a href="#">send mentor request</a>
                     <br>
                 </s:iterator>
             </s:elseif>
