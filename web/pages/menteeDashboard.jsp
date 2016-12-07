@@ -22,32 +22,108 @@
     <script src="${pageContext.request.contextPath}/js/mentorDashboard.js"></script>
 </head>
 <body>
+<s:set var="map" value="%{#application.category}"/>
 <div class="header">
-    <a href="${pageContext.request.contextPath}/pages/mentorDashboard.jsp"><img src="${pageContext.request.contextPath}/images/icon_-15.png" class="defaultImage" alt=""></a>
-    <ul>
-        <li class="li1"><a href="#">
-            <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt="" class="imag">
-            <span class="req badge">1</span></a></li>
-        <li class="mess"><a href="#"> <i class="glyphicon glyphicon-envelope"></i>
-            <span class="messag badge">1</span></a></li>
-    </ul>
+    <div class="col-lg-1">
+        <a href="${pageContext.request.contextPath}/pages/mentorDashboard.jsp"><img
+                src="${pageContext.request.contextPath}/images/icon_-15.png" class="defaultImage" alt=""></a>
+    </div>
+<%--search div--%>
+    <div class="searchDiv col-lg-4 col-lg-offset-3">
+        <s:form action="searchForm" method="POST">
+            <s:textfield value="searchKeyword" name="searchKeyword"/>
+        </s:form>
+
+        <div id="searchList">
+            <s:if test="%{advanceSerachList!=null}">
+                <s:iterator value="advanceSerachList">
+                    <a href="#"><s:property value="name"/></a>
+                    <br>
+                </s:iterator>
+            </s:if>
+            <s:elseif test="%{advanceSerachList==null}">
+                <s:iterator value="userList">
+                    <a href="#"><s:property value="name"/></a>
+                    <br>
+                </s:iterator>
+            </s:elseif>
+        </div>
+
+        <span id="advancedSearch"><a href="#">advancedSearch</a></span>
+
+        <div id="advancedSearchDiv" style="display: none">
+                <ul>
+                    <s:iterator var="mapsKey" value="#map">
+                        <li data-toggle="collapse" data-target="#<s:property value="key"/>"
+                            class="li collapsed active">
+                            <a href="#"><s:property value="key"/></a>
+                        </li>
+                        <ul class="sub-menu collapse" id="<s:property value="key"/>">
+                            <s:iterator value="#mapsKey.value" var="mapsValue">
+                                <li class="li"><a
+                                        href="searchKeyword.action?categoryId=<s:property value="#mapsValue.id"/>&userName=<s:property value="searchKeyword"/>"><s:property
+                                        value="name"/> </a></li>
+                            </s:iterator>
+                        </ul>
+                    </s:iterator>
+                </ul>
+                <s:submit value="submit"/>
+        </div>
+    </div>
+
+    <div class="col-lg-1">
+
+        <div class="col-lg-5">
+            <a href="#">
+                <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt=""
+                     style="width: 25px; height: 25px; margin-top: 10px">
+                <span class="badge"
+                      style="background-color: red;position: absolute;margin-top: -29px; margin-left: 14px;">1</span>
+            </a>
+
+        </div>
+
+
+        <div class="col-lg-5 col-lg-offset-1">
+
+            <a href="#">
+                <img src="${pageContext.request.contextPath}/images/message.png" alt=""
+                     style="width: 18px; height: 20px;margin-top: 11px">
+                <span class="badge" style="background-color: red; margin-top: -25px; margin-left: 12px">1</span></a>
+
+        </div>
+
+
+    </div>
+
+    <div class="col-lg-1">
+        <div class="col-lg-5">
+            <a href="${pageContext.request.contextPath}/pages/loginForm.jsp"><img
+                    src="${pageContext.request.contextPath}/images/setting.png"
+                    style="width: 30px;height: 20px;margin-top: 10px"/></a>
+        </div>
+
+        <div class="col-lg-5 col-lg-offset-1">
+            <a href="${pageContext.request.contextPath}/pages/loginForm.jsp"><img
+                    src="${pageContext.request.contextPath}/images/log_out.png"
+                    style="width: 30px;height: 20px; margin-top: 10px"/></a>
+
+        </div>
+    </div>
 </div>
 
-<div class="container-fluid" style="background-color: #d3d3d3">
+
+<div class="container-fluid">
     <div class="row">
         <div class="col-md-3">
             <div class="sidebar-nav menubar">
                 <div class="well">
                     <ul class="nav nav-list" id="menu">
-                        <h5 id="menutext">Mentor Menu</h5>
-                        <li><a href="${pageContext.request.contextPath}/pages/mentorDashboard.jsp">Home <i
+                        <li><a href="${pageContext.request.contextPath}/pages/menteeDashboard.jsp">Home <i
                                 class="glyphicon glyphicon-home"></i></a></li>
                         <li><a href="#">Upload Photo <i class="glyphicon glyphicon-upload"></i> <i
                                 class="glyphicon glyphicon-picture"></i>
-                        <li class="active"><a href="#">Update <i class="glyphicon glyphicon-refresh"></i></a></li>
-                        <li><a href="#">Settings <i class="glyphicon glyphicon-cog"></i> </a></li>
-                        <li><a href="${pageContext.request.contextPath}/pages/loginForm.jsp">Logout <i
-                                class="glyphicon glyphicon-log-out"></i></a></li>
+                        </a></li>
                     </ul>
                 </div>
 
@@ -118,7 +194,6 @@
         </div>
 
     </div>
-</div>
 </div>
 </body>
 </html>
