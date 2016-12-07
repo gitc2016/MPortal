@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/mentorDashboard.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -32,41 +32,41 @@
     </div>
 
     <div class="col-lg-1 col-lg-offset-7">
-
         <div class="col-lg-5">
-            <a href="#">
-                <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt=""
-                     style="width: 25px; height: 25px; margin-top: 10px">
-                <span class="badge"
-                      style="background-color: red;position: absolute;margin-top: -29px; margin-left: 14px;">1</span>
-            </a>
-
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt=""
+                         style="width: 25px; height: 25px; margin-top: 10px">
+                    <span class="badge"
+                          style="background-color: red;position: absolute;margin-top: -29px; margin-left: 14px;">1</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">request user name</a></li>
+                </ul>
+            </div>
         </div>
-
-
         <div class="col-lg-5 col-lg-offset-1">
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="${pageContext.request.contextPath}/images/message.png" alt=""
+                         style="width: 18px; height: 20px;margin-top: 11px">
+                    <span class="badge" style="background-color: red; margin-top: -25px; margin-left: 12px">1</span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">User name</a></li>
+                </ul>
 
-            <a href="#">
-                <img src="${pageContext.request.contextPath}/images/message.png" alt=""
-                     style="width: 18px; height: 20px;margin-top: 11px">
-                <span class="badge" style="background-color: red; margin-top: -25px; margin-left: 12px">1</span></a>
-
+            </div>
         </div>
-
-
     </div>
 
     <div class="col-lg-1">
         <div class="col-lg-5">
             <div class="dropdown">
-                <a href="${pageContext.request.contextPath}/pages/loginForm.jsp" class="dropdown-toggle"
+                <a href="#" class="dropdown-toggle"
                    data-toggle="dropdown"><img
                         src="${pageContext.request.contextPath}/images/setting.png"
                         style="width: 30px;height: 20px;margin-top: 10px"/></a>
                 <ul class="dropdown-menu">
                     <li><a href="#">Update <i class="glyphicon glyphicon-refresh"></i> </a></li>
-                    <li><a href="#">CSS</a></li>
-                    <li><a href="#">JavaScript</a></li>
                 </ul>
             </div>
         </div>
@@ -112,7 +112,6 @@
                     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
                     <div class="menu-list">
-
                         <ul class="menu-content" class="menu-content collapse out">
                             <s:iterator var="mapsKey" value="#map">
                                 <li data-toggle="collapse" data-target="#<s:property value="key"/>"
