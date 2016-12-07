@@ -43,10 +43,10 @@
         </action>
 
         <action name="searchAction" class="am.gitc.mportal.action.SearchAction" method="categoryAndSubCategory">
-            <result name="success">/pages/mentorDashboard.jsp</result>
+            <result name="success">/pages/menteeDashboard.jsp</result>
         </action>
 
-        <action name="search" class="am.gitc.mportal.action.SearchAction">
+        <action name="searchForm" class="am.gitc.mportal.action.SearchAction">
             <result name="success">/pages/menteeDashboard.jsp</result>
             <result name="input">/pages/menteeDashboard.jsp</result>
         </action>
