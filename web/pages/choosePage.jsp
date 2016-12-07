@@ -29,7 +29,7 @@
             <a href="/pages/mentorDashboard.jsp">
                 <button type="button" class="btn btn-info submit"><h4>I am a mentor</h4></button>
             </a>
-            <a href="/pages/menteeDashboard.jsp">
+            <a href="searchAction.action">
                 <button type="button" class="btn btn-info submit"><h4>I am a mentee</h4></button>
             </a>
         </div>
