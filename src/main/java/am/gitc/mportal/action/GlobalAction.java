@@ -3,7 +3,6 @@ package am.gitc.mportal.action;
 import am.gitc.mportal.dao.impl.CountryDaoImpl;
 import am.gitc.mportal.domain.Country;
 import am.gitc.mportal.domain.Gender;
-import am.gitc.mportal.domain.Role;
 import am.gitc.mportal.util.Global_Keys;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.ApplicationAware;
