@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class SearchAction extends GlobalAction implements ApplicationAware {
 
@@ -47,7 +48,9 @@ public class SearchAction extends GlobalAction implements ApplicationAware {
     @Override
     public String execute() throws Exception {
         userList = userDao.getSearchUserListByName(searchKeyword);
-
+        if(userList.size()==0){
+            addFieldError("searchKeyword","Nothing is find");
+        }
         return SUCCESS;
     }
 
@@ -68,8 +71,6 @@ public class SearchAction extends GlobalAction implements ApplicationAware {
     @SkipValidation
     public String advancedSearch() {
         advanceSerachList = new ArrayList<User>();
-        System.out.println(categoryId);
-        System.out.println(userName);
         List<Integer> userIdList = mentorCategory.getUserIdByCategoryId(categoryId);
         for (int userId : userIdList) {
             User user=null;
@@ -84,7 +85,6 @@ public class SearchAction extends GlobalAction implements ApplicationAware {
         if(advanceSerachList.size()==0){
             addFieldError("searchKeyword","Nothing is find");
         }
-        System.out.println(advanceSerachList.toString());
         return SUCCESS;
     }
 
