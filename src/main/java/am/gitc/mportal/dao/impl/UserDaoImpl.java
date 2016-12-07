@@ -1,9 +1,12 @@
 package am.gitc.mportal.dao.impl;
 
 import am.gitc.mportal.dao.UserDao;
+import am.gitc.mportal.domain.MentorCategory;
 import am.gitc.mportal.domain.User;
 import am.gitc.mportal.util.HibernateUtil;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
@@ -68,6 +71,9 @@ public class UserDaoImpl implements UserDao {
         Criteria criteria = session.createCriteria(User.class);
         Criterion result = Restrictions.like("name",name + "%");
         return (List<User>) criteria.add(result).list();
+//        SQLQuery query = session.createSQLQuery
+//                ("SELECT us.`name` FROM mentor_category INNER JOIN `user` as us ON mentor_category.`user_id` = us.id where us.name LIKE '"+name+"%"+"'");
+//        return sqlQuery.list();
     }
 
     public User getUserByHashCode(String hashCode)throws Exception {//TODO think about better way to generate link for useractiovation
