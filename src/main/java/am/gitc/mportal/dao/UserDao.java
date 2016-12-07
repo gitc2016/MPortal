@@ -29,4 +29,7 @@ public interface UserDao extends GlobalDao<User> {
     List<User> getSearchUserListByName(String name);
 
     User getUserAdvanceSearch(int id, String name);
+
+    @Override
+    void delete(User user);
 }

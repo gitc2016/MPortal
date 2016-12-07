@@ -23,43 +23,52 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void create(User user) throws Exception{
+    public void create(User user) throws Exception {
         session.beginTransaction();
         session.save(user);
         session.getTransaction().commit();
     }
 
     @Override
-    public User getById(int id) throws Exception {
-        return null;
+    public void delete(User user) {
+        session.beginTransaction();
+        session.delete(user);
+        session.getTransaction().commit();
+
     }
 
     @Override
-    public void update(User user) throws Exception{
+    public User getById(int id) throws Exception {
+        Criteria criteria = session.createCriteria(User.class);
+        return (User) criteria.add(Restrictions.eq("id", id)).uniqueResult();
+    }
+
+    @Override
+    public void update(User user) throws Exception {
 
     }
 
 
-    public void updateIsRegister(User user) throws Exception{
+    public void updateIsRegister(User user) throws Exception {
         session.beginTransaction();
         session.update(user);
         session.getTransaction().commit();
     }
 
     @Override
-    public List<User> getAll()throws Exception {
+    public List<User> getAll() throws Exception {
         return null;
     }
 
 
     @Override
-    public User getUserByEmail(String email) throws Exception{
+    public User getUserByEmail(String email) throws Exception {
         Criteria criteria = session.createCriteria(User.class);
         return (User) criteria.add(Restrictions.eq("email", email)).uniqueResult();
     }
 
     @Override
-    public User getUserByEmailPassword(String email, String password)throws Exception {
+    public User getUserByEmailPassword(String email, String password) throws Exception {
         Criteria criteria = session.createCriteria(User.class);
 
         return (User) criteria.add(Restrictions.and(Restrictions.eq("email", email), Restrictions.eq("password", password))).uniqueResult();
@@ -69,20 +78,22 @@ public class UserDaoImpl implements UserDao {
     @Override
     public List<User> getSearchUserListByName(String name) {
         Criteria criteria = session.createCriteria(User.class);
-        Criterion result = Restrictions.like("name",name + "%");
+        Criterion result = Restrictions.like("name", name + "%");
         return (List<User>) criteria.add(result).list();
 //        SQLQuery query = session.createSQLQuery
 //                ("SELECT us.`name` FROM mentor_category INNER JOIN `user` as us ON mentor_category.`user_id` = us.id where us.name LIKE '"+name+"%"+"'");
 //        return sqlQuery.list();
     }
 
-    public User getUserByHashCode(String hashCode)throws Exception {//TODO think about better way to generate link for useractiovation
+    public User getUserByHashCode(String hashCode) throws Exception {//TODO think about better way to generate link for useractiovation
         Criteria criteria = session.createCriteria(User.class);
         return (User) criteria.add(Restrictions.eq("hashCode", hashCode)).uniqueResult();
     }
 
     @Override
-    public User getUserAdvanceSearch(int id,String name) {
-        return (User) session.createCriteria(User.class).add(Restrictions.and(Restrictions.eq("id",id),Restrictions.like("name",name+"%"))).uniqueResult();
+    public User getUserAdvanceSearch(int id, String name) {
+        return (User) session.createCriteria(User.class).add(Restrictions.and(Restrictions.eq("id", id), Restrictions.like("name", name + "%"))).uniqueResult();
     }
+
+
 }

@@ -14,4 +14,7 @@ public interface CountryDao extends GlobalDao<Country> {
 
     @Override
     List<Country> getAll() throws Exception;
+
+    @Override
+    void delete(Country entity) throws Exception;
 }

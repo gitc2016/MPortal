@@ -15,6 +15,7 @@ public interface GlobalDao<E> {
 
     List<E> getAll() throws Exception;
 
+    void delete(E entity) throws Exception;
 
 
 }
