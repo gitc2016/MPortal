@@ -12,7 +12,6 @@ CREATE TABLE `category` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `parent_id` INT(11) NOT NULL,
-  `parentId` INT(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=latin1;
 
