@@ -39,10 +39,8 @@
         <div class="col-lg-5">
             <div class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt=""
-                         style="width: 25px; height: 25px; margin-top: 10px">
-                    <span class="badge"
-                          style="background-color: red;position: absolute;margin-top: -29px; margin-left: 14px;">1</span></a>
+                    <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt="" class="requestImg"/>
+                    <span class="spanreq badge">1</span></a>
                 <ul class="dropdown-menu">
                     <li><a href="#">request user name</a></li>
                 </ul>
@@ -51,9 +49,8 @@
         <div class="col-lg-5 col-lg-offset-1">
             <div class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="${pageContext.request.contextPath}/images/message.png" alt=""
-                         style="width: 18px; height: 20px;margin-top: 11px">
-                    <span class="badge" style="background-color: red; margin-top: -25px; margin-left: 12px">1</span></a>
+                    <img src="${pageContext.request.contextPath}/images/message.png" alt="" class="imgMessage"/>
+                    <span class="spanmessage badge">1</span></a>
                 <ul class="dropdown-menu">
                     <li><a href="#">User name</a></li>
                 </ul>
@@ -67,8 +64,7 @@
             <div class="dropdown">
                 <a href="#" class="dropdown-toggle"
                    data-toggle="dropdown"><img
-                        src="${pageContext.request.contextPath}/images/setting.png"
-                        style="width: 30px;height: 20px;margin-top: 10px"/></a>
+                        src="${pageContext.request.contextPath}/images/setting.png" class="imgSettings"/></a>
                 <ul class="dropdown-menu">
                     <li><a href="#">Update <i class="glyphicon glyphicon-refresh"></i> </a></li>
                     <li><a href="#">Edit <i class="glyphicon glyphicon-refresh"></i> </a></li>
@@ -78,14 +74,13 @@
             </div>
 
             <div id="dialog-confirm" title="Warning!" style="display: none">
-                <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span> Are you sure to delete your account?</p>
+                <p><span class="warn ui-icon ui-icon-alert"></span> Are you sure to delete your account?</p>
             </div>
         </div>
 
         <div class="col-lg-5 col-lg-offset-1">
             <a href="logOut.action"><img
-                    src="${pageContext.request.contextPath}/images/log_out.png"
-                    style="width: 30px;height: 20px; margin-top: 10px"/></a>
+                    src="${pageContext.request.contextPath}/images/log_out.png" class="imgLogout"/></a>
 
         </div>
     </div>

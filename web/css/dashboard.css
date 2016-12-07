@@ -519,3 +519,38 @@ div.message.right .corner {
 #searchList{
     margin-top: 150px;
 }
+.requestImg{
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+}
+.badge.spanreq{
+    background-color: red; !important;
+    position: absolute;
+    margin-top: -29px;
+    margin-left: 14px;
+}
+.imgMessage{
+    width: 18px;
+    height: 20px;
+    margin-top: 11px;
+}
+.badge.spanmessage{
+    background-color: red; !important;
+    margin-top: -25px;
+    margin-left: 12px;
+}
+.imgSettings{
+    width: 30px;
+    height: 20px;
+    margin-top: 10px;
+}
+.imgLogout{
+    width: 30px;
+    height: 20px;
+    margin-top: 10px;
+}
+.warn{
+    float:left;
+    margin:12px 12px 20px 0;
+}
