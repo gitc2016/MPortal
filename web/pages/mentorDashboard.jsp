@@ -120,9 +120,8 @@
                     <div class="menu-list">
                         <ul class="menu-content" class="menu-content collapse out">
                             <s:iterator var="mapsKey" value="#map">
-                                <li data-toggle="collapse" data-target="#<s:property value="key"/>"
-                                    class="collapsed active">
-                                    <a href="#"><s:property value="key"/> <span class="arrow"></span></a>
+                                <li style="list-style-type: none" data-toggle="collapse" data-target="#<s:property value="key"/>">
+                                    <a href="#"><s:property value="key"/></a>
                                 </li>
                                 <ul class="sub-menu collapse" id="<s:property value="key"/>">
                                     <s:iterator value="#mapsKey.value" var="mapsValue">

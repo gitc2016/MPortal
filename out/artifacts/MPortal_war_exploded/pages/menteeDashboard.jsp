@@ -27,6 +27,7 @@
     <div class="col-lg-1">
         <a href="${pageContext.request.contextPath}/pages/mentorDashboard.jsp"><img
                 src="${pageContext.request.contextPath}/images/icon_-15.png" class="defaultImage" alt=""></a>
+        <h1><a href="#"><s:property value="User.name"/> aaa<s:property value="User.surname"/></a></h1>
     </div>
     <%--search div--%>
     <div class="searchDiv col-lg-4 col-lg-offset-3">
@@ -44,7 +45,7 @@
             <s:elseif test="%{advanceSerachList==null}">
                 <s:iterator value="userList">
                     <a href="#"><s:property value="name"/></a>
-                    <a href="#">send mentor request</a>
+                    <a href="#"><span class="sendRequest badge"> SEND REQUEST</span></a>
                     <br>
                 </s:iterator>
             </s:elseif>

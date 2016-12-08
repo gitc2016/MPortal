@@ -18,7 +18,10 @@
 #menu {
     position: fixed;
 }
-
+.userImg{
+    width: 200px;
+    height: 200px;
+}
 .defaultImage {
     width: 50px;
     height: 50px;
@@ -525,7 +528,7 @@ div.message.right .corner {
     margin-top: 10px;
 }
 .badge.spanreq{
-    background-color: red; !important;
+    background-color: red;
     position: absolute;
     margin-top: -29px;
     margin-left: 14px;
@@ -536,7 +539,7 @@ div.message.right .corner {
     margin-top: 11px;
 }
 .badge.spanmessage{
-    background-color: red; !important;
+    background-color: red;
     margin-top: -25px;
     margin-left: 12px;
 }
@@ -553,4 +556,7 @@ div.message.right .corner {
 .warn{
     float:left;
     margin:12px 12px 20px 0;
+}
+.badge.sendRequest{
+    background-color: green;
 }

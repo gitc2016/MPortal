@@ -21,7 +21,7 @@
 
 
 
-        <!--&lt;!&ndash;<welcome-file>/pages/choosePage.jsp</welcome-file>&ndash;&gt;-->
+        <!--<welcome-file>/pages/userPage.jsp</welcome-file>-->
     <!--</welcome-file-list>-->
 
     <!--<listener>-->
