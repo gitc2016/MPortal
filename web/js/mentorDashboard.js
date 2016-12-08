@@ -114,4 +114,26 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('body').on('click','#updateAccount',function(){
+        $("#dialog-form").dialog({
+            height: "auto",
+            width: 600,
+            modal: true,
+            resizable: false,
+            draggable: false,
+            
+            buttons: {
+                Yes: function () {
+                    $('#updateForm').submit();
+                    $(this).dialog("close");
+                },
+                No: function () {
+                    $(this).dialog("close");
+                }
+            }
+        });
+
+    })
+
 });

@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/mentorDashboard.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -29,6 +28,9 @@
 <body>
 
 <s:set var="map" value="%{#application.category}"/>
+
+
+<%--start  header--%>
 <div class="header">
     <div class="col-lg-1">
         <a href="${pageContext.request.contextPath}/pages/mentorDashboard.jsp"><img
@@ -66,16 +68,34 @@
                    data-toggle="dropdown"><img
                         src="${pageContext.request.contextPath}/images/setting.png" class="imgSettings"/></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Update <i class="glyphicon glyphicon-refresh"></i> </a></li>
-                    <li><a href="#">Edit <i class="glyphicon glyphicon-refresh"></i> </a></li>
+                    <li><a href="#" id="updateAccount">Update <i class="glyphicon glyphicon-refresh"></i></a></li>
                     <li><a href="#" id="delete">Delete Account <i class="glyphicon glyphicon-trash"></i></a></li>
-
                 </ul>
+            </div>
+            <div style>
+
             </div>
 
             <div id="dialog-confirm" title="Warning!" style="display: none">
                 <p><span class="warn ui-icon ui-icon-alert"></span> Are you sure to delete your account?</p>
             </div>
+
+            <div id="dialog-form" title="Update Account" style="display: none">
+
+                <s:form id="updateForm">
+                    <fieldset>
+                        <%--<p><label for="name">Name</label>--%>
+                        <s:textfield  key="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all"/>
+                        <p> <label for="email">Email</label>
+                        <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all"></p>
+                        <p> <label for="password">Password</label>
+                        <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all"></p>
+
+                        <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                    </fieldset>
+                </s:form>
+            </div>
+
         </div>
 
         <div class="col-lg-5 col-lg-offset-1">
@@ -86,9 +106,15 @@
     </div>
 </div>
 
+<%--End header--%>
+
+
+
 
 <div class="container-fluid">
+
     <div class="row">
+
         <div class="col-md-3">
             <div class="sidebar-nav menubar">
                 <div class="well">
@@ -109,12 +135,14 @@
         </div>
 
         <div class="col-md-5" style="background: rgba(152, 150, 150, 0.06); height: 100%">
+
             <h4 class="choosetext text-center" id="categ"><a href="#">Choose your category</a></h4>
             <div class="col-md-6" id="categorstyle" style="display:  none">
 
                 <div class="nav-side-menu list" id="cateories">
 
                     <div class="brand">Categories</div>
+
                     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
 
                     <div class="menu-list">
