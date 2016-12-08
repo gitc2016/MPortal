@@ -554,3 +554,9 @@ div.message.right .corner {
     float:left;
     margin:12px 12px 20px 0;
 }
+
+label {
+    cursor: text;
+    font-size: 12px;
+    color:black!important;
+}
