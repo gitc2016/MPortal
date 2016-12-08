@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: gtc-user29
@@ -19,6 +20,7 @@
 </head>
 <body>
 <div class="center">
+
     <p>
         <img src="${pageContext.request.contextPath}/images/logo.png" class="text-center">
         MPortal</p>
@@ -26,10 +28,10 @@
     <div class="col-lg-5 col-lg-offset-4">
         <div class="col-lg-12  div">
 
-            <a href="/pages/mentorDashboard.jsp">
+            <a href="/mentorpage">
                 <button type="button" class="btn btn-info submit"><h4>I am a mentor</h4></button>
             </a>
-            <a href="/pages/menteeDashboard.jsp">
+            <a href="/menteepage">
                 <button type="button" class="btn btn-info submit"><h4>I am a mentee</h4></button>
             </a>
         </div>

@@ -20,7 +20,6 @@ public class LoginAction extends GlobalAction {
     private String login;
     private String password;
     private UserDaoImpl userDaoImpl;
-    private List<User> advanceSerachList;
 
     public LoginAction() throws Exception {
         userDaoImpl = new UserDaoImpl();

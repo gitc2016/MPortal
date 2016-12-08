@@ -13,17 +13,16 @@
         <interceptors>
 
             <!--LoginIntercepter-->
-            <interceptor name="loginInterceptor"  class="am.gitc.mportal.action.Authentication">
+            <interceptor name="loginInterceptor" class="am.gitc.mportal.action.Authentication">
             </interceptor>
             <!--loginStack-->
             <interceptor-stack name="loginStack">
                 <interceptor-ref name="loginInterceptor"/>
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
-            
+
 
         </interceptors>
-
 
 
         <action name="login">
@@ -47,8 +46,8 @@
         </action>
 
         <action name="searchKeyword" class="am.gitc.mportal.action.SearchAction" method="advancedSearch">
-         <result name="success">/pages/menteeDashboard.jsp</result>
-         <result name="input">/pages/menteeDashboard.jsp</result>
+            <result name="success">/pages/menteeDashboard.jsp</result>
+            <result name="input">/pages/menteeDashboard.jsp</result>
         </action>
 
         <!--RegisterActionPage-->
@@ -73,13 +72,18 @@
             <result name="success">/pages/registerForm.jsp</result>
         </action>
 
+        <action name="mentorpage" class="am.gitc.mportal.action.UserAction">
+            <result name="success">/pages/mentorDashboard.jsp</result>
+        </action>
 
+        <action name="menteepage" class="am.gitc.mportal.action.UserAction">
+            <result name="success">/pages/menteeDashboard.jsp</result>
+        </action>
 
 
         <action name="global" class="am.gitc.mportal.action.GlobalAction">
             <result name="success">/pages/loginForm.jsp</result>
         </action>
-
 
 
         <action name="mentor">
