@@ -45,7 +45,9 @@
 <div class="header">
     <div class="col-lg-1">
         <a href="${pageContext.request.contextPath}/pages/mentorDashboard.jsp"><img
-                src="${pageContext.request.contextPath}/images/icon_-15.png" class="defaultImage" alt=""></a>
+                src="${pageContext.request.contextPath}/images/icon_-15.png" class="defaultImage" alt="">
+            <h1 class="badge" style="position: absolute"><s:property value="user.name"/><s:property
+                    value="user.surname"/></h1></a>
     </div>
 
     <div class="col-lg-1 col-lg-offset-7">
@@ -53,9 +55,14 @@
             <div class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt="" class="requestImg"/>
-                    <span class="spanreq badge">1</span></a>
+                    <span class="spanreq badge"><s:property value="requestCount"/></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">request user name</a></li>
+                    <s:iterator value="userList">
+                        <li><a href="#"><s:property value="name"/><s:property value="surname"/></a></li>
+                        <a href="confirm.action?confirmId = <s:property value=""/>"><span class="badge">confirm</span></a><a href="#"><span
+                            class="badge">deleteRequest</span></a>
+                        <br>
+                    </s:iterator>
                 </ul>
             </div>
         </div>
@@ -89,6 +96,7 @@
             </div>
 
             <div id="dialog-form" title="Update Account" style="display: none">
+
 
                 <s:form id="updateForm" action="updateAccount.action">
 
@@ -159,9 +167,9 @@
                     <div class="menu-list">
                         <ul class="menu-content" class="menu-content collapse out">
                             <s:iterator var="mapsKey" value="#map">
-                                <li data-toggle="collapse" data-target="#<s:property value="key"/>"
-                                    class="collapsed active">
-                                    <a href="#"><s:property value="key"/> <span class="arrow"></span></a>
+                                <li style="list-style-type: none" data-toggle="collapse"
+                                    data-target="#<s:property value="key"/>">
+                                    <a href="#"><s:property value="key"/></a>
                                 </li>
                                 <ul class="sub-menu collapse" id="<s:property value="key"/>">
                                     <s:iterator value="#mapsKey.value" var="mapsValue">

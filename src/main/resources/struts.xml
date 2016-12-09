@@ -78,7 +78,8 @@
             <result name="success">/pages/registerForm.jsp</result>
         </action>
 
-        <action name="mentorpage" class="am.gitc.mportal.action.UserAction">
+
+        <action name="mentorpage" class="am.gitc.mportal.action.UserAction" method="mentor">
             <interceptor-ref name="loginStack"/>
             <result name="success">/pages/mentorDashboard.jsp</result>
         </action>
@@ -92,6 +93,7 @@
         <action name="menteepage" class="am.gitc.mportal.action.UserAction">
             <interceptor-ref name="loginStack"/>
             <result name="success">/pages/menteeDashboard.jsp</result>
+            <result name="input">/pages/loginForm.jsp</result>
         </action>
 
 
@@ -108,6 +110,10 @@
 
         <action name="locale">
             <result>/pages/loginForm.jsp</result>
+        </action>
+
+        <action name="request" class="am.gitc.mportal.action.RequestAction">
+            <result name="success">/pages/menteeDashboard.jsp</result>
         </action>
 
     </package>

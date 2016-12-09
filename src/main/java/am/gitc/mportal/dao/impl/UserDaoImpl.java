@@ -34,7 +34,6 @@ public class UserDaoImpl implements UserDao {
         session.beginTransaction();
         session.delete(user);
         session.getTransaction().commit();
-
     }
 
     @Override

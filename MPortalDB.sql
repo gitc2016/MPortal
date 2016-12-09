@@ -83,6 +83,18 @@ CREATE TABLE `mentor_status` (
   CONSTRAINT `mentor_status_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=latin1;
 
+
+DROP TABLE IF EXISTS `friends`;
+CREATE TABLE `friends`(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+user_id INT(11) NOT NULL,
+friend_id INT(11) NOT NULL,
+KEY `user_id` (`user_id`),
+  KEY `friend_id` (`friend_id`),
+   CONSTRAINT `friends_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `friends_ibfk_2` FOREIGN KEY (`friend_id`) REFERENCES `user` (`id`)
+)  ENGINE=INNODB DEFAULT CHARSET=latin1;
+
 /*Data for the table `mentor_status` */
 
 /*Table structure for table `request` */
