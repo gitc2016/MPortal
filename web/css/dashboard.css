@@ -557,6 +557,15 @@ div.message.right .corner {
     float:left;
     margin:12px 12px 20px 0;
 }
+<<<<<<< HEAD
 .badge.sendRequest{
     background-color: green;
 }
+=======
+
+label {
+    cursor: text;
+    font-size: 12px;
+    color:black!important;
+}
+>>>>>>> cf9a85742adee36a8c48f24ae6ebe5348ff85a5f

@@ -2,6 +2,7 @@ package am.gitc.mportal.domain;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Gtc-user17 on 11/13/2016.
@@ -16,7 +17,6 @@ public class Country {
     private int id;
 
     private String name;
-
 
     public Country() {
     }

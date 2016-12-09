@@ -63,7 +63,7 @@ public class RegistrationAction extends ActionSupport implements ModelDriven<Use
         user.setPassword(MD5.encryptPassword(user.getPassword()));
         userDaoImpl.create(user);
         String result = SendEmailAction.sendEmail(user.getEmail());
-        if (ERROR.equals(result)){
+        if (ERROR.equals(result)) {
             return ERROR;
         }
         return SUCCESS;
@@ -75,7 +75,7 @@ public class RegistrationAction extends ActionSupport implements ModelDriven<Use
         User user = userDaoImpl.getUserByHashCode(hashcode);
         if (user != null) {
             user.setActive(true);
-            userDaoImpl.updateIsRegister(user);
+            userDaoImpl.update(user);
             return SUCCESS;
         }
         return LOGIN;

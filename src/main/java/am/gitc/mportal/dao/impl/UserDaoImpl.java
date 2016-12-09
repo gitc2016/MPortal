@@ -42,13 +42,10 @@ public class UserDaoImpl implements UserDao {
         return (User) criteria.add(Restrictions.eq("id", id)).uniqueResult();
     }
 
-    @Override
+
+
+
     public void update(User user) throws Exception {
-
-    }
-
-
-    public void updateIsRegister(User user) throws Exception {
         session.beginTransaction();
         session.update(user);
         session.getTransaction().commit();

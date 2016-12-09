@@ -14,6 +14,7 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css">
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/dashboard.css">
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
@@ -23,11 +24,21 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}\css\LoginRegister.css" media="screen"/>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
 </head>
 <body>
-
+<s:set var="country" value="%{#application.country}"/>
 <s:set var="map" value="%{#application.category}"/>
+<s:if test="update">
+    <script>
+        $(document).ready(function(){
+            showUpdateArea();
+        })
+    </script>
+</s:if>
 
 
 <%--start  header--%>
@@ -79,9 +90,6 @@
                     <li><a href="#" id="delete">Delete Account <i class="glyphicon glyphicon-trash"></i></a></li>
                 </ul>
             </div>
-            <div style>
-
-            </div>
 
             <div id="dialog-confirm" title="Warning!" style="display: none">
                 <p><span class="warn ui-icon ui-icon-alert"></span> Are you sure to delete your account?</p>
@@ -89,20 +97,22 @@
 
             <div id="dialog-form" title="Update Account" style="display: none">
 
-                <s:form id="updateForm">
-                    <fieldset>
-                            <%--<p><label for="name">Name</label>--%>
-                        <s:textfield key="name" id="name" value="Jane Smith"
-                                     class="text ui-widget-content ui-corner-all"/>
-                        <p><label for="email">Email</label>
-                            <input type="text" name="email" id="email" value="jane@smith.com"
-                                   class="text ui-widget-content ui-corner-all"></p>
-                        <p><label for="password">Password</label>
-                            <input type="password" name="password" id="password" value="xxxxxxx"
-                                   class="text ui-widget-content ui-corner-all"></p>
 
-                        <!-- Allow form submission with keyboard without duplicating the dialog button -->
-                    </fieldset>
+                <s:form id="updateForm" action="updateAccount.action">
+
+                    <s:textfield key="name" id="name" value="%{user.name}" name="name"
+                                 class="text ui-widget-content ui-corner-all" cssClass="input" />
+
+                    <s:textfield key="surname" id="surname" value="%{user.surname}" name="surname"
+                                 class="text ui-widget-content ui-corner-all" cssClass="input"/>
+                    <s:select key="country"
+                              headerKey="%{user.country.id}"
+                              headerValue="%{user.country.name}"
+                              list="country"
+                              listKey="id"
+                              listValue="name"
+                              name="countryId"/>
+
                 </s:form>
             </div>
 
@@ -133,6 +143,7 @@
                         <li><a href="#">Upload Photo <i class="glyphicon glyphicon-upload"></i> <i
                                 class="glyphicon glyphicon-picture"></i>
 
+
                         </a>
                         </li>
 
@@ -142,7 +153,7 @@
             </div>
         </div>
 
-        <div class="col-md-5" style="background: rgba(152, 150, 150, 0.06); height: 100%">
+         <div class="col-md-5" style="background: rgba(152, 150, 150, 0.06); height: 100%">
 
             <h4 class="choosetext text-center" id="categ"><a href="#">Choose your category</a></h4>
             <div class="col-md-6" id="categorstyle" style="display:  none">
