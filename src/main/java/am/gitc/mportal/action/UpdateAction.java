@@ -17,6 +17,9 @@ public class UpdateAction extends GlobalAction implements ModelDriven {
     private CountryDaoImpl countryDao;
     private User users = new User();
     private User user;
+    private String currnetpassword;
+    private String newPassword;
+    private String confirmPassword;
     private boolean update = true;
     private int countryId;
 
@@ -27,6 +30,31 @@ public class UpdateAction extends GlobalAction implements ModelDriven {
     }
 
     //region getter setter
+
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public String getCurrnetpassword() {
+        return currnetpassword;
+    }
+
+    public void setCurrnetpassword(String currnetpassword) {
+        this.currnetpassword = currnetpassword;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
+    }
 
     public User getUsers() {
         return users;
@@ -74,6 +102,10 @@ public class UpdateAction extends GlobalAction implements ModelDriven {
         return SUCCESS;
     }
 
+    public String changePassword() {
+
+        return SUCCESS;
+    }
 
     @Override
     public Object getModel() {

@@ -24,7 +24,8 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}\css\LoginRegister.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}\css\LoginRegister.css"
+          media="screen"/>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
@@ -34,7 +35,7 @@
 <s:set var="map" value="%{#application.category}"/>
 <s:if test="update">
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             showUpdateArea();
         })
     </script>
@@ -55,11 +56,15 @@
             <div class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt="" class="requestImg"/>
-                    <span class="spanreq badge"><s:property value="requestCount"/></span></a>
+                    <s:if test="requestCount!=0">
+                        <span class="spanreq badge"><s:property value="requestCount"/></span>
+                    </s:if>
+                </a>
                 <ul class="dropdown-menu">
                     <s:iterator value="userList">
                         <li><a href="#"><s:property value="name"/><s:property value="surname"/></a></li>
-                        <a href="confirm.action?confirmId = <s:property value=""/>"><span class="badge">confirm</span></a><a href="#"><span
+                        <a href="confirm.action?confirmId = <s:property value=""/>"><span
+                                class="badge">confirm</span></a><a href="#"><span
                             class="badge">deleteRequest</span></a>
                         <br>
                     </s:iterator>
@@ -87,7 +92,9 @@
                         src="${pageContext.request.contextPath}/images/setting.png" class="imgSettings"/></a>
                 <ul class="dropdown-menu">
                     <li><a href="#" id="updateAccount">Update <i class="glyphicon glyphicon-refresh"></i></a></li>
-                    <li><a href="#" id="delete">Delete Account <i class="glyphicon glyphicon-trash"></i></a></li>
+                    <li><a href="#" id="deleteAccount">Delete Account <i class="glyphicon glyphicon-trash"></i></a></li>
+                    <li><a href="#" id="changePassword">Change Password <i class="glyphicon glyphicon-lock"></i></a>
+                    </li>
                 </ul>
             </div>
 
@@ -97,13 +104,12 @@
 
             <div id="dialog-form" title="Update Account" style="display: none">
 
-
                 <s:form id="updateForm" action="updateAccount.action">
 
-                    <s:textfield key="name" id="name" value="%{user.name}" name="name"
-                                 class="text ui-widget-content ui-corner-all" cssClass="input" />
+                    <s:textfield key="name" value="%{user.name}" name="name"
+                                 class="text ui-widget-content ui-corner-all" cssClass="input"/>
 
-                    <s:textfield key="surname" id="surname" value="%{user.surname}" name="surname"
+                    <s:textfield key="surname" value="%{user.surname}" name="surname"
                                  class="text ui-widget-content ui-corner-all" cssClass="input"/>
                     <s:select key="country"
                               headerKey="%{user.country.id}"
@@ -113,6 +119,22 @@
                               listValue="name"
                               name="countryId"/>
 
+                </s:form>
+            </div>
+
+            <div id="changePassword-form" title="Change Password" style="display: none">
+
+
+                <s:form id="changePasswordForm" action="">
+
+                    <s:password key="currnetpassword" value=""
+                                class="text ui-widget-content ui-corner-all" cssClass="input"/>
+
+                    <s:password key="newPassword" value=""
+                                class="text ui-widget-content ui-corner-all" cssClass="input"/>
+
+                    <s:password key="confirmPassword" value=""
+                                class="text ui-widget-content ui-corner-all" cssClass="input"/>
                 </s:form>
             </div>
 
@@ -153,7 +175,7 @@
             </div>
         </div>
 
-         <div class="col-md-5" style="background: rgba(152, 150, 150, 0.06); height: 100%">
+        <div class="col-md-5" style="background: rgba(152, 150, 150, 0.06); height: 100%">
 
             <h4 class="choosetext text-center" id="categ"><a href="#">Choose your category</a></h4>
             <div class="col-md-6" id="categorstyle" style="display:  none">
