@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class SearchAction extends GlobalAction implements ApplicationAware {
-
+//region fields
     private UserDaoImpl userDao;
     private String searchKeyword;
     private List<User> userList;
@@ -30,10 +30,11 @@ public class SearchAction extends GlobalAction implements ApplicationAware {
     private int categoryId;
     private String userName;
     private List<User> advanceSerachList;
+    private User user = new User();;
 
     Map<String, Object> mapApp;
     Map<String, List<Category>> map;
-
+    //endregion
     public SearchAction() throws Exception{
         try {
             userDao = new UserDaoImpl();
@@ -47,41 +48,34 @@ public class SearchAction extends GlobalAction implements ApplicationAware {
 
     @Override
     public String execute() throws Exception {
+        int id = (Integer) mapSession.get(Global_Keys.LOGIN);
+        user = userDao.getById(id);
+
         userList = userDao.getSearchUserListByName(searchKeyword);
         if(userList.size()==0){
             addFieldError("searchKeyword","Nothing is find");
         }
         return SUCCESS;
     }
-//
-//    @SkipValidation
-//    public String categoryAndSubCategory() {
-//        map = new HashMap<String, List<Category>>();
-//        List<Category> categoryList = categoryDao.getCategoryByParentId();
-//        for (Category list : categoryList) {
-//            String name = list.getName();
-//            int id = list.getId();
-//            List<Category> subCategoryList = categoryDao.getSubCategory(id);
-//            map.put(name, subCategoryList);
-//        }
-//        mapApp.put(Global_Keys.CATEGORY, map);
-//        System.out.println(mapApp.get(Global_Keys.CATEGORY)+"category");
-//        return SUCCESS;
-//    }
 
     @SkipValidation
-    public String advancedSearch() {
+    public String advancedSearch() throws Exception{
+        int id = (Integer) mapSession.get(Global_Keys.LOGIN);
+        user = userDao.getById(id);
+
+        int sessionUserId = (Integer) mapSession.get(Global_Keys.LOGIN);
         advanceSerachList = new ArrayList<User>();
         List<Integer> userIdList = mentorCategory.getUserIdByCategoryId(categoryId);
         for (int userId : userIdList) {
-            User user=null;
+            User userObj=null;
             if (userName == null) {
-                user = userDao.getUserAdvanceSearch(userId, "");
+                userObj = userDao.getUserAdvanceSearch(userId, "");
             } else if (userName != null) {
-                user = userDao.getUserAdvanceSearch(userId, userName);
+                userObj = userDao.getUserAdvanceSearch(userId, userName);
             }
-
-            advanceSerachList.add(user);
+            if (sessionUserId != userId) {
+                advanceSerachList.add(userObj);
+            }
         }
         if(advanceSerachList.size()==0){
             addFieldError("searchKeyword","Nothing is find");
@@ -93,7 +87,7 @@ public class SearchAction extends GlobalAction implements ApplicationAware {
     public void setApplication(Map<String, Object> map) {
         mapApp = map;
     }
-
+//region geter And seter
     public String getSearchKeyword() {
         return searchKeyword;
     }
@@ -141,4 +135,12 @@ public class SearchAction extends GlobalAction implements ApplicationAware {
     public void setAdvanceSerachList(List<User> advanceSerachList) {
         this.advanceSerachList = advanceSerachList;
     }
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    //endregion
 }

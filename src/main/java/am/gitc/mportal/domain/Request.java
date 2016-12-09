@@ -16,10 +16,10 @@ public class Request {
     @Id
     @GeneratedValue
     private int id;
-    @Column(name = "from_id")
-    private int fromID;
-    @Column(name = "to_id")
-    private int toID;
+    @Column(name = "sender_id")
+    private int senderID;
+    @Column(name = "acceptr_id")
+    private int acceptrID;
 
     private int accepted;
 
@@ -27,26 +27,26 @@ public class Request {
 
     }
 
-    public Request(int fromID, int toID, int acceptedID) {
-        this.fromID = fromID;
-        this.toID = toID;
-        this.accepted = acceptedID;
+    public Request(int senderID, int acceptrID, int accepted) {
+        this.senderID = senderID;
+        this.acceptrID = acceptrID;
+        this.accepted = accepted;
     }
 
-    public int getFromID() {
-        return fromID;
+    public int getSenderID() {
+        return senderID;
     }
 
-    public void setFromID(int fromID) {
-        this.fromID = fromID;
+    public void setSenderID(int senderID) {
+        this.senderID = senderID;
     }
 
-    public int getToID() {
-        return toID;
+    public int getAcceptrID() {
+        return acceptrID;
     }
 
-    public void setToID(int toID) {
-        this.toID = toID;
+    public void setAcceptrID(int acceptrID) {
+        this.acceptrID = acceptrID;
     }
 
     public int getAccepted() {
@@ -60,8 +60,8 @@ public class Request {
     @Override
     public String toString() {
         return "Request{" +
-                "fromID=" + fromID +
-                ", toID=" + toID +
+                "senderID=" + senderID +
+                ", acceptrID=" + acceptrID +
                 ", accepted=" + accepted +
                 '}';
     }

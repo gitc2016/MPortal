@@ -2,4 +2,4 @@ target/
 .idea/
 *.iml
 search.jsp
-hibernate.cfg.xml
+#hibernate.cfg.xml
