@@ -75,7 +75,7 @@ public class RegistrationAction extends ActionSupport implements ModelDriven<Use
         User user = userDaoImpl.getUserByHashCode(hashcode);
         if (user != null) {
             user.setActive(true);
-            userDaoImpl.updateIsRegister(user);
+            userDaoImpl.update(user);
             return SUCCESS;
         }
         return LOGIN;

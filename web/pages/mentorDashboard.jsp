@@ -32,6 +32,13 @@
 <body>
 <s:set var="country" value="%{#application.country}"/>
 <s:set var="map" value="%{#application.category}"/>
+<s:if test="update">
+    <script>
+        $(document).ready(function(){
+            showUpdateArea();
+        })
+    </script>
+</s:if>
 
 
 <%--start  header--%>
@@ -83,24 +90,20 @@
 
             <div id="dialog-form" title="Update Account" style="display: none">
 
-                <s:form id="updateForm" >
+                <s:form id="updateForm" action="updateAccount.action">
 
-                    <s:textfield key="name" id="name" value="%{user.name}"
+                    <s:textfield key="name" id="name" value="%{user.name}" name="name"
                                  class="text ui-widget-content ui-corner-all" cssClass="input" />
 
-                    <s:textfield key="surname" id="surname" value="%{user.surname}"
+                    <s:textfield key="surname" id="surname" value="%{user.surname}" name="surname"
                                  class="text ui-widget-content ui-corner-all" cssClass="input"/>
                     <s:select key="country"
-                              headerKey="0"
+                              headerKey="%{user.country.id}"
                               headerValue="%{user.country.name}"
                               list="country"
                               listKey="id"
                               listValue="name"
                               name="countryId"/>
-
-                    <s:textfield id="datepicker" key="birthDate" value="%{user.birthDate}" cssClass="input"/>
-
-
 
                 </s:form>
             </div>
@@ -131,6 +134,7 @@
                                 class="glyphicon glyphicon-home"></i></a></li>
                         <li><a href="#">Upload Photo <i class="glyphicon glyphicon-upload"></i> <i
                                 class="glyphicon glyphicon-picture"></i>
+
 
                         </a>
                         </li>

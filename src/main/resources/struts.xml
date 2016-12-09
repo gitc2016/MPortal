@@ -76,6 +76,11 @@
             <result name="success">/pages/mentorDashboard.jsp</result>
         </action>
 
+        <action name="updateAccount" class="am.gitc.mportal.action.UpdateAction">
+            <result name="success">/pages/mentorDashboard.jsp</result>
+            <result name="input">/pages/mentorDashboard.jsp</result>
+        </action>
+
         <action name="menteepage" class="am.gitc.mportal.action.UserAction">
             <result name="success">/pages/menteeDashboard.jsp</result>
         </action>

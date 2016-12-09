@@ -61,8 +61,6 @@ public class GlobalAction extends ActionSupport implements SessionAware, Applica
             map.put(name, subCategoryList);
         }
         mapApp.put(Global_Keys.CATEGORY, map);
-
-        System.out.println(mapApp.get(Global_Keys.CATEGORY) + "category");
         return SUCCESS;
     }
 }
