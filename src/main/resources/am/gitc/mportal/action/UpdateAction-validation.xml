@@ -4,7 +4,7 @@
 
 <validators>
 
-    <field name="users.name">
+    <field name="name">
         <field-validator type="requiredstring">
             <param name="trim">true</param>
             <message>Please enter your name</message>
@@ -23,7 +23,7 @@
     </field>
 
 
-    <field name="users.surname">
+    <field name="surname">
         <field-validator type="requiredstring">
             <param name="trim">true</param>
             <message>Please enter your surname</message>

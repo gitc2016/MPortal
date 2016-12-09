@@ -18,7 +18,6 @@ public class DeleteAcountAction extends GlobalAction {
     public String execute() throws Exception{
         Integer id= (Integer) mapSession.get(Global_Keys.LOGIN);
         User user=userDao.getById(id);
-        System.out.println(user+"delete user");
         userDao.delete(user);
         return SUCCESS;
     }
