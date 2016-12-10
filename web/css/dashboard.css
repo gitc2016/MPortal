@@ -485,7 +485,7 @@ div.message.right .corner {
     -ms-transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
-    -webkit-transition: all 100 ease-out;
+    -webkit-transition: all 100ms ease-out;
     -moz-transition: all 100ms ease-out;
     -ms-transition: all 100ms ease-out;
     -o-transition: all 100ms ease-out;
@@ -557,15 +557,14 @@ div.message.right .corner {
     float:left;
     margin:12px 12px 20px 0;
 }
-<<<<<<< HEAD
+
 .badge.sendRequest{
     background-color: green;
 }
-=======
 
 label {
     cursor: text;
     font-size: 12px;
     color:black!important;
 }
->>>>>>> cf9a85742adee36a8c48f24ae6ebe5348ff85a5f
+

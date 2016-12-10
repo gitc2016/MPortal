@@ -41,6 +41,14 @@
     </script>
 </s:if>
 
+<s:if test="updatePassword">
+    <script>
+        $(document).ready(function () {
+            showchangePassswordArea();
+        })
+    </script>
+</s:if>
+
 
 <%--start  header--%>
 <div class="header">
@@ -99,7 +107,7 @@
             </div>
 
             <div id="dialog-confirm" title="Warning!" style="display: none">
-                <p><span class="warn ui-icon ui-icon-alert"></span> Are you sure to delete your account?</p>
+                <h5><span class="warn ui-icon ui-icon-alert"></span> Are you sure to delete your account?</h5>
             </div>
 
             <div id="dialog-form" title="Update Account" style="display: none">
@@ -125,9 +133,9 @@
             <div id="changePassword-form" title="Change Password" style="display: none">
 
 
-                <s:form id="changePasswordForm" action="">
+                <s:form id="changePasswordForm" action="changePassword.action">
 
-                    <s:password key="currnetpassword" value=""
+                    <s:password key="currentPassword" value=""
                                 class="text ui-widget-content ui-corner-all" cssClass="input"/>
 
                     <s:password key="newPassword" value=""

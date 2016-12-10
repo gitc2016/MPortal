@@ -16,8 +16,8 @@ public class Authentication extends AbstractInterceptor {
     public String intercept(ActionInvocation invocation) throws Exception {
 
         Map<String, Object> mapSession = invocation.getInvocationContext().getSession();
-        if ( mapSession.get(Global_Keys.LOGIN) == null) {
-            return Action.INPUT;
+        if (mapSession.get(Global_Keys.LOGIN) == null) {
+            return Action.LOGIN;
         }
         return invocation.invoke();
     }
