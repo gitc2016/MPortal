@@ -25,7 +25,6 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}\css\LoginRegister.css" media="screen"/>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 
 </head>
@@ -59,7 +58,7 @@
                 <ul class="dropdown-menu">
                     <s:iterator value="userList">
                         <li><a href="#"><s:property value="name"/><s:property value="surname"/></a></li>
-                        <a href="confirm.action?confirmId = <s:property value=""/>"><span class="badge">confirm</span></a><a href="#"><span
+                        <a href="confirmRequest.action?friendId = <s:property value="id"/>"><span class="badge">confirm</span></a><a href="#"><span
                             class="badge">deleteRequest</span></a>
                         <br>
                     </s:iterator>

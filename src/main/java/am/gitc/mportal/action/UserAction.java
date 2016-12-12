@@ -1,5 +1,6 @@
 package am.gitc.mportal.action;
 
+import am.gitc.mportal.dao.impl.FriendDaoImpl;
 import am.gitc.mportal.dao.impl.RequestDaoImpl;
 import am.gitc.mportal.dao.impl.UserDaoImpl;
 import am.gitc.mportal.domain.Request;
@@ -22,10 +23,13 @@ public class UserAction extends GlobalAction {
     private List<Request> requestList;
     private List<User> userList;
     private int requestCount;
+    private int friendId;
+    private FriendDaoImpl friendDao;
 
     public UserAction() throws Exception {
         userDao = new UserDaoImpl();
         requestDao = new RequestDaoImpl();
+        friendDao = new FriendDaoImpl();
     }
 
     public User getUser() {
@@ -64,6 +68,23 @@ public class UserAction extends GlobalAction {
             }
         }
         return SUCCESS;
+    }
+
+    public String friend() throws Exception{
+        int id = (Integer) mapSession.get(Global_Keys.LOGIN);
+        user = userDao.getById(id);
+
+
+
+        return SUCCESS;
+    }
+
+    public int getFriendId() {
+        return friendId;
+    }
+
+    public void setFriendId(int friendId) {
+        this.friendId = friendId;
     }
 
     public List<User> getUserList() {

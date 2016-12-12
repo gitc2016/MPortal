@@ -23,12 +23,6 @@ $(document).ready(function () {
         }
     });
 
-    // calendar
-    $(function () {
-        $("#datepicker").datepicker();
-    });
-
-
     $(".friend").each(function () {
         $(this).click(function () {
             var childOffset = $(this).offset();
@@ -105,7 +99,7 @@ $(document).ready(function () {
             modal: true,
             buttons: {
                 Yes: function () {
-                    window.location.href= '/deleteAccount.action';
+                    window.location.href = '/deleteAccount.action';
                     $(this).dialog("close");
                 },
                 No: function () {
@@ -115,14 +109,47 @@ $(document).ready(function () {
         });
     });
 
-    $('body').on('click','#updateAccount',function(){
+    $('body').on('click', '#updateAccount', function () {
         showUpdateArea();
 
-    })
+    });
+
 
 });
 
-function showUpdateArea(){
+$(document).ready(function () {
+    $("#sear").change(function () {
+        var keyword = $("#sear").val();
+        $.ajax({
+            url: "searchForm",
+            data: {searchKeyword: keyword},
+            success: function (data) {
+                console.log(data)
+                // var length=data.userList.length;
+                // for(var i=0;i<length ;i++){
+                //     $("#searchList").text(data.userList[i].name)
+                // }
+            }
+        })
+    });
+});
+
+// function searchCall() {
+//     var keyword = $("#sear").val();
+//     $.ajax({
+//         url:"searchForm.action?searchKeyword="+keyword,dataType:'json',
+//         success:function (userList) {
+//             $("#searchList").html(userList);
+//             alert(userList);
+//         },
+//
+//         error:function (jqXhr, textStatus, errorThrown) {
+//             alert(textStatus);
+//         }
+//     });
+// }
+
+function showUpdateArea() {
     $("#dialog-form").dialog({
         height: "auto",
         width: 600,

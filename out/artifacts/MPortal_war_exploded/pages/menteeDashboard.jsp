@@ -11,6 +11,8 @@
 <head>
     <title>Title</title>
     <script src="${pageContext.request.contextPath}/jquery/jquery-3.1.0.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/mentorDashboard.js"></script>
+
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css">
@@ -19,7 +21,7 @@
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="${pageContext.request.contextPath}/js/mentorDashboard.js"></script>
+
 </head>
 <body>
 <s:set var="map" value="%{#application.category}"/>
@@ -31,23 +33,23 @@
     </div>
     <%--search div--%>
     <div class="searchDiv col-lg-4 col-lg-offset-3">
-        <s:form action="searchForm" method="POST">
-            <s:textfield value="searchKeyword" name="searchKeyword"/>
-        </s:form>
+        <%--<s:form action="searchForm" method="POST">--%>
+            <s:textfield value="searchKeyword" name="searchKeyword" id="sear"/>
+        <%--</s:form>--%>
 
         <div id="searchList">
             <s:if test="%{advanceSerachList!=null}">
                 <s:iterator value="advanceSerachList">
-                    <a href="#"><s:property value="name"/></a>
-                    <a href="#"><span class="sendRequest badge"> SEND REQUEST</span></a>
+                    <a href="#"><s:property value="name"/><s:property value="surName"/></a>
+                    <%--must be if check--%>
+                    <a href="request.action?acceptrID=<s:property value="id"/>"><span class="sendRequest badge"> SEND REQUEST</span></a>
                     <br>
                 </s:iterator>
             </s:if>
             <s:elseif test="%{advanceSerachList==null}">
                 <s:iterator value="userList">
-                    <a href="#"><s:property value="name"/>
-                        <s:property value="user.id"/>
-                    </a>
+                    <a href="#"><s:property value="name"/><s:property value="surName"/></a>
+                    <%--must be if check--%>
                     <a href="request.action?acceptrID=<s:property value="id"/>"><span class="sendRequest badge"> SEND REQUEST</span></a>
                     <br>
                 </s:iterator>
@@ -77,17 +79,6 @@
     </div>
 
     <div class="col-lg-1">
-
-        <div class="col-lg-5">
-            <div class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="${pageContext.request.contextPath}/images/icon_-15.png" alt="" class="requestImg">
-                    <span class="spanreq badge">1</span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">request user name</a></li>
-                </ul>
-            </div>
-        </div>
         <div class="col-lg-5 col-lg-offset-1">
             <div class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">

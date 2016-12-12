@@ -9,7 +9,7 @@
     <!--<constant name="struts.custom.i18n.resources" value="package"/>-->
     <!--<package name="default" namespace="/" extends="struts-default">-->
     <constant name="struts.custom.i18n.resources" value="global"/>
-    <package name="default" namespace="/" extends="struts-default">
+    <package name="default" extends="struts-default">
         <interceptors>
 
             <!--LoginIntercepter-->
@@ -38,11 +38,6 @@
             <result name="success">/pages/choosePage.jsp</result>
             <result name="input">/pages/loginForm.jsp</result>
             <result name="login">/pages/loginForm.jsp</result>
-        </action>
-
-        <action name="searchForm" class="am.gitc.mportal.action.SearchAction">
-            <result name="success">/pages/menteeDashboard.jsp</result>
-            <result name="input">/pages/menteeDashboard.jsp</result>
         </action>
 
         <action name="searchKeyword" class="am.gitc.mportal.action.SearchAction" method="advancedSearch">
@@ -106,5 +101,19 @@
             <result name="success">/pages/menteeDashboard.jsp</result>
         </action>
 
+        <action name="confirmRequest" class="am.gitc.mportal.action.UserAction" method="friend">
+            <result name="success">/pages/mentorDashboard.jsp</result>
+        </action>
+
+    </package>
+    <package name="defaultJson" namespace="/" extends="json-default">
+        <action name="searchForm" class="am.gitc.mportal.action.SearchAction">
+            <result type="json">
+                <!--<param name="excludeProperties"></param>-->
+                <param name="includeProperties"/>
+            </result>
+            <!--<result name="success">/pages/menteeDashboard.jsp</result>-->
+            <!--<result name="input">/pages/menteeDashboard.jsp</result>-->
+        </action>
     </package>
 </struts>
