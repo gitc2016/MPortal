@@ -91,7 +91,7 @@ $(document).ready(function () {
     $("body").on('click', "#advancedSearch", function () {
         $("#advancedSearchDiv").slideToggle('slow');
     });
-    $("body").on('click', "#delete", function () {
+    $("body").on('click', "#deleteAccount", function () {
         $("#dialog-confirm").dialog({
             resizable: false,
             height: "auto",
@@ -114,6 +114,11 @@ $(document).ready(function () {
 
     });
 
+
+    $('body').on('click','#changePassword',function(){
+        showchangePassswordArea();
+
+    })
 
 });
 
@@ -159,7 +164,26 @@ function showUpdateArea() {
         buttons: {
             Yes: function () {
                 $('#updateForm').submit();
-                // $(this).dialog("close");
+            },
+            No: function () {
+                $(this).dialog("close");
+            }
+        }
+    });
+
+}
+
+
+function showchangePassswordArea() {
+    $("#changePassword-form").dialog({
+        height: "auto",
+        width: 600,
+        modal: true,
+        resizable: false,
+        draggable: false,
+        buttons: {
+            Yes: function () {
+                $('#changePasswordForm').submit();
             },
             No: function () {
                 $(this).dialog("close");

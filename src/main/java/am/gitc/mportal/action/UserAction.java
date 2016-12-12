@@ -41,12 +41,7 @@ public class UserAction extends GlobalAction {
     }
 
     public String execute() throws Exception {
-
-        if (mapSession.get(Global_Keys.LOGIN) == null) {
-            return INPUT;
-        }
         int id = (Integer) mapSession.get(Global_Keys.LOGIN);
-
         user = userDao.getById(id);
         return SUCCESS;
     }
