@@ -1,0 +1,27 @@
+body {
+    background-color: #3f51b5;
+    background-image: url('../images/login-bg.png');
+    min-height: 100%;
+    width: 100%
+}
+
+p {
+    color: #3b4fb7;
+    padding-left: 600px;
+    font-size: 50px
+}
+
+.submit {
+    background-color: #3b4fb7 !important;
+    border-color: #5361b1 !important;
+    width: 250px;
+    height: 50px;
+    border-radius: 20px;
+    outline: none!important;
+    margin-top: 15px;
+    color: #5e6cbd !important;
+}
+
+.div {
+    margin-top: 100px;
+}

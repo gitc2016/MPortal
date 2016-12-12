@@ -6,19 +6,27 @@
 
     <filter>
         <filter-name>struts2</filter-name>
-        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
     </filter>
 
     <filter-mapping>
         <filter-name>struts2</filter-name>
         <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher>
-        <dispatcher>INCLUDE</dispatcher>
     </filter-mapping>
 
+    <listener>
+        <listener-class>
+            org.apache.struts2.tiles.StrutsTilesListener
+        </listener-class>
+    </listener>
     <!--<welcome-file-list>-->
-        <!--<welcome-file>/pages/loginForm.jsp</welcome-file>-->
+
+        <!--&lt;!&ndash;<welcome-file>/pages/mentorDashboard.jsp</welcome-file>&ndash;&gt;-->
+        <!--<welcome-file>/pages/userPage.jsp</welcome-file>-->
+
+
+
+        <!--<welcome-file>/pages/userPage.jsp</welcome-file>-->
     <!--</welcome-file-list>-->
 
     <!--<listener>-->

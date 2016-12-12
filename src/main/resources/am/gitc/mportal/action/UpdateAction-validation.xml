@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+
+    <field name="name">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please enter your name</message>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <message>Please enter your name</message>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="maxLength">20</param>
+            <message>Please enter valid name</message>
+        </field-validator>
+
+    </field>
+
+
+    <field name="surname">
+        <field-validator type="requiredstring">
+            <param name="trim">true</param>
+            <message>Please enter your surname</message>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="minLength">2</param>
+            <message>Please enter your surname</message>
+        </field-validator>
+
+        <field-validator type="stringlength">
+            <param name="maxLength">20</param>
+            <message>Please enter valid surname</message>
+        </field-validator>
+
+    </field>
+    <!--end surname validation-->
+
+
+</validators>

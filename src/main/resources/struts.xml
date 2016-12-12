@@ -4,67 +4,177 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <constant name="struts.custom.i18n.resources" value="package"/>
-    <package name="default" extends="struts-default">
 
-        <action name="login">
-            <result>/pages/loginForm.jsp</result>
+
+
+    <!--<interceptors>-->
+
+    <!--&lt;!&ndash;LoginIntercepter&ndash;&gt;-->
+    <!--<interceptor name="loginInterceptor" class="am.gitc.mportal.action.Authentication">-->
+    <!--</interceptor>-->
+    <!--&lt;!&ndash;loginStack&ndash;&gt;-->
+    <!--<interceptor-stack name="loginStack">-->
+    <!--<interceptor-ref name="loginInterceptor"/>-->
+    <!--<interceptor-ref name="defaultStack"/>-->
+    <!--</interceptor-stack>-->
+
+
+    <!--</interceptors>-->
+
+
+    <!--<action name="login">-->
+    <!--<result>/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+    <!--<action name="registration">-->
+    <!--<result>/pages/registerForm.jsp</result>-->
+    <!--</action>-->
+
+    <!--&lt;!&ndash;LoginActionPage&ndash;&gt;-->
+    <!--<action name="loginForm" class="am.gitc.mportal.action.LoginAction">-->
+    <!--<result name="success">/pages/choosePage.jsp</result>-->
+    <!--<result name="input">/pages/loginForm.jsp</result>-->
+    <!--<result name="login">/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+    <!--<action name="searchForm" class="am.gitc.mportal.action.SearchAction">-->
+    <!--<interceptor-ref name="loginStack"/>-->
+    <!--<result name="success">/pages/menteeDashboard.jsp</result>-->
+    <!--<result name="input">/pages/menteeDashboard.jsp</result>-->
+    <!--<result name="login">/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+    <!--<action name="searchKeyword" class="am.gitc.mportal.action.SearchAction" method="advancedSearch">-->
+    <!--<interceptor-ref name="loginStack"/>-->
+    <!--<result name="success">/pages/menteeDashboard.jsp</result>-->
+    <!--<result name="input">/pages/menteeDashboard.jsp</result>-->
+    <!--<result name="login">/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+    <!--&lt;!&ndash;RegisterActionPage&ndash;&gt;-->
+    <!--<action name="registerForm" class="am.gitc.mportal.action.RegistrationAction">-->
+    <!--<result name="success">/pages/loginForm.jsp</result>-->
+    <!--<result name="input">/pages/registerForm.jsp</result>-->
+    <!--<result name="error">/pages/error.jsp</result>-->
+    <!--</action>-->
+
+
+    <!--<action name="activate" class="am.gitc.mportal.action.RegistrationAction" method="activateProfile">-->
+    <!--<interceptor-ref name="loginStack"/>-->
+    <!--<result name="login">/pages/urlError.jsp</result>-->
+    <!--<result name="success">/pages/loginForm.jsp</result>-->
+    <!--<result name="login">/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+
+    <!--<action name="logOut" class="am.gitc.mportal.action.LogOutAction">-->
+    <!--<interceptor-ref name="loginStack"/>-->
+    <!--<result name="success">/pages/loginForm.jsp</result>-->
+    <!--<result name="login">/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+    <!--<action name="deleteAccount" class="am.gitc.mportal.action.DeleteAcountAction">-->
+    <!--<interceptor-ref name="loginStack"/>-->
+    <!--<result name="success">/pages/registerForm.jsp</result>-->
+    <!--<result name="login">/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+
+    <!--<action name="mentorpage" class="am.gitc.mportal.action.UserAction" method="mentor">-->
+    <!--<interceptor-ref name="loginStack"/>-->
+    <!--<result name="success">/pages/mentorDashboard.jsp</result>-->
+    <!--<result name="login">/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+    <!--<action name="updateAccount" class="am.gitc.mportal.action.UpdateAction">-->
+    <!--<interceptor-ref name="loginStack"/>-->
+    <!--<result name="success">/pages/mentorDashboard.jsp</result>-->
+    <!--<result name="input">/pages/mentorDashboard.jsp</result>-->
+    <!--<result name="login">/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+    <!--<action name="menteepage" class="am.gitc.mportal.action.UserAction">-->
+    <!--<interceptor-ref name="loginStack"/>-->
+    <!--<result name="success">/pages/menteeDashboard.jsp</result>-->
+    <!--<result name="input">/pages/loginForm.jsp</result>-->
+    <!--<result name="login">/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+
+    <!--<action name="global" class="am.gitc.mportal.action.GlobalAction">-->
+    <!--<result name="success">/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+    <!--<action name="changePassword" class="am.gitc.mportal.action.ChangePasswordAction">-->
+    <!--<interceptor-ref name="loginStack"/>-->
+    <!--<result name="success">/pages/mentorDashboard.jsp</result>-->
+    <!--<result name="input">/pages/mentorDashboard.jsp</result>-->
+    <!--<result name="login">/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+
+    <!--<action name="mentor">-->
+    <!--<interceptor-ref name="loginStack"/>-->
+    <!--<result name="input">/pages/loginForm.jsp</result>-->
+    <!--<result name="success">/pages/mentorDashboard.jsp</result>-->
+    <!--<result name="login">/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+    <!--<action name="locale">-->
+    <!--<result>/pages/loginForm.jsp</result>-->
+    <!--</action>-->
+
+    <!--<action name="request" class="am.gitc.mportal.action.RequestAction">-->
+    <!--<result name="success">/pages/menteeDashboard.jsp</result>-->
+    <!--</action>-->
+
+    <!--<action name="confirmRequest" class="am.gitc.mportal.action.UserAction" method="friend">-->
+    <!--<result name="success">/pages/mentorDashboard.jsp</result>-->
+    <!--</action>-->
+
+    <!--</package>-->
+    <!--<package name="defaultJson" namespace="/" extends="json-default">-->
+    <!--<action name="searchForm" class="am.gitc.mportal.action.SearchAction">-->
+    <!--<result type="json">-->
+    <!--&lt;!&ndash;<param name="excludeProperties"></param>&ndash;&gt;-->
+    <!--<param name="includeProperties"/>-->
+    <!--</result>-->
+    <!--&lt;!&ndash;<result name="success">/pages/menteeDashboard.jsp</result>&ndash;&gt;-->
+    <!--&lt;!&ndash;<result name="input">/pages/menteeDashboard.jsp</result>&ndash;&gt;-->
+    <!--</action>-->
+    <!--</package>-->
+
+    <constant name="struts.custom.i18n.resources" value="global"/>
+    <package name="default" namespace="/" extends="struts-default">
+
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
+        </result-types>
+
+        <interceptors>
+            <!--LoginIntercepter-->
+            <interceptor name="loginInterceptor" class="am.gitc.mportal.action.Authentication">
+            </interceptor>
+            <!--loginStack-->
+            <interceptor-stack name="loginStack">
+                <interceptor-ref name="loginInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+
+
+        <action name="home" class="am.gitc.mportal.action.GlobalAction">
+            <result name="success" type="tiles">login.view</result>
         </action>
 
-        <action name="registration">
-            <result>/pages/registerForm.jsp</result>
-        </action>
 
-        <!--LoginActionPage-->
         <action name="loginForm" class="am.gitc.mportal.action.LoginAction">
-            <result name="success">/pages/mentorDashboard.jsp</result>
-            <result name="input">/pages/loginForm.jsp</result>
-            <result name="login">/pages/loginForm.jsp</result>
+        <result name="mentee" type="tiles">mentee.view</result>
+        <!--<result name="mentor" type="tiles">mentor.view</result>-->
+        <result name="input" type="tiles">login.view</result>
+        <result name="login" type="tiles">login.view</result>
         </action>
-
-        <!--RegisterActionPage-->
-        <action name="registerForm" class="am.gitc.mportal.action.RegistrationAction">
-            <result name="success">/pages/loginForm.jsp</result>
-            <result name="input">/pages/registerForm.jsp</result>
-            <result name="success">/pages/mailCode.jsp</result>
-            <result name="error">/pages/error.jsp</result>
-            <result name="login">/pages/registerForm.jsp</result>
-        </action>
-        <action name="mentor">
-            <result>/mentor/mentorDashboard.jsp</result>
-        </action>
-
-        <action name="mailRegister" class="am.gitc.mportal.action.RegistrationAction" method="add">
-            <result name="login">/pages/urlError.jsp</result><result name="input">/pages/mailCode.jsp</result>
-            <result name="success">/pages/loginForm.jsp</result>
-        </action>
-
-
-        <action name="logOut" class="am.gitc.mportal.action.LoginAction" method="logout">
-            <result name="success">/pages/loginForm.jsp</result>
-        </action>
-
-
-        <action name="global" class="am.gitc.mportal.action.GlobalAction">
-            <result name="success">/pages/loginForm.jsp</result>
-        </action>
-
-        <action name="locale" class="am.gitc.mportal.action.LocaleAction">
-            <result name="success">/pages/loginForm.jsp</result>
-        </action>
-
     </package>
 
-    <package name="userAction" extends="struts-default">
-        <action name="update" class="am.gitc.mportal.action.UserActions" method="updateUser">
-            <result type="success">/pages/menteeDashboard</result>
-            <result type="error">/pages/error.jsp</result>
-        </action>
-        <action name="delete" class="am.gitc.mportal.action.UserActions" method="deleteUser">
-            <result type="success">/pages/loginForm.jsp</result>
-            <result type="error">/pages/error.jsp</result>
-        </action>
-
-    </package>
 
 </struts>

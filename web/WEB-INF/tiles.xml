@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="main.view" template="/WEB-INF/page/layout_general.jsp">
+        <put-attribute name="import" value="/WEB-INF/page/import.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/page/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/page/footer.jsp"/>
+    </definition>
+
+    <definition name="dashboard.view" template="/WEB-INF/page/dashboard_layout.jsp">
+        <put-attribute name="import" value="/WEB-INF/page/import.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/page/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/page/footer.jsp"/>
+    </definition>
+
+    <definition name="login.view" extends="main.view">
+        <put-attribute name="title" value="login page"/>
+        <put-attribute name="content" value="/WEB-INF/page/login.jsp"/>
+    </definition>
+
+    <definition name="register.view" extends="main.view">
+        <put-attribute name="title" value="Register page"/>
+        <put-attribute name="content" value="/WEB-INF/page/register.jsp"/>
+    </definition>
+
+    <definition name="mentee.view" extends="dashboard.view">
+        <put-attribute name="title" value="mentee"/>
+        <put-attribute name="content" value="/WEB-INF/page/menteeDashboard.jsp"/>
+    </definition>
+
+
+</tiles-definitions>

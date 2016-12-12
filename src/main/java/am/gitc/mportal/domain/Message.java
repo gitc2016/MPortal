@@ -1,6 +1,5 @@
 package am.gitc.mportal.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,16 +14,12 @@ public class Message {
     @GeneratedValue
     private int id;
 
-    @Column
     private int fromID;
 
-    @Column
     private int toID;
 
-    @Column
     private String text;
 
-    @Column
     private boolean isRead;
 
     public Message() {
