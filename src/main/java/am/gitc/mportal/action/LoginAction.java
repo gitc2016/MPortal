@@ -1,14 +1,16 @@
 package am.gitc.mportal.action;
 
+import am.gitc.mportal.action.GlobalAction;
+import am.gitc.mportal.action.utils.MD5;
+import am.gitc.mportal.dao.impl.UserDaoImpl;
+import am.gitc.mportal.domain.Status;
 import am.gitc.mportal.domain.User;
-import am.gitc.mportal.manager.UserManager;
 import am.gitc.mportal.util.Global_Keys;
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
-import com.opensymphony.xwork2.validator.annotations.StringLengthFieldValidator;
 import org.apache.struts2.interceptor.validation.SkipValidation;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,17 +20,27 @@ public class LoginAction extends GlobalAction {
 
     private String login;
     private String password;
-    UserManager userManager;
+    private UserDaoImpl userDaoImpl;
 
-    public LoginAction() {
-        userManager = new UserManager();
+    public LoginAction() throws Exception {
+        userDaoImpl = new UserDaoImpl();
+
     }
+
+    public String execute() throws Exception {
+        User user = userDaoImpl.getUserByEmailPassword(login, MD5.encryptPassword(password));
+        mapSession.put(Global_Keys.LOGIN, user.getId());
+        if (user.getStatus().equals(Status.MENTEE)) {
+            return "mentee";
+        }
+        return "mentor";
+    }
+
 
     public String getLogin() {
         return login;
     }
 
-    @RequiredStringValidator(message = "Please enter login")
     public void setLogin(String login) {
         this.login = login;
     }
@@ -37,28 +49,24 @@ public class LoginAction extends GlobalAction {
         return password;
     }
 
-    @RequiredStringValidator(message = "Please enter password")
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public String execute() {
-        User user = userManager.getUserByEmailPassword(login, password);
-        mapSession.put(Global_Keys.LOGIN, user);
-        return "success";
-    }
-
-    @SkipValidation
-    public String logout() {
-        Map session = ActionContext.getContext().getSession();
-        session.remove(Global_Keys.LOGIN);
-        return SUCCESS;
-    }
-
     @Override
     public void validate() {
-        if (!userManager.isEmailAndPassword(login, MD5.getMd5(password))) {
-            addFieldError("login", "Your login or password is invalid");
+        try {
+
+            User user = userDaoImpl.getUserByEmailPassword(login, MD5.encryptPassword(password));
+            if (login.length() != 0 && password.length() != 0 && user == null) {
+
+                addFieldError("login", "Your login or password is invalid");
+            } else if (user != null && !user.isActive()) {
+                addFieldError("login", "Please activate your profile ");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

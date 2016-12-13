@@ -1,22 +1,13 @@
 package am.gitc.mportal.action;
 
-import am.gitc.mportal.domain.*;
-import am.gitc.mportal.manager.CountryManager;
-import am.gitc.mportal.manager.UserManager;
-import am.gitc.mportal.util.Global_Keys;
+import am.gitc.mportal.action.utils.MD5;
+import am.gitc.mportal.dao.impl.CountryDaoImpl;
+import am.gitc.mportal.dao.impl.UserDaoImpl;
+import am.gitc.mportal.domain.User;
+import am.gitc.mportal.domain.Country;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import com.opensymphony.xwork2.validator.annotations.*;
 import org.apache.struts2.interceptor.validation.SkipValidation;
-
-import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import java.util.Date;
-import java.util.Properties;
 
 /**
  * Created by Stella on 13.11.2016.
@@ -24,17 +15,15 @@ import java.util.Properties;
 public class RegistrationAction extends ActionSupport implements ModelDriven<User> {
 
     private User user = new User();
-    private String from = "student.gitc.2016@gmail.com";
-    private String fromPassword = "student2016";
-    private String confirmPassword;
-    private String hashcode;
-    private String id;
-    UserManager userManager;
-    CountryManager countryManager;
+    private String hashcode;//TODO request param from url send to user
+    UserDaoImpl userDaoImpl;
+    CountryDaoImpl countryDaoImpl;
+    private int countryId;
 
-    public RegistrationAction() {
-        userManager = new UserManager();
-        countryManager = new CountryManager();
+    public RegistrationAction() throws Exception {
+        userDaoImpl = new UserDaoImpl();
+        countryDaoImpl = new CountryDaoImpl();
+
     }
 
     public User getUser() {
@@ -45,23 +34,63 @@ public class RegistrationAction extends ActionSupport implements ModelDriven<Use
         this.user = user;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
+    public int getCountryId() {
+        return countryId;
     }
 
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-
-    @Override
-    public String execute() throws Exception {
-        System.out.println(user.toString());
-
-        return SUCCESS;
+    public void setCountryId(int countryId) {
+        this.countryId = countryId;
     }
 
     @Override
     public User getModel() {
         return user;
+    }
+
+    public String getHashcode() {
+        return hashcode;
+    }
+
+    public void setHashcode(String hashcode) {
+        this.hashcode = hashcode;
+    }
+
+    @Override
+    public String execute() throws Exception {
+        Country country = countryDaoImpl.getById(countryId);
+        user.setCountry(country);
+        user.setHashCode(MD5.encryptPassword(user.getEmail()));
+        user.setPassword(MD5.encryptPassword(user.getPassword()));
+        userDaoImpl.create(user);
+        String result = SendEmailAction.sendEmail(user.getEmail());
+        if (ERROR.equals(result)) {
+            return ERROR;
+        }
+        return SUCCESS;
+    }
+
+
+    @SkipValidation
+    public String activateProfile() throws Exception {
+        User user = userDaoImpl.getUserByHashCode(hashcode);
+        if (user != null) {
+            user.setActive(true);
+            userDaoImpl.update(user);
+            return SUCCESS;
+        }
+        return LOGIN;
+
+    }
+
+
+    @Override
+    public void validate() {
+        try {
+            if (userDaoImpl.getUserByEmail(user.getEmail()) != null) {
+                addFieldError("user.email", "This email is already exist");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

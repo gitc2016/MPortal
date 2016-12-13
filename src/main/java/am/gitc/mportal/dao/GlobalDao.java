@@ -1,8 +1,5 @@
 package am.gitc.mportal.dao;
 
-import am.gitc.mportal.domain.Country;
-import am.gitc.mportal.domain.User;
-
 import java.util.List;
 
 /**
@@ -10,14 +7,15 @@ import java.util.List;
  */
 public interface GlobalDao<E> {
 
-    void create(E entity);
+    void create(E entity) throws Exception;
 
-    E getById(int id);
+    E getById(int id) throws Exception;
 
-    void update(E entity);
+    void update(E entity) throws Exception;
 
-    List<E> getAll();
+    List<E> getAll() throws Exception;
 
+    void delete(E entity) throws Exception;
 
 
 }

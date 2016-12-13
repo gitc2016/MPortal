@@ -1,71 +1,68 @@
 package am.gitc.mportal.domain;
 
-import org.hibernate.annotations.Entity;
-import org.hibernate.annotations.Table;
-
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Created by Gtc-user17 on 11/13/2016.
  */
-@javax.persistence.Table(name = "request")
+@Entity
+@Table(name = "request")
 public class Request {
 
     @Id
     @GeneratedValue
-    @Column
-    private int fromID;
-    @Id
-    @GeneratedValue
-    @Column
-    private int toID;
-    @Id
-    @GeneratedValue
-    @Column
-    private int acceptedID;
+    private int id;
+    @Column(name = "sender_id")
+    private int senderID;
+    @Column(name = "acceptr_id")
+    private int acceptrID;
+
+    private int accepted;
 
     public Request() {
 
     }
 
-    public Request(int fromID, int toID, int acceptedID) {
-        this.fromID = fromID;
-        this.toID = toID;
-        this.acceptedID = acceptedID;
+    public Request(int senderID, int acceptrID, int accepted) {
+        this.senderID = senderID;
+        this.acceptrID = acceptrID;
+        this.accepted = accepted;
     }
 
-    public int getFromID() {
-        return fromID;
+    public int getSenderID() {
+        return senderID;
     }
 
-    public void setFromID(int fromID) {
-        this.fromID = fromID;
+    public void setSenderID(int senderID) {
+        this.senderID = senderID;
     }
 
-    public int getToID() {
-        return toID;
+    public int getAcceptrID() {
+        return acceptrID;
     }
 
-    public void setToID(int toID) {
-        this.toID = toID;
+    public void setAcceptrID(int acceptrID) {
+        this.acceptrID = acceptrID;
     }
 
-    public int getAcceptedID() {
-        return acceptedID;
+    public int getAccepted() {
+        return accepted;
     }
 
-    public void setAcceptedID(int acceptedID) {
-        this.acceptedID = acceptedID;
+    public void setAccepted(int accepted) {
+        this.accepted = accepted;
     }
 
     @Override
     public String toString() {
         return "Request{" +
-                "fromID=" + fromID +
-                ", toID=" + toID +
-                ", acceptedID=" + acceptedID +
+                "senderID=" + senderID +
+                ", acceptrID=" + acceptrID +
+                ", accepted=" + accepted +
                 '}';
     }
 }

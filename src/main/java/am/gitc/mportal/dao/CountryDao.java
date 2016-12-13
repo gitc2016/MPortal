@@ -10,8 +10,11 @@ import java.util.List;
 public interface CountryDao extends GlobalDao<Country> {
 
     @Override
-    Country getById(int id);
+    Country getById(int id) throws Exception;
 
     @Override
-    List<Country> getAll();
+    List<Country> getAll() throws Exception;
+
+    @Override
+    void delete(Country entity) throws Exception;
 }
