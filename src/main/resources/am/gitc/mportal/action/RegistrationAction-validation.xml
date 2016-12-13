@@ -92,15 +92,9 @@
         </field-validator>
     </field>
 
-    <!--date validation-->
-    <field name="user.birthDate">
+    <field name="user.status">
         <field-validator type="required">
-            <message>Please enter your birthdate</message>
-        </field-validator>
-        <field-validator type="date">
-            <param name="max">01/01/1999</param>
-            <message>Please enter valid birtdate</message>
+            <message>Please enter your status</message>
         </field-validator>
     </field>
-    <!--end date validation-->
 </validators>

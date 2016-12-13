@@ -14,12 +14,11 @@
     <div class="panel-body">
 
         <form id="" autocomplete="on" method="post" action="loginForm.action">
-            <fieldset style="display:none;"><input type="hidden" name="_method" value="POST"/></fieldset>
             <div class="form-group ">
-                <s:textfield name="login" key="email" cssClass="form-control"/>
+                <s:textfield  placeholder="Email" name="email" cssClass="form-control"/>
             </div>
             <div class="form-group ">
-                <s:textfield name="password" key="password" id="DarkAuthPassword" cssClass="form-control"/>
+                <s:password name="password" placeholder="Password" id="DarkAuthPassword" cssClass="form-control"/>
             </div>
 
             <div class="submit">

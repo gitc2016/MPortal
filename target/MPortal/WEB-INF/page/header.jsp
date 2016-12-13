@@ -22,8 +22,8 @@
 
 
     <ul class="nav navbar-nav navbar-right navbar-public">
-        <li><a href="register." id="sign-in-butt" class="btn btn-secondary">Join</a></li>
-        <li><a href="login.jsp" id="log-in-butt" class="btn btn-secondary">Log In</a></li>
+        <li><a href="register.action" id="sign-in-butt" class="btn btn-secondary">Join</a></li>
+        <li><a href="login.action" id="log-in-butt" class="btn btn-secondary">Log In</a></li>
     </ul>
     <ul id="lang-picker" class="text-center list-inline">
         <li><a href="#">Հայերեն</a></li>

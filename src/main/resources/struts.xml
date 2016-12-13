@@ -6,7 +6,6 @@
 <struts>
 
 
-
     <!--<interceptors>-->
 
     <!--&lt;!&ndash;LoginIntercepter&ndash;&gt;-->
@@ -160,6 +159,7 @@
                 <interceptor-ref name="loginInterceptor"/>
                 <interceptor-ref name="defaultStack"/>
             </interceptor-stack>
+
         </interceptors>
 
 
@@ -167,13 +167,31 @@
             <result name="success" type="tiles">login.view</result>
         </action>
 
+        <action name="register" class="am.gitc.mportal.action.ViewPageAction" method="register">
+            <result name="register" type="tiles">register.view</result>
+        </action>
+        <action name="login" class="am.gitc.mportal.action.ViewPageAction" method="login">
+            <result name="login" type="tiles">login.view</result>
+        </action>
 
         <action name="loginForm" class="am.gitc.mportal.action.LoginAction">
-        <result name="mentee" type="tiles">mentee.view</result>
-        <!--<result name="mentor" type="tiles">mentor.view</result>-->
-        <result name="input" type="tiles">login.view</result>
-        <result name="login" type="tiles">login.view</result>
+            <result name="mentee" type="tiles">mentee.view</result>
+            <!--<result name="mentor" type="tiles">mentor.view</result>-->
+            <result name="input" type="tiles">login.view</result>
+            <result name="login" type="tiles">login.view</result>
         </action>
+
+        <action name="registerForm" class="am.gitc.mportal.action.RegistrationAction">
+            <result name="success" type="tiles">login.view</result>
+            <result name="input" type="tiles">register.view</result>
+            <result name="error" type="tiles">mentee.view</result>
+        </action>
+
+        <action name="activate" class="am.gitc.mportal.action.RegistrationAction" method="activateProfile">
+            <result name="login">urlError.jsp</result>
+            <result name="success" type="tiles">login.view</result>
+        </action>
+
     </package>
 
 

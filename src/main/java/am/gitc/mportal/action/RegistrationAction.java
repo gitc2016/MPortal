@@ -57,6 +57,7 @@ public class RegistrationAction extends ActionSupport implements ModelDriven<Use
 
     @Override
     public String execute() throws Exception {
+        System.out.println(user.toString());
         Country country = countryDaoImpl.getById(countryId);
         user.setCountry(country);
         user.setHashCode(MD5.encryptPassword(user.getEmail()));
@@ -73,6 +74,7 @@ public class RegistrationAction extends ActionSupport implements ModelDriven<Use
     @SkipValidation
     public String activateProfile() throws Exception {
         User user = userDaoImpl.getUserByHashCode(hashcode);
+        System.out.println(user.toString()+"hashcode");
         if (user != null) {
             user.setActive(true);
             userDaoImpl.update(user);

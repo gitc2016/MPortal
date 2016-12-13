@@ -7774,8 +7774,9 @@ form .hidden-80 {
   bottom: 25px;
 }
 #register-types label {
-  display: block;
-  font-size: 20px;
+
+  font-size: 15px;
+  color: #1c5768!important
 }
 #register-types .help-block {
   width: 75%;
