@@ -52,6 +52,8 @@ public class GlobalAction extends ActionSupport implements SessionAware, Applica
         mapApp.put(Global_Keys.COUNTRY, countries);
         mapApp.put(Global_Keys.STATUS, status);
         mapApp.put(Global_Keys.GENDER, genders);
+        System.out.println(mapApp.get(Global_Keys.GENDER));
+        System.out.println(mapApp.get(Global_Keys.STATUS));
 
 
         //get category map and add application scope

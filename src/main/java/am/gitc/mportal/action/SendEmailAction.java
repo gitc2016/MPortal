@@ -43,7 +43,7 @@ public class SendEmailAction extends ActionSupport {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(email));
             message.setSubject("MPortal");
-            message.setText("Please enter this code http://localhost:8080/pages/activate.action?hashcode=" + MD5.encryptPassword(email) + " that you will be able to register in MPortal page");
+            message.setText("Please enter this code http://localhost:8080/activate.action?hashcode=" + MD5.encryptPassword(email) + " that you will be able to register in MPortal page");
             Transport.send(message);
         } catch (IOException e) {
             e.printStackTrace();
