@@ -7,13 +7,13 @@
 
     <definition name="main.view" template="/WEB-INF/page/layout_general.jsp">
         <put-attribute name="import" value="/WEB-INF/page/import.jsp"/>
-        <put-attribute name="header" value="/WEB-INF/page/header.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/page/header_auth.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/page/footer.jsp"/>
     </definition>
 
-    <definition name="dashboard.view" template="/WEB-INF/page/dashboard_layout.jsp">
+    <definition name="secondary.view" template="/WEB-INF/page/layout_secondary.jsp">
         <put-attribute name="import" value="/WEB-INF/page/import.jsp"/>
-        <put-attribute name="header" value="/WEB-INF/page/header.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/page/header_main.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/page/footer.jsp"/>
     </definition>
 
@@ -27,10 +27,31 @@
         <put-attribute name="content" value="/WEB-INF/page/register.jsp"/>
     </definition>
 
-    <definition name="mentee.view" extends="dashboard.view">
-        <put-attribute name="title" value="mentee"/>
-        <put-attribute name="content" value="/WEB-INF/page/menteeDashboard.jsp"/>
+
+
+    <definition name="profile.view" extends="secondary.view">
+        <put-attribute name="title" value="Profile"/>
+        <put-attribute name="content" value="/WEB-INF/page/profile.jsp"/>
     </definition>
+
+    <definition name="professionalSettings.view" extends="secondary.view">
+        <put-attribute name="title" value="Settings"/>
+        <put-attribute name="content" value="/WEB-INF/page/professional_settings.jsp"/>
+    </definition>
+
+    <definition name="dashboard.view" extends="secondary.view">
+        <put-attribute name="title" value="Dashboard"/>
+        <put-attribute name="content" value="/WEB-INF/page/dashboard.jsp"/>
+    </definition>
+
+    <definition name="serach.view" extends="secondary.view">
+        <put-attribute name="title" value="Search"/>
+        <put-attribute name="content" value="/WEB-INF/page/search_page.jsp"/>
+    </definition>
+
+
+
+
 
 
 </tiles-definitions>

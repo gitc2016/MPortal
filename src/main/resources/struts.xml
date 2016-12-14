@@ -164,7 +164,7 @@
 
 
         <action name="home" class="am.gitc.mportal.action.GlobalAction">
-            <result name="success" type="tiles">login.view</result>
+            <result name="success" type="tiles">mentee.view</result>
         </action>
 
         <action name="register" class="am.gitc.mportal.action.ViewPageAction" method="register">
@@ -175,7 +175,7 @@
         </action>
 
         <action name="loginForm" class="am.gitc.mportal.action.LoginAction">
-            <result name="mentee" type="tiles">mentee.view</result>
+            <result name="mentee" type="tiles">dashboard.view</result>
             <!--<result name="mentor" type="tiles">mentor.view</result>-->
             <result name="input" type="tiles">login.view</result>
             <result name="login" type="tiles">login.view</result>
@@ -188,7 +188,7 @@
         </action>
 
         <action name="activate" class="am.gitc.mportal.action.RegistrationAction" method="activateProfile">
-            <result name="login">urlError.jsp</result>
+            <result name="login">/page/urlError.jsp</result>
             <result name="success" type="tiles">login.view</result>
         </action>
 
