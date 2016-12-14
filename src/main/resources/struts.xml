@@ -163,9 +163,6 @@
         </interceptors>
 
 
-        <action name="home" class="am.gitc.mportal.action.GlobalAction">
-            <result name="success" type="tiles">mentee.view</result>
-        </action>
 
         <action name="register" class="am.gitc.mportal.action.ViewPageAction" method="register">
             <result name="register" type="tiles">register.view</result>

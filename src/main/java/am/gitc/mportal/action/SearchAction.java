@@ -30,9 +30,9 @@ public class SearchAction extends GlobalAction implements ApplicationAware {
     private int categoryId;
     private String userName;
     private List<User> advanceSerachList;
-    private User user = new User();;
+    private User user = new User();
 
-    Map<String, Object> mapApp;
+    Map<String, Object> mapApp;g
     Map<String, List<Category>> map;
     //endregion
     public SearchAction() throws Exception{

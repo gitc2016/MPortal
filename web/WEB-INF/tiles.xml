@@ -4,7 +4,7 @@
         "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
-
+    <!--layouts-->
     <definition name="main.view" template="/WEB-INF/page/layout_general.jsp">
         <put-attribute name="import" value="/WEB-INF/page/import.jsp"/>
         <put-attribute name="header" value="/WEB-INF/page/header_auth.jsp"/>
@@ -16,7 +16,9 @@
         <put-attribute name="header" value="/WEB-INF/page/header_main.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/page/footer.jsp"/>
     </definition>
+    <!--layouts end-->
 
+    <!--authentication -->
     <definition name="login.view" extends="main.view">
         <put-attribute name="title" value="login page"/>
         <put-attribute name="content" value="/WEB-INF/page/login.jsp"/>
@@ -26,32 +28,50 @@
         <put-attribute name="title" value="Register page"/>
         <put-attribute name="content" value="/WEB-INF/page/register.jsp"/>
     </definition>
+    <!--authentication end-->
 
-
-
+    <!--profile page-->
     <definition name="profile.view" extends="secondary.view">
         <put-attribute name="title" value="Profile"/>
         <put-attribute name="content" value="/WEB-INF/page/profile.jsp"/>
     </definition>
 
+
+    <!--professional settings-->
     <definition name="professionalSettings.view" extends="secondary.view">
         <put-attribute name="title" value="Settings"/>
         <put-attribute name="content" value="/WEB-INF/page/professional_settings.jsp"/>
     </definition>
 
+    <!--profile settings-->
+    <definition name="profileSettings.view" extends="secondary.view">
+        <put-attribute name="title" value="Settings"/>
+        <put-attribute name="content" value="/WEB-INF/page/profile_settings.jsp"/>
+    </definition>
+
+    <!--dashboard-->
     <definition name="dashboard.view" extends="secondary.view">
         <put-attribute name="title" value="Dashboard"/>
         <put-attribute name="content" value="/WEB-INF/page/dashboard.jsp"/>
     </definition>
 
+    <!--search page-->
     <definition name="serach.view" extends="secondary.view">
         <put-attribute name="title" value="Search"/>
         <put-attribute name="content" value="/WEB-INF/page/search_page.jsp"/>
     </definition>
 
+    <!--all conversation page-->
+    <definition name="allConversation.view" extends="secondary.view">
+        <put-attribute name="title" value="All conversation"/>
+        <put-attribute name="content" value="/WEB-INF/page/all_conversation.jsp"/>
+    </definition>
 
-
-
+    <!--Messaging page-->
+    <definition name="messaging.view" extends="secondary.view">
+        <put-attribute name="title" value="Messaging"/>
+        <put-attribute name="content" value="/WEB-INF/page/messaging.jsp"/>
+    </definition>
 
 
 </tiles-definitions>
