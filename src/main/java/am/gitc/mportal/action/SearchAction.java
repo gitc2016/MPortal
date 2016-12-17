@@ -32,7 +32,7 @@ public class SearchAction extends GlobalAction implements ApplicationAware {
     private List<User> advanceSerachList;
     private User user = new User();
 
-    Map<String, Object> mapApp;g
+    Map<String, Object> mapApp;
     Map<String, List<Category>> map;
     //endregion
     public SearchAction() throws Exception{
